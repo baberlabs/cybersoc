@@ -1,0 +1,18 @@
+<svg width="160" height="180" viewBox="0 0 160 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="160" height="180" fill="black"></rect>
+  <path d="M80 10L135 35V85C135 120 112 150 80 165C48 150 25 120 25 85V35L80 10Z" stroke="white" stroke-width="4" fill="none"></path>
+
+  <!-- vertical spine -->
+  <line x1="80" y1="38" x2="80" y2="120" stroke="white" stroke-width="3"></line>
+
+  <!-- left branch -->
+  <line x1="80" y1="70" x2="55" y2="70" stroke="white" stroke-width="3"></line>
+  <circle cx="55" cy="70" r="5" fill="black" stroke="white" stroke-width="3"></circle>
+
+  <!-- right branch -->
+  <line x1="80" y1="95" x2="105" y2="95" stroke="white" stroke-width="3"></line>
+  <circle cx="105" cy="95" r="5" fill="black" stroke="white" stroke-width="3"></circle>
+
+  <!-- center node -->
+  <circle cx="80" cy="120" r="6" fill="white"></circle>
+</svg>

@@ -1,0 +1,101 @@
+[
+  {
+    "title": "Python Learning Track",
+    "description": "Beginner-friendly programming material used during Wednesday meets. Covers fundamentals needed for scripting, CTF tooling, automation, and basic cybersecurity workflows.",
+    "category": "Programming",
+    "level": "Beginner",
+    "kind": "Docs",
+    "link": "https://docs.python.org/3/",
+    "linkText": "Python Documentation"
+  },
+
+  {
+    "title": "Python for Hackers (Automate Tasks & Security Scripts)",
+    "description": "A curated collection of practical Python tutorials focusing on file handling, requests, subprocess, parsing logs, and writing automation scripts relevant to cybersecurity.",
+    "category": "Programming",
+    "level": "Beginner",
+    "kind": "Guide",
+    "link": "https://realpython.com/",
+    "linkText": "Real Python"
+  },
+
+  {
+    "title": "TryHackMe: Complete Beginner Path",
+    "description": "A structured entry-level pathway used during Cybersoc’s semester-long CTF series. Builds strong fundamentals in recon, OSINT, file forensics, basic web vulns, and Linux navigation.",
+    "category": "CTF & Labs",
+    "level": "Beginner",
+    "kind": "Lab Path",
+    "link": "https://tryhackme.com/path/outline/beginner",
+    "linkText": "Open Path"
+  },
+
+  {
+    "title": "TryHackMe: Web Fundamentals",
+    "description": "A pathway to web application security. Understand web fundamentals; Major vulnerabilities explained; Learn industry-used tools; Web application assessments.",
+    "category": "CTF & Labs",
+    "level": "Beginner",
+    "kind": "Lab Series",
+    "link": "https://tryhackme.com/path/outline/web",
+    "linkText": "Open Path"
+  },
+
+  {
+    "title": "Reverse Engineering Starter Pack",
+    "description": "Beginner-friendly learning resources aligning with Cybersoc’s reverse-engineering work during Game Off collaborations. Includes Ghidra basics, binaries, strings, and code flow analysis.",
+    "category": "Reverse Engineering",
+    "level": "Beginner",
+    "kind": "Guide",
+    "link": "https://ghidra-sre.org/",
+    "linkText": "Ghidra"
+  },
+
+  {
+    "title": "Basic Malware Analysis Lab",
+    "description": "Intro to malware analysis concepts used during advanced meets. Covers static analysis, strings, unpacking basics, and safe lab setup with VM isolation.",
+    "category": "Reverse Engineering",
+    "level": "Intermediate",
+    "kind": "Lab Guide",
+    "link": "https://tryhackme.com/room/malmalintroductory",
+    "linkText": "Open Room"
+  },
+
+  {
+    "title": "OSINT Framework",
+    "description": "A huge collection of tools used for Open-Source Intelligence tasks: username enumeration, metadata extraction, social footprints, recon & investigation.",
+    "category": "OSINT",
+    "level": "Beginner",
+    "kind": "Tool Index",
+    "link": "https://osintframework.com/",
+    "linkText": "Explore Tools"
+  },
+
+  {
+    "title": "Cybersecurity Career Roadmap",
+    "description": "A practical breakdown of cybersecurity domains: SOC analysis, SIEM tools, incident response, network monitoring, scripting, and blue-team operations. Helps beginners understand the industry.",
+    "category": "Career",
+    "level": "Beginner",
+    "kind": "Guide",
+    "link": "https://www.cyberseek.org/pathway.html",
+    "linkText": "View Roadmap"
+  },
+
+  {
+    "title": "Intro to SIEM & Blue Team Ops",
+    "description": "Hands-on labs covering SIEM concepts, log analysis, blue-team workflows, threat detection, and incident investigation.",
+    "category": "Career",
+    "level": "Beginner",
+    "kind": "Lab",
+    "link": "https://tryhackme.com/room/introtosiem",
+    "linkText": "Open Room"
+  },
+
+  {
+    "title": "Game Development Resources (Game Off Collaboration)",
+    "description": "Tools, asset repositories, and engines used during the Game Off 2025 collaboration between Cybersoc, CompSci, and DataSci. Tailored for secure coding and RE-friendly workflows.",
+    "category": "Game Off",
+    "level": "Beginner",
+    "kind": "Tools",
+    "link": "https://itch.io/game-assets",
+    "linkText": "Asset Library"
+  }
+]
