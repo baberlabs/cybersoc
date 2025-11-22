@@ -41,7 +41,7 @@
     "date_end": null,
     "status": "in-progress",
     "description": "The official website for the BCU Cyber Security Society, built using React, Tailwind CSS, Zustand, and a structured JSON-driven content system. The project aims to create a clean, accessible, professional digital presence to showcase events, projects, resources, and the committee. Designed with long-term maintainability and ease of updates in mind.",
-    "repo": "",
+    "repo": "https://github.com/baberlabs/cybersoc",
     "contributors": ["Baber Khan (Project Lead)", "Michael Martinak"],
     "location": "Independent Development + Curzon C383"
   }
