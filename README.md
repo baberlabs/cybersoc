@@ -19,7 +19,7 @@ It gives students a clear place to learn what the society does, when it meets, a
 - **Resources:** Study material and useful references
 - **Contact:** Reach the team or join the Discord
 
-## Important Links
+## Links
 
 - **Membership (BCUSU):** https://www.bcusu.com/organisation/24254/
 - **Discord Server:** https://discord.gg/bcucybersoc
@@ -29,3 +29,35 @@ It gives students a clear place to learn what the society does, when it meets, a
 ## Purpose
 
 The website keeps all information in one place so new and existing members can stay informed, participate easily, and get the support they need.
+
+## Run Locally
+
+- Clone the repository.
+
+```bash
+git clone https://github.com/baberlabs/cybersoc
+```
+
+- Enter `cybersoc` folder
+
+```bash
+cd cybersoc
+```
+
+- Install packages:
+
+```bash
+npm install
+```
+
+- Start development server:
+
+```bash
+npm run dev
+```
+
+The website should be live on `http://localhost:5173`.
+
+## Contribute
+
+To contribute, message **@Baber** in the **general-chat** channel on the Cybersoc Discord server or DM privately.
