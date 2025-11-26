@@ -1,15 +1,36 @@
 import { Link } from "react-router-dom";
+import ThisSemester from "../components/ThisSemester";
+import { useEffect, useState } from "react";
 
 const Home = () => {
+  const [stats, setStats] = useState({
+    active: 0,
+    completed: 0,
+  });
+
+  useEffect(() => {
+    fetch("/data/projects.json")
+      .then((r) => r.json())
+      .then((projects) => {
+        const active = projects.filter(
+          (p) => p.status === "in-progress"
+        ).length;
+        const completed = projects.filter(
+          (p) => p.status === "completed"
+        ).length;
+        setStats({ active, completed });
+      });
+  }, []);
+
   return (
-    <main id="main" className="container py-24 md:py-32 text-white">
+    <main id="main" className="container text-white flex flex-col gap-20">
       {/* HERO */}
-      <section className="mb-24 grid gap-10 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+      <section className="flex flex-col md:flex-row justify-between space-y-10 md:space-y-0 md:space-x-20">
         {/* Left: Core pitch */}
-        <div className="space-y-8">
+        <div className="space-y-8 max-w-xl">
           <header className="space-y-4">
-            <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-3 py-1 text-xs font-medium text-white/70">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.9)]" />
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/70">
+              <span className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
               Student-led Cyber Security Society · Birmingham City University
             </p>
 
@@ -18,14 +39,16 @@ const Home = () => {
             </h1>
 
             <h2 className="text-2xl text-white/80 md:text-3xl">
-              Learn. Build. Secure.
+              Do cyber security, not just hear about it.
             </h2>
           </header>
 
           <p className="max-w-xl text-lg leading-relaxed text-white/80">
-            Cybersoc is BCU&apos;s technical cyber security society. We focus on
-            applied security, practical programming, and collaborative projects
-            that help you build a portfolio, not just collect lecture notes.
+            Cybersoc is BCU&apos;s technical cyber security society. Each week
+            you work on real security tasks, practical projects, and structured
+            support that fit your level &mdash; from first year to master&apos;s
+            and placement students. You leave with skills, evidence, and people
+            who can vouch for you.
           </p>
 
           {/* CTA Row */}
@@ -40,121 +63,72 @@ const Home = () => {
               label="Join Discord"
               variant="secondary"
             />
-            <CTAButton to="/events" label="View Events" variant="ghost" />
+            <CTAButton to="/events" label="View events" variant="ghost" />
           </div>
 
           {/* Stats */}
-          <dl className="mt-4 grid gap-4 text-sm text-white/65 sm:flex sm:flex-row">
-            <Stat label="Members" value="100+" />
-            <Stat label="Society collabs." value="1" />
-            <Stat label="CTF duration" value="14-week series" />
-            <Stat
-              label="Flagship projects"
-              value="P4sspl01t, Game Off & more"
-            />
+          <dl className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-5">
+            <StatCard label="Total members" value="125+" />
+            <StatCard label="Active projects" value={stats.active} />
+            <StatCard label="Completed projects" value={stats.completed} />
           </dl>
         </div>
 
         {/* Right: Current semester activity */}
-        <aside className="space-y-4">
-          <div className="rounded-smooth border border-cyan-400/30 bg-linear-to-br from-cyan-500/10 to-slate-900/70 p-6 shadow-card">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
-              This semester
-            </p>
-            <ul className="space-y-3 text-sm text-white/85">
-              <li>
-                <strong className="block text-white">
-                  Semester-long TryHackMe CTF series
-                </strong>
-                Weekly room selections growing skills in OSINT, forensics,
-                reverse engineering, malware, and web security.
-              </li>
-              <li>
-                <strong className="block text-white">
-                  Game Off 2025 collaboration
-                </strong>
-                Joint work with Computer Science and Data Science societies:
-                they build games, we reverse engineer and secure them.
-              </li>
-              <li>
-                <strong className="block text-white">
-                  Weekly meets & study support
-                </strong>
-                In-person sessions for CTFs, projects, and help with modules in
-                a friendly setting.
-              </li>
-            </ul>
-
-            <div className="mt-4 flex gap-3">
-              <InlineLink to="/projects">View projects</InlineLink>
-              <InlineLink to="/events">View events</InlineLink>
-            </div>
-          </div>
-        </aside>
+        <ThisSemester />
       </section>
 
-      {/* WHY JOIN */}
-      <section className="mb-24">
-        <h2 className="mb-3 text-3xl font-bold">Why join?</h2>
-        <p className="mb-8 max-w-2xl text-white/70">
-          Cybersoc is for students who want a concrete path from{" "}
-          <span className="text-white">"curious about cyber"</span> to{" "}
-          <span className="text-white">
-            "confident with tools, challenges, and projects"
-          </span>
-          . We focus on three pillars:
-        </p>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          <InfoCard
-            title="Applied security"
-            text="CTFs, labs, OSINT, forensics, and reverse engineering instead of purely theoretical slides."
-          />
-          <InfoCard
-            title="Real projects"
-            text="Contribute to projects like P4sspl01t, the Cybersoc website, and Game Off security work."
-          />
-          <InfoCard
-            title="Supportive community"
-            text="Study groups, assignment guidance, and a space where it's normal to ask 'basic' questions."
-          />
-        </div>
-      </section>
-
-      {/* WHAT YOU'LL DO */}
-      <section className="mb-24">
+      {/* WHAT YOU WILL ACTUALLY DO */}
+      <section>
         <h2 className="mb-3 text-3xl font-bold">
           What you&apos;ll actually do
         </h2>
-        <p className="mb-8 max-w-2xl text-white/70">
-          Across a typical semester, members pick a mix of challenges, projects,
-          and events that match their level.
+
+        <p className="mb-8 text-white/70 max-w-5xl">
+          Sessions feel like a quiet, focused workshop. You pick a task that
+          fits your level, work through it at your own pace, and get help when
+          you need it. No spotlight, no performance &mdash; just steady progress
+          in real security work.
         </p>
 
+        {/* Core weekly experience */}
         <div className="grid gap-6 md:grid-cols-3">
-          <ActivityCard
-            label="01"
-            title="Solve structured CTFs"
-            text="Work through curated TryHackMe paths and tracked challenge sets. Share progress and get unstuck together."
+          <InfoCard
+            title="Solve real security tasks"
+            text="Work through structured CTF-style exercises in OSINT, forensics, web security, reverse engineering, and blue/red team basics. Everything is explained, tiered by difficulty, and designed so first years and advanced students both have something useful to do."
           />
-          <ActivityCard
-            label="02"
-            title="Build and break things"
-            text="Develop tools, scripts, and small systems in Python and other languages, then test and secure them."
+          <InfoCard
+            title="Build and ship useful things"
+            text="Contribute to real projects like the Cybersoc website, P4sspl01t, and Game Off security work. You help design tools, scripts, and features that the society actually uses, and you leave with clean, portfolio-ready GitHub contributions."
           />
-          <ActivityCard
-            label="03"
-            title="Explore careers"
-            text="Hear about cyber roles, SOC work, and blue-team tooling. Learn how to present projects to employers."
+          <InfoCard
+            title="Improve faster with peer support"
+            text="You work alongside people who are solving similar problems, trading ideas, and helping each other debug. Committee members and experienced students circulate, unblock you, and show how they think through problems step by step."
+          />
+        </div>
+
+        {/* How it fits different stages */}
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <InfoCard
+            title="If you're just starting"
+            text="You get clear beginner tracks with guided tasks, simple language, and no assumption of prior experience. You can focus on understanding the basics, asking questions, and building confidence without feeling behind."
+          />
+          <InfoCard
+            title="If you're more advanced"
+            text="You take on harder RE, debugging, and secure-coding work, help shape projects, and mentor others. The society becomes a place to deepen your toolkit, prepare for placements and grad roles, and practise explaining complex ideas clearly."
+          />
+          <InfoCard
+            title="If you're on placement or postgrad"
+            text="You stay sharp by contributing to ongoing tools and security analysis, drop into sessions when you can, and help steer more realistic workflows. It gives you a low-pressure way to give back and keep your skills moving."
           />
         </div>
       </section>
 
       {/* HOW TO JOIN */}
-      <section className="mb-16">
+      <section>
         <h2 className="mb-3 text-3xl font-bold">How to get started</h2>
-        <p className="mb-8 max-w-2xl text-white/70">
-          Follow this flow and you&apos;ll be in the loop for projects, events,
+        <p className="mb-8 text-white/70">
+          Follow these steps and you&apos;ll be connected to events, projects,
           and support.
         </p>
 
@@ -162,37 +136,58 @@ const Home = () => {
           <StepCard
             step="01"
             title="Join on BCUSU"
-            body="Become an official member via the Students' Union page."
+            body="Become an official member through the Students’ Union page. This keeps the society recognised and funded."
             href="https://www.bcusu.com/organisation/24254/"
             linkText="Open BCUSU page"
           />
           <StepCard
             step="02"
             title="Join Discord"
-            body="Use the invite after membership. All announcements, help, and projects happen there."
+            body="Use the invite after you sign up. All announcements, help, and project coordination run through the server."
             href="https://discord.com/invite/3HcCg7sCqz"
             linkText="Open Discord"
           />
           <StepCard
             step="03"
-            title="Attend a meet"
-            body="Come to weekly sessions for CTFs, projects, or module help. Introduce yourself, ask questions."
+            title="Come to a session"
+            body="Turn up to a weekly meet, pick a beginner or advanced task, and settle in. You can just listen at first if you prefer."
             href="/events"
             linkText="See events"
           />
           <StepCard
             step="04"
-            title="Pick a track"
-            body="Choose a CTF path, project, or resource track that fits your level and interests."
+            title="Pick your track"
+            body="Choose a mix of CTF paths, projects, and resources that match your goals: stronger grades, better CV, or deeper security skills."
             href="/resources"
             linkText="Browse resources"
           />
         </ol>
       </section>
 
-      {/* HIGHLIGHT */}
-      <section className="mb-4">
-        <HighlightCard />
+      {/* FOR STAFF, PARENTS & PARTNERS */}
+      <section>
+        <h2 className="mb-3 text-3xl font-bold">
+          For staff, parents, and partners
+        </h2>
+        <p className="mb-6 text-white/70">
+          Cybersoc is run to be safe, structured, and useful alongside academic
+          study &mdash; not in competition with it.
+        </p>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          <InfoCard
+            title="Academic alignment"
+            text="Activities reinforce core computing skills: problem-solving, programming practice, security thinking, and careful use of tools. Sessions are designed to sit alongside modules, not distract from them."
+          />
+          <InfoCard
+            title="Professional development"
+            text="Students build real artefacts: tools, write-ups, documentation, and code repositories. This gives employers concrete evidence of skill beyond grades, and helps students speak clearly about their experience."
+          />
+          <InfoCard
+            title="Safe, inclusive environment"
+            text="Events follow BCUSU policies and are managed by an elected committee. Communication runs through monitored channels, and the focus stays on learning, collaboration, and respectful behaviour."
+          />
+        </div>
       </section>
     </main>
   );
@@ -235,50 +230,17 @@ const CTAButton = ({ to, label, variant }) => {
   );
 };
 
-const InlineLink = ({ to, children }) => {
-  const isExternal = /^https?:\/\//.test(to);
-  const className =
-    "text-sm font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/60 hover:text-cyan-100";
-
-  if (isExternal) {
-    return (
-      <a
-        href={to}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-      >
-        {children}
-      </a>
-    );
-  }
-
-  return (
-    <Link to={to} className={className}>
-      {children}
-    </Link>
-  );
-};
-
-const Stat = ({ label, value }) => (
-  <div className="space-y-0.5">
-    <dt className="text-xs uppercase tracking-[0.18em] text-white/40">
+const StatCard = ({ label, value }) => (
+  <div className="rounded-md border border-white/10 bg-white/3 p-3 shadow-sm">
+    <dd className="text-xl font-semibold text-white/70">{value}</dd>
+    <dt className="text-[10px] uppercase tracking-widest text-white/50 mt-0.5">
       {label}
     </dt>
-    <dd className="text-sm text-white/85">{value}</dd>
   </div>
 );
 
 const InfoCard = ({ title, text }) => (
   <article className="rounded-smooth border border-white/10 bg-white/[0.02] p-5 shadow-sm transition-colors hover:bg-white/[0.06]">
-    <h3 className="mb-2 text-lg font-semibold text-white">{title}</h3>
-    <p className="text-sm leading-relaxed text-white/70">{text}</p>
-  </article>
-);
-
-const ActivityCard = ({ label, title, text }) => (
-  <article className="rounded-smooth border border-white/10 bg-neutral-900/30 p-5 transition-colors hover:bg-neutral-900/55">
-    <p className="mb-1 font-mono text-xs text-cyan-300">{label}</p>
     <h3 className="mb-2 text-lg font-semibold text-white">{title}</h3>
     <p className="text-sm leading-relaxed text-white/70">{text}</p>
   </article>
@@ -293,7 +255,7 @@ const StepCard = ({ step, title, body, href, linkText }) => {
         {step}
       </span>
       <h3 className="text-sm font-semibold text-white">{title}</h3>
-      <p className="flex-1 text-xs leading-relaxed text-white/70">{body}</p>
+      <p className="flex-1 text-sm leading-relaxed text-white/70">{body}</p>
       <a
         href={href}
         target={external ? "_blank" : undefined}
@@ -305,32 +267,5 @@ const StepCard = ({ step, title, body, href, linkText }) => {
     </li>
   );
 };
-
-const HighlightCard = () => (
-  <section className="rounded-smooth border border-white/10 bg-gradient-to-br from-neutral-900/60 to-neutral-800/40 p-6 shadow-card">
-    <h3 className="mb-2 text-xl font-bold text-white">
-      Current focus this semester
-    </h3>
-    <p className="max-w-3xl text-sm leading-relaxed text-white/75">
-      Cybersoc is currently centred on the semester-long TryHackMe CTF series,
-      the Game Off 2025 collaboration, and ongoing support for first-year
-      modules. To see where you can plug in, explore{" "}
-      <Link
-        to="/projects"
-        className="font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/50 hover:text-cyan-100"
-      >
-        Projects
-      </Link>{" "}
-      and{" "}
-      <Link
-        to="/events"
-        className="font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/50 hover:text-cyan-100"
-      >
-        Events
-      </Link>
-      .
-    </p>
-  </section>
-);
 
 export default Home;

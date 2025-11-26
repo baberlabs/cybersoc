@@ -1,0 +1,11 @@
+[
+  { "id": "president", "title": "President" },
+  { "id": "secretary", "title": "Secretary" },
+  { "id": "treasurer", "title": "Treasurer" },
+  { "id": "participation", "title": "Participation & Inclusion Officer" },
+  { "id": "ctf_captain", "title": "CTF & Hackathons Captain" },
+  { "id": "web_engineer", "title": "Web Platform Engineer" },
+  { "id": "marketing", "title": "Marketing Officer" },
+  { "id": "operations", "title": "Operations Assistant" },
+  { "id": "graphics", "title": "Graphics Designer" }
+]

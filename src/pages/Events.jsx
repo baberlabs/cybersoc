@@ -10,6 +10,11 @@ const formatDate = (iso) => {
   });
 };
 
+const formatRange = (start, end) => {
+  if (!end || start === end) return formatDate(start);
+  return `${formatDate(start)} – ${formatDate(end)}`;
+};
+
 const Badge = ({ variant, children }) => {
   const style =
     variant === "ongoing"
@@ -29,8 +34,11 @@ const Badge = ({ variant, children }) => {
 
 const EventCard = ({
   title,
+  id,
   description,
-  date,
+  date_start,
+  date_end,
+  time,
   location,
   link,
   linkText,
@@ -59,7 +67,8 @@ const EventCard = ({
 
   return (
     <article
-      className={`rounded-smooth border p-5 text-sm shadow-sm transition hover:-translate-y-[1px] hover:border-white/25 ${colorClasses}`}
+      id={id}
+      className={`rounded-smooth border p-5 text-sm shadow-sm transition hover:-translate-y-px hover:border-white/25 ${colorClasses}`}
     >
       <div className="mb-2 flex items-center justify-between gap-2">
         <Badge variant={badgeVariant}>{badgeLabel}</Badge>
@@ -70,8 +79,16 @@ const EventCard = ({
       <div className="mb-4 space-y-1 text-white/70">
         <p className="flex items-center gap-2">
           <LuCalendarDays className="text-white/40" />
-          {date}
+          {formatRange(date_start, date_end)}
         </p>
+
+        {time && (
+          <p className="flex items-center gap-2">
+            <LuClock3 className="text-white/40" />
+            {time}
+          </p>
+        )}
+
         <p className="flex items-center gap-2">
           <LuMapPin className="text-white/40" />
           {location}
@@ -94,6 +111,203 @@ const EventCard = ({
   );
 };
 
+const EventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
+  return (
+    <aside className="hidden lg:block w-64 sticky top-28 mr-12 border-r border-white/10 pr-8">
+      <p className="mb-3 text-xs uppercase tracking-[0.14em] text-white/40">
+        Quick navigation
+      </p>
+
+      <nav className="space-y-6 text-sm">
+        {/* Next Event */}
+        {nextEvent && (
+          <div>
+            <p className="mb-1 font-semibold text-white/70">Next event</p>
+            <ul>
+              <li>
+                <a
+                  href={`#${nextEvent.id}`}
+                  className="block pl-3 border-l border-transparent hover:text-cyan-300 hover:border-cyan-400/60 transition overflow-hidden whitespace-nowrap text-ellipsis"
+                >
+                  {nextEvent.title}
+                </a>
+              </li>
+            </ul>
+          </div>
+        )}
+
+        {/* Ongoing */}
+        {ongoing.length > 0 && (
+          <div>
+            <p className="mb-1 font-semibold text-white/70">Happening now</p>
+            <ul className="space-y-1">
+              {ongoing.map((e) => (
+                <li key={e.id}>
+                  <a
+                    href={`#${e.id}`}
+                    className="block pl-3 border-l border-transparent hover:text-cyan-300 hover:border-cyan-400/60 transition overflow-hidden whitespace-nowrap text-ellipsis"
+                  >
+                    {e.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Upcoming */}
+        {upcoming.length > 0 && (
+          <div>
+            <p className="mb-1 font-semibold text-white/70">Upcoming</p>
+            <ul className="space-y-1">
+              {upcoming.map((e) => (
+                <li key={e.id}>
+                  <a
+                    href={`#${e.id}`}
+                    className="block pl-3 border-l border-transparent hover:text-cyan-300 hover:border-cyan-400/60 transition overflow-hidden whitespace-nowrap text-ellipsis"
+                  >
+                    {e.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Past */}
+        {groupedPast.length > 0 && (
+          <div>
+            <p className="mb-1 font-semibold text-white/70">Past events</p>
+
+            <ul className="space-y-3">
+              {groupedPast.map(([month, items]) => (
+                <li key={month}>
+                  <p className="text-white/40 text-xs mb-1">{month}</p>
+                  <ul className="space-y-1">
+                    {items.map((e) => (
+                      <li key={e.id}>
+                        <a
+                          href={`#${e.id}`}
+                          className="block pl-3 border-l border-transparent hover:text-cyan-300 hover:border-cyan-400/60 transition overflow-hidden whitespace-nowrap text-ellipsis"
+                        >
+                          {e.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </nav>
+    </aside>
+  );
+};
+
+const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
+  const [open, setOpen] = useState(false);
+
+  const Section = ({ label, children }) =>
+    children && (
+      <div className="space-y-1">
+        <p className="font-semibold text-white/70 mb-1">{label}</p>
+        {children}
+      </div>
+    );
+
+  return (
+    <div className="lg:hidden mb-10">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full rounded-smooth border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-white flex justify-between"
+      >
+        Jump to event
+        <span>{open ? "▲" : "▼"}</span>
+      </button>
+
+      {open && (
+        <div className="mt-3 rounded-smooth border border-white/10 bg-white/[0.03] p-4 space-y-6 text-sm">
+          {/* Next */}
+          {nextEvent && (
+            <Section label="Next event">
+              <a
+                href={`#${nextEvent.id}`}
+                onClick={() => setOpen(false)}
+                className="block py-1 text-white/80 hover:text-cyan-300"
+              >
+                {nextEvent.title}
+              </a>
+            </Section>
+          )}
+
+          {/* Ongoing */}
+          {ongoing.length > 0 && (
+            <Section label="Happening now">
+              <ul className="space-y-1">
+                {ongoing.map((e) => (
+                  <li key={e.id}>
+                    <a
+                      href={`#${e.id}`}
+                      onClick={() => setOpen(false)}
+                      className="block py-1 text-white/80 hover:text-cyan-300"
+                    >
+                      {e.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          )}
+
+          {/* Upcoming */}
+          {upcoming.length > 0 && (
+            <Section label="Upcoming">
+              <ul className="space-y-1">
+                {upcoming.map((e) => (
+                  <li key={e.id}>
+                    <a
+                      href={`#${e.id}`}
+                      onClick={() => setOpen(false)}
+                      className="block py-1 text-white/80 hover:text-cyan-300"
+                    >
+                      {e.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          )}
+
+          {/* Past */}
+          {groupedPast.length > 0 && (
+            <Section label="Past events">
+              {groupedPast.map(([month, items]) => (
+                <div key={month} className="mb-2">
+                  <p className="text-white/50 text-xs mb-1">{month}</p>
+                  <ul className="space-y-1">
+                    {items.map((e) => (
+                      <li key={e.id}>
+                        <a
+                          href={`#${e.id}`}
+                          onClick={() => setOpen(false)}
+                          className="block py-1 text-white/80 hover:text-cyan-300"
+                        >
+                          {e.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </Section>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
+
 const Events = () => {
   const [events, setEvents] = useState([]);
 
@@ -106,30 +320,30 @@ const Events = () => {
   const now = new Date();
 
   const ongoing = events.filter((e) => e.ongoing);
+
   const upcoming = events.filter(
-    (e) => !e.ongoing && new Date(e.date + "T00:00:00") > now
+    (e) => !e.ongoing && new Date(e.date_start + "T00:00:00") > now
   );
+
   const past = events.filter(
-    (e) => !e.ongoing && new Date(e.date + "T00:00:00") < now
+    (e) => !e.ongoing && new Date(e.date_start + "T00:00:00") < now
   );
 
   const nextEvent =
     upcoming.length > 0
       ? upcoming.reduce((soonest, e) => {
-          const d = new Date(e.date + "T00:00:00");
-          const s = new Date(soonest.date + "T00:00:00");
+          const d = new Date(e.date_start + "T00:00:00");
+          const s = new Date(soonest.date_start + "T00:00:00");
           return d < s ? e : soonest;
         })
       : null;
 
-  const upcomingWithoutNext = upcoming.filter(
-    (e) => e.title !== nextEvent?.title
-  );
+  const upcomingWithoutNext = upcoming.filter((e) => e.id !== nextEvent?.id);
 
   const groupedPast = (() => {
     const groups = {};
     past.forEach((e) => {
-      const d = new Date(e.date + "T00:00:00");
+      const d = new Date(e.date_start + "T00:00:00");
       const label = d.toLocaleDateString("en-GB", {
         month: "long",
         year: "numeric",
@@ -141,7 +355,7 @@ const Events = () => {
   })();
 
   return (
-    <main className="container py-24 md:py-32">
+    <main id="main" className="container">
       <header className="mb-10">
         <p className="mb-2 text-xs uppercase tracking-[0.14em] text-white/40">
           Calendar
@@ -149,104 +363,97 @@ const Events = () => {
         <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
           Events
         </h1>
-        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/70">
+        <p className="mt-4 max-w-5xl text-lg leading-relaxed text-white/70">
           A mix of workshops, CTFs, meetups, collaborations, and awareness days
-          across the academic year. Use this page to see what&apos;s running
-          now, what&apos;s next, and what we&apos;ve already delivered.
+          across the academic year.
         </p>
       </header>
 
-      {/* Next Event */}
-      {nextEvent && (
-        <section className="mb-20">
-          <h2 className="mb-3 flex items-center gap-2 text-2xl font-bold text-white">
-            <LuClock3 className="text-yellow-300" />
-            Next event
-          </h2>
-          <EventCard
-            {...nextEvent}
-            date={formatDate(nextEvent.date)}
-            variant="upcoming"
-          />
-        </section>
-      )}
+      {/* Mobile TOC */}
+      <MobileEventsTOC
+        nextEvent={nextEvent}
+        ongoing={ongoing}
+        upcoming={upcomingWithoutNext}
+        groupedPast={groupedPast}
+      />
 
-      {/* Ongoing */}
-      <section className="mb-20">
-        <h2 className="mb-3 text-2xl font-bold text-white">Happening now</h2>
-        <p className="mb-6 max-w-2xl text-sm text-white/65">
-          Long-running streams such as semester-long CTF series or recurring
-          meets that you can join at almost any point.
-        </p>
+      <div className="flex">
+        {/* Desktop TOC */}
+        <EventsTOC
+          nextEvent={nextEvent}
+          ongoing={ongoing}
+          upcoming={upcomingWithoutNext}
+          groupedPast={groupedPast}
+        />
 
-        {ongoing.length === 0 ? (
-          <p className="text-white/60">No ongoing activities at the moment.</p>
-        ) : (
-          <div className="grid gap-6 md:grid-cols-2">
-            {ongoing.map((e) => (
-              <EventCard
-                key={e.title}
-                {...e}
-                date={formatDate(e.date)}
-                variant="ongoing"
-              />
-            ))}
-          </div>
-        )}
-      </section>
+        {/* Main content */}
+        <div className="flex-1 space-y-20">
+          {/* Next Event */}
+          {nextEvent && (
+            <section className="mb-20" id={nextEvent.id}>
+              <h2 className="mb-3 flex items-center gap-2 text-2xl font-bold text-white">
+                <LuClock3 className="text-yellow-300" />
+                Next event
+              </h2>
+              <EventCard {...nextEvent} variant="upcoming" />
+            </section>
+          )}
 
-      {/* Upcoming (excluding next) */}
-      <section className="mb-20">
-        <h2 className="mb-3 text-2xl font-bold text-white">Upcoming events</h2>
-        <p className="mb-6 max-w-2xl text-sm text-white/65">
-          One-off events, sessions, or collaborations scheduled later in the
-          term.
-        </p>
-
-        {upcomingWithoutNext.length === 0 ? (
-          <p className="text-white/60">No additional upcoming events.</p>
-        ) : (
-          <div className="grid gap-6 md:grid-cols-2">
-            {upcomingWithoutNext.map((e) => (
-              <EventCard
-                key={e.title}
-                {...e}
-                date={formatDate(e.date)}
-                variant="upcoming"
-              />
-            ))}
-          </div>
-        )}
-      </section>
-
-      {/* Past events */}
-      <section>
-        <h2 className="mb-4 text-2xl font-bold text-white">Past events</h2>
-        <p className="mb-6 max-w-2xl text-sm text-white/65">
-          Previous stalls, awareness days, and event series. Useful for showing
-          history and impact to new members and partners.
-        </p>
-
-        <div className="space-y-10">
-          {groupedPast.map(([month, items]) => (
-            <div key={month}>
-              <h3 className="mb-3 text-base font-semibold text-white/75">
-                {month}
-              </h3>
-              <div className="grid gap-6 md:grid-cols-2">
-                {items.map((e) => (
-                  <EventCard
-                    key={e.title}
-                    {...e}
-                    date={formatDate(e.date)}
-                    variant="past"
-                  />
-                ))}
-              </div>
+          {/* Ongoing */}
+          <section className="mb-20">
+            <h2 className="mb-3 text-2xl font-bold text-white">
+              Happening now
+            </h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              {ongoing.length === 0 ? (
+                <p className="text-white/60">
+                  No ongoing activities at the moment.
+                </p>
+              ) : (
+                ongoing.map((e) => (
+                  <EventCard key={e.id} {...e} variant="ongoing" />
+                ))
+              )}
             </div>
-          ))}
+          </section>
+
+          {/* Upcoming */}
+          <section className="mb-20">
+            <h2 className="mb-3 text-2xl font-bold text-white">
+              Upcoming events
+            </h2>
+            <div className="grid gap-6 md:grid-cols-2">
+              {upcomingWithoutNext.length === 0 ? (
+                <p className="text-white/60">No additional upcoming events.</p>
+              ) : (
+                upcomingWithoutNext.map((e) => (
+                  <EventCard key={e.id} {...e} variant="upcoming" />
+                ))
+              )}
+            </div>
+          </section>
+
+          {/* Past */}
+          <section>
+            <h2 className="mb-4 text-2xl font-bold text-white">Past events</h2>
+
+            <div className="space-y-10">
+              {groupedPast.map(([month, items]) => (
+                <div key={month}>
+                  <h3 className="mb-3 text-base font-semibold text-white/75">
+                    {month}
+                  </h3>
+                  <div className="grid gap-6 md:grid-cols-2">
+                    {items.map((e) => (
+                      <EventCard key={e.id} {...e} variant="past" />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
     </main>
   );
 };

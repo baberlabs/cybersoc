@@ -1,0 +1,9 @@
+[
+  { "role": "president", "person": "michael" },
+  { "role": "secretary", "person": "dominik" },
+  { "role": "treasurer", "person": "zak" },
+  { "role": "participation", "person": "shakayat" },
+  { "role": "ctf_captain", "person": "tayyeb" },
+  { "role": "web_engineer", "person": "baber" },
+  { "role": "marketing", "person": "rafi" }
+]

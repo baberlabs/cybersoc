@@ -1,48 +1,123 @@
 [
   {
+    "id": "p4sspl01t",
     "title": "P4sspl01t Ethical Security Tool",
     "date_start": "2025-10-01",
     "date_end": "2025-10-31",
     "status": "completed",
-    "description": "A hybrid offensive and defensive password security tool developed across multiple weeks. Features include password generation, brute-force and dictionary cracking, breach detection, entropy analysis, and security recommendations. Built by three internal teams during weekly project meets.",
-    "repo": "https://github.com/HamishDS/BCU_Cybersecurity_P4sspl01t",
-    "contributors": [
-      "Michael Martinak (Project Lead)",
-      "Hamish Dobson-Smyth",
-      "Baber Khan",
-      "Shaun",
-      "Zak Miah",
-      "Shakayat Ali Bhuiyan",
-      "Al Tahsin Rafi",
-      "Umar Al-Mahfuz"
+
+    "difficulty": "Intermediate",
+    "skills": ["Python", "Brute forcing", "Hashing", "Security Engineering"],
+    "learning_outcomes": [
+      "Understand password entropy",
+      "Perform dictionary attacks safely",
+      "Analyse hash formats",
+      "Implement secure-coding patterns"
     ],
+
+    "description_short": "A password-security suite built across multiple weeks: generation, cracking, breach detection, and entropy analysis.",
+    "description_long": "A hybrid offensive and defensive password security tool developed across several structured weekly workshops. Features include password generation, targeted brute-force attempts, dictionary-based cracking, basic breach detection logic, entropy scoring, and defensive recommendations. Built collaboratively using version control, structured sprints, and safe cyber-practice principles.",
+
+    "repo": "https://github.com/HamishDS/BCU_Cybersecurity_P4sspl01t",
+
+    "contributors": [
+      { "person": "michael", "project_role": "Project Lead" },
+      { "person": "hamish", "project_role": "Core Dev" },
+      { "person": "baber", "project_role": "Core Dev" },
+      { "person": "zak", "project_role": "Analysis Dev" },
+      { "person": "shakayat", "project_role": "Analysis Dev" },
+      { "person": "rafi", "project_role": "UI/UX Dev" },
+      { "person": "umar", "project_role": "" }
+    ],
+
     "location": "Curzon C383"
   },
 
   {
-    "title": "Game Off 2025: Multi-Society Collaboration",
+    "id": "game-off-2025",
+    "title": "Game Off 2025: RE & Security Collaboration",
     "date_start": "2025-11-01",
-    "date_end": null,
+    "date_end": "2025-11-26",
     "status": "in-progress",
-    "description": "A collaborative project between the BCU Computer Science, Data Science, and Cyber Security societies for Itch.io's Game Off 2025. CompSci and DataSci teams focus on game development, design, and gameplay systems, while Cybersoc contributes by reverse-engineering builds, analysing binaries, testing memory safety, identifying vulnerabilities, and providing security-focused insights to improve the robustness of the games. Weekly Wednesday sessions involve debugging, RE tooling, patching, and secure coding guidance.",
-    "repo": "",
-    "contributors": [
-      "Michael Martinak (Co-Project Lead)",
-      "Tayyeb Nadeem Somro (Co-Project Lead)",
-      "Hamish Dobson-Smyth",
-      "Shaun",
-      "Shakayat Ali Bhuiyan"
+
+    "difficulty": "Intermediate",
+    "skills": [
+      "Reverse Engineering",
+      "Debugging",
+      "Binary Analysis",
+      "Threat Modelling"
     ],
+    "learning_outcomes": [
+      "Inspect game binaries",
+      "Debug unsafe memory behaviour",
+      "Identify vulnerabilities in early prototypes",
+      "Apply secure-coding to game loops"
+    ],
+
+    "description_short": "Joint society project: CompSci teams build games; Cybersoc analyses, debugs, and secures them.",
+    "description_long": "A multi-society collaboration for Itch.io’s Game Off 2025. While Computer Science and Data Science teams create the game builds, Cybersoc focuses on security analysis: debugging binaries, inspecting unsafe operations, tracing control flow, patching minor defects, and providing structured secure-coding feedback to improve game stability.",
+
+    "repo": "",
+
+    "contributors": [
+      { "person": "tayyeb", "project_role": "Development Lead" },
+      { "person": "michael", "project_role": "Security Lead" },
+      { "person": "hamish", "project_role": "Game Developer" },
+      { "person": "shaun", "project_role": "Game Developer" },
+      { "person": "shakayat", "project_role": "Game Developer" }
+    ],
+
     "location": "Curzon C383"
   },
+
   {
-    "title": "Cybersoc Website (Official Society Platform)",
+    "id": "cybersoc-website",
+    "title": "Cybersoc Website Platform",
     "date_start": "2025-11-01",
-    "date_end": null,
+    "date_end": "2025-11-30",
     "status": "in-progress",
-    "description": "The official website for the BCU Cyber Security Society, built using React, Tailwind CSS, Zustand, and a structured JSON-driven content system. The project aims to create a clean, accessible, professional digital presence to showcase events, projects, resources, and the committee. Designed with long-term maintainability and ease of updates in mind.",
+
+    "difficulty": "Beginner",
+    "skills": ["React", "Tailwind", "Version Control", "Frontend Engineering"],
+    "learning_outcomes": [
+      "Use a modern React codebase",
+      "Follow component-driven design",
+      "Understand JSON-driven content systems"
+    ],
+
+    "description_short": "The official web platform for Cybersoc, built for clarity, accessibility, and maintainability.",
+    "description_long": "A long-term infrastructure project establishing the society’s official web presence. Built with React, Tailwind CSS, and JSON-driven content modules. The platform balances clarity and performance while acting as a real-world engineering environment for students to contribute features, fix bugs, improve UX, and learn through version-controlled collaboration.",
+
     "repo": "https://github.com/baberlabs/cybersoc",
-    "contributors": ["Baber Khan (Project Lead)", "Michael Martinak"],
-    "location": "Independent Development + Curzon C383"
+
+    "contributors": [
+      { "person": "baber", "project_role": "Project Lead" },
+      { "person": "michael", "project_role": "Contributor" }
+    ],
+
+    "location": "Curzon C383"
+  },
+
+  {
+    "id": "silly-malware",
+    "title": "Silly Malware",
+    "date_start": "2025-12-01",
+    "date_end": "2025-12-12",
+    "status": "pending",
+
+    "difficulty": "Beginner",
+    "skills": ["Scripting", "File IO", "Behaviour Analysis"],
+    "learning_outcomes": [
+      "Understand how basic malware logic works",
+      "See how malicious files replicate",
+      "Learn safe analysis habits"
+    ],
+
+    "description_short": "A harmless ‘joke malware’ project teaching how malware behaves without risk.",
+    "description_long": "A small hands-on introduction to malware fundamentals. The project demonstrates how simple malicious behaviours operate in controlled, safe, non-destructive ways. Students learn the underlying concepts of repetition, persistence, file drops, and behavioural quirks used by real malware, without interacting with any harmful code.",
+
+    "repo": "",
+    "contributors": [],
+    "location": "Curzon C383"
   }
 ]

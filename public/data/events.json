@@ -1,51 +1,90 @@
 [
   {
     "title": "Semester-Long TryHackMe CTF Series",
-    "date": "2025-09-22",
+    "id": "ctf-series",
+    "date_start": "2025-09-22",
+    "date_end": "2025-12-12",
     "ongoing": true,
     "location": "Discord + Independent Work",
-    "description": "A 14-week challenge series releasing three TryHackMe labs weekly, covering OSINT, forensics, RE, malware, cryptography, networking, and web security. Open all semester with technical support.",
+    "description": "A 12-week challenge series releasing three TryHackMe offensive security labs weekly, covering OSINT, forensics, reverse engineering, malware, cryptography, networking, penetration testing, and web security. Open all semester with technical support.",
     "link": "",
     "linkText": ""
   },
 
   {
     "title": "Game Off 2025 Collaboration",
-    "date": "2025-11-01",
+    "id": "game-off-2025",
+    "date_start": "2025-11-01",
+    "date_end": "2025-11-26",
     "ongoing": true,
     "location": "Curzon C383",
-    "description": "Weekly Wednesday sessions with Cyber Security, Computer Science, and Data Science societies to plan and develop entries for the Itch.io Game Off 2025. Team formation, ideation, and gameplay development.",
+    "description": "Weekly Wednesday sessions with Cyber Security, Computer Science, and Data Science societies to plan and develop entries for the Itch.io Game Off 2025. Includes brainstorming, prototyping, gameplay development, reverse engineering, and collaborative security analysis.",
     "link": "https://itch.io/jam/game-off-2025",
     "linkText": "View Jam"
   },
 
   {
     "title": "Bi-Weekly Online Meets",
-    "date": "2025-10-06",
-    "ongoing": true,
-    "location": "Discord, every other Thursday, 5 pm - 8 pm",
-    "description": "Community sessions for games, event planning, project ideas, open discussion, and social bonding. Held every two weeks.",
+    "id": "bi-weekly-online-meets",
+    "date_start": "2025-10-02",
+    "date_end": "2025-10-30",
+    "time": "17:00-20:00",
+    "ongoing": false,
+    "location": "Discord, every other Thursday",
+    "description": "Community-driven online meets for games, open discussion, event planning, and ideation sessions. Designed to build connections across members.",
     "link": "",
     "linkText": ""
   },
 
   {
+    "title": "BCU Open Day (Computing Stand)",
+    "id": "open-day-2025",
+    "date_start": "2025-11-15",
+    "date_end": "2025-11-15",
+    "time": "09:00–15:00",
+    "ongoing": false,
+    "location": "STEAMHouse",
+    "description": "Represented the Cyber Security Society at the BCU Open Day. Spoke with prospective computing and cybersecurity students, introduced the society’s purpose and activities, and supported course leaders during demonstrations.",
+    "participants": [
+      "Michael Martinak",
+      "Tayyeb Nadeem Somro",
+      "Baber Khan",
+      "Dominik Wisniewski"
+    ]
+  },
+
+  {
     "title": "Cyber Security Awareness Event",
-    "date": "2025-10-24",
+    "id": "cyber-awareness-2025",
+    "date_start": "2025-10-24",
+    "date_end": "2025-10-24",
+    "time": "15:00–17:00",
     "ongoing": false,
     "location": "Millennium Point, MP433",
-    "description": "Talks on the impact of cybercrime, cybersecurity career paths, phishing challenges, Google phishing game, in-person attacker/legitimate sender simulation, Kahoot quiz, and pizza.",
+    "description": "Talks on the impact of cybercrime, cybersecurity career paths, phishing challenges, Google phishing game, sender-verification exercises, Kahoot quiz, and pizza.",
     "link": "https://www.linkedin.com/posts/bcu-cybersecurity-society_bcu-cybersoc-cyber-security-awareness-activity-7388266558734753792-7lVL",
-    "linkText": "View LinkedIn Post"
+    "linkText": "View LinkedIn Post",
+    "participants": [
+      "Michael Martinak",
+      "Tayyeb Nadeem Somro",
+      "Baber Khan",
+      "Ali Bhuiyan",
+      "Zakaria",
+      "Shaun"
+    ]
   },
 
   {
     "title": "Big Welcome 2025 Stall",
-    "date": "2025-09-17",
+    "id": "big-welcome-2025",
+    "date_start": "2025-09-17",
+    "date_end": "2025-09-17",
+    "time": "09:00–15:00",
     "ongoing": false,
     "location": "BCU Big Welcome Fair, City Centre Campus",
-    "description": "The society's launch event at the Big Welcome fair, resulting in a 760% membership increase (5 to 40+). Included demos, Q&A, and helping freshers across multiple tech degrees.",
+    "description": "The society’s launch event at the Big Welcome Fair. Helped new students across tech degrees, answered questions, gave demos, and led to a 760% membership increase (from 5 to 40+ members).",
     "link": "https://www.linkedin.com/posts/bcu-cybersecurity-society_bcu-cybersoc-stall-success-at-big-welcome-activity-7374448362927996928-2pzd",
-    "linkText": "View LinkedIn Post"
+    "linkText": "View LinkedIn Post",
+    "participants": ["Michael Martinak", "Ali Bhuiyan", "Zakaria"]
   }
 ]

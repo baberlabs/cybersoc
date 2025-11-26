@@ -46,7 +46,7 @@ const Resources = () => {
   }, [resources, selectedCategory]);
 
   return (
-    <main className="container py-24 md:py-32 text-white">
+    <main id="main" className="container text-white">
       {/* Header */}
       <header className="mb-12 md:mb-16">
         <p className="mb-2 text-xs uppercase tracking-[0.14em] text-white/40">
@@ -55,7 +55,7 @@ const Resources = () => {
         <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
           Resources
         </h1>
-        <p className="mt-4 max-w-3xl text-lg leading-relaxed text-white/70">
+        <p className="mt-4 max-w-5xl text-lg leading-relaxed text-white/70">
           Curated material used across Cybersoc CTFs, workshops, and projects.
           Start with the beginner-friendly items, then branch into specialised
           areas such as web hacking, OSINT, reverse engineering, and blue-team

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "michael",
+    "name": "Michael Martinak",
+    "linkedin": "https://www.linkedin.com/in/profile-mmartinak"
+  },
+  {
+    "id": "dominik",
+    "name": "Dominik Wisniewski",
+    "linkedin": null
+  },
+  {
+    "id": "zak",
+    "name": "Zakaria Miah",
+    "linkedin": "https://www.linkedin.com/in/zakaria-miah/"
+  },
+  {
+    "id": "shakayat",
+    "name": "Shakayat Ali Bhuiyan",
+    "linkedin": "https://www.linkedin.com/in/shakayat-ali-bhuiyan-b93179309/"
+  },
+  {
+    "id": "tayyeb",
+    "name": "Tayyeb Nadeem Somro",
+    "linkedin": "https://www.linkedin.com/in/tayyeb-nadeem-somro/"
+  },
+  {
+    "id": "baber",
+    "name": "Baber Khan",
+    "linkedin": "https://www.linkedin.com/in/baberr/"
+  },
+  {
+    "id": "rafi",
+    "name": "Al Tahsin Rafi",
+    "linkedin": "https://www.linkedin.com/in/al-tahsin-rafi-18b75631b/"
+  },
+  {
+    "id": "multazzim",
+    "name": "Multazzim",
+    "linkedin": null
+  },
+  {
+    "id": "haris",
+    "name": "Haris Yousaf",
+    "linkedin": null
+  },
+  {
+    "id": "hamish",
+    "name": "Hamish Dobson-Smyth",
+    "linkedin": "https://www.linkedin.com/in/hamishds/"
+  },
+  {
+    "id": "umar",
+    "name": "Umar Al-Mahfuz",
+    "linkedin": "https://www.linkedin.com/in/umar-al-mahfuz-567251262/"
+  },
+  {
+    "id": "shaun",
+    "name": "Shaun",
+    "linkedin": ""
+  }
+]
