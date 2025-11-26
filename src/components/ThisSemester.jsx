@@ -52,26 +52,35 @@ const ThisSemester = () => {
   if (items.length === 0) return null;
 
   return (
-    <aside className="space-y-4 max-w-xl">
-      <div className="rounded-smooth border border-cyan-400/30 bg-linear-to-br from-cyan-500/10 to-slate-900/70 p-6 shadow-card">
-        <p className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
-          <LuClock3 className="text-cyan-300" />
-          {semester.label} · This semester
-        </p>
+    <aside className="max-w-xl">
+      <div className="relative overflow-hidden rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-cyan-500/10 via-slate-900/80 to-slate-950 p-6 shadow-card">
+        {/* Header */}
+        <div className="mb-5 flex items-center justify-between">
+          <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
+            <LuClock3 className="text-cyan-300" />
+            {semester.label}
+          </p>
 
-        <p className="mb-4 text-sm text-white/75">
-          Key long-running projects you can join or follow during this semester.
-          Use this as a quick overview; details live on the{" "}
+          <span className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-cyan-200">
+            This semester
+          </span>
+        </div>
+
+        {/* Description */}
+        <p className="mb-6 max-w-prose text-sm leading-relaxed text-white/75">
+          Long-running projects active this semester. Join in, follow progress,
+          or explore the details on the{" "}
           <a
             href="/projects"
-            className="font-bold text-cyan-300 underline underline-offset-4 decoration-cyan-500/60 hover:text-cyan-100"
+            className="font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/60 hover:text-cyan-100"
           >
             Projects
           </a>{" "}
           page.
         </p>
 
-        <ul className="space-y-4 text-sm">
+        {/* Project List */}
+        <ul className="space-y-4">
           {items.map((item) => (
             <SemesterItem key={item.id} {...item} />
           ))}
@@ -93,21 +102,21 @@ const SemesterItem = ({ title, description, link, statusLabel, tone }) => {
   const badgeStyle = STATUS_STYLES[tone] || STATUS_STYLES.ongoing;
 
   return (
-    <li className="space-y-1">
-      <div>
-        <a
-          href={link}
-          className="font-bold text-cyan-300 underline underline-offset-4 decoration-cyan-500/60 hover:text-cyan-100"
-        >
-          {title}
-        </a>
-        <span
-          className={`ml-2 rounded-xl border px-2 py-0.5 text-xs ${badgeStyle}`}
-        >
-          {statusLabel}
-        </span>
-      </div>
-      <p className="text-white/85 text-sm">{description}</p>
+    <li className="group rounded-xl border border-white/10 bg-white/3 p-4 transition hover:border-cyan-400/30 hover:bg-white/6 flex flex-col gap-2">
+      <a
+        href={link}
+        className="text-xs font-semibold leading-tight text-cyan-300 underline underline-offset-4 decoration-cyan-500/60 group-hover:text-cyan-100"
+      >
+        {title}
+      </a>
+
+      <p className="text-sm leading-relaxed text-white/80">{description}</p>
+
+      <p
+        className={`rounded-full border px-2.5 py-0.5 text-xs font-medium w-fit self-end mt-2 ${badgeStyle}`}
+      >
+        {statusLabel}
+      </p>
     </li>
   );
 };
