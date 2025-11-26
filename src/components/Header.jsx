@@ -88,6 +88,9 @@ const Header = () => {
             <NavLink to="/events" onClick={close} className={linkClass}>
               Events
             </NavLink>
+            <NavLink to="/blog" onClick={close} className={linkClass}>
+              Blog
+            </NavLink>
             <NavLink to="/resources" onClick={close} className={linkClass}>
               Resources
             </NavLink>

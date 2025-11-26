@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* ----------------------------------------
+   Base
+---------------------------------------- */
 @layer base {
   html {
     font-family: Inter, system-ui, sans-serif;
@@ -13,8 +16,236 @@
   }
 }
 
+/* ----------------------------------------
+   Container
+---------------------------------------- */
 @layer components {
   .container {
     @apply max-w-6xl mx-auto px-6;
+  }
+}
+
+/* ----------------------------------------
+   Ultra-Modern Blog Typography (Dark Mode)
+   — Inspired by Medium, Vercel, and Linear
+---------------------------------------- */
+@layer utilities {
+  .prose {
+    max-width: 100rem;
+    margin: 0 auto;
+    color: rgb(229 231 235);
+    font-size: 1.075rem;
+    line-height: 1.82;
+    font-weight: 400;
+    letter-spacing: 0.003em;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Vertical rhythm */
+  .prose > * + * {
+    margin-top: 1.4em;
+  }
+
+  /* ----------------------------------------
+     HEADINGS
+     Clean, authoritative, modern. 
+  ---------------------------------------- */
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    font-weight: 700;
+    color: white;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  .prose h1 {
+    font-size: clamp(2.2rem, 3vw + 1rem, 3.15rem);
+    margin-top: 3rem;
+    margin-bottom: 1.3rem;
+  }
+
+  .prose h2 {
+    font-size: clamp(1.7rem, 2.2vw + 0.8rem, 2.35rem);
+    margin-top: 2.8rem;
+    margin-bottom: 1rem;
+    padding-top: 0.5rem;
+  }
+
+  .prose h3 {
+    font-size: clamp(1.4rem, 1.4vw + 0.6rem, 1.75rem);
+    margin-top: 2.2rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .prose h4 {
+    font-size: 1.2rem;
+    margin-top: 1.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* ----------------------------------------
+     PARAGRAPHS
+  ---------------------------------------- */
+  .prose p {
+    margin-top: 1.1rem;
+    margin-bottom: 1.1rem;
+    opacity: 0.92;
+  }
+
+  /* ----------------------------------------
+     EMPHASIS
+  ---------------------------------------- */
+  .prose strong {
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .prose em {
+    opacity: 0.95;
+    font-style: italic;
+  }
+
+  /* ----------------------------------------
+     LISTS — More spacing, better scanability
+  ---------------------------------------- */
+  .prose ul,
+  .prose ol {
+    padding-left: 1.75rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose ul {
+    list-style: disc;
+  }
+
+  .prose ol {
+    list-style: decimal;
+  }
+
+  .prose li + li {
+    margin-top: 0.45rem;
+  }
+
+  /* ----------------------------------------
+     HR — modern "section slice"
+  ---------------------------------------- */
+  .prose hr {
+    margin: 3rem 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.12),
+      transparent
+    );
+  }
+
+  /* ----------------------------------------
+     BLOCKQUOTES — modern editorial card
+  ---------------------------------------- */
+  .prose blockquote {
+    margin: 2.4rem 0;
+    padding: 1.4rem 1.5rem;
+    font-style: italic;
+    line-height: 1.7;
+    color: rgb(226 232 240);
+    background: linear-gradient(
+      135deg,
+      rgba(30, 41, 59, 0.55),
+      rgba(15, 23, 42, 0.9)
+    );
+    border-left: 5px solid rgb(96 165 250);
+    border-radius: 0.9rem;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.35);
+  }
+
+  .prose blockquote p {
+    margin: 0.4rem 0;
+  }
+
+  /* ----------------------------------------
+     INLINE CODE — sleek and subtle
+  ---------------------------------------- */
+  .prose code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Courier New",
+      monospace;
+    font-size: 0.9em;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.28em 0.45em;
+    border-radius: 0.4rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  /* ----------------------------------------
+     CODE BLOCKS — modern, glowing, premium
+  ---------------------------------------- */
+  .prose pre {
+    margin: 2.2rem 0;
+    padding: 1.4rem 1.6rem;
+    background: radial-gradient(
+      circle at top left,
+      rgba(56, 189, 248, 0.22),
+      rgba(15, 23, 42, 1)
+    );
+    border-radius: 1.1rem;
+    overflow-x: auto;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.12),
+      inset 0 0 8px rgba(255, 255, 255, 0.05);
+  }
+
+  .prose pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  /* ----------------------------------------
+     LINKS — editorial, subtle, premium
+  ---------------------------------------- */
+  .prose a {
+    color: rgb(96 165 250);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.15s ease;
+  }
+
+  .prose a:hover {
+    color: rgb(129 140 248);
+  }
+
+  /* ----------------------------------------
+     IMAGES — elegant, centered, calm
+  ---------------------------------------- */
+  .prose img {
+    display: block;
+    margin: 2rem auto;
+    border-radius: 0.9rem;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    max-width: 100%;
+  }
+
+  /* ----------------------------------------
+     RESPONSIVE
+  ---------------------------------------- */
+  @media (max-width: 640px) {
+    .prose {
+      font-size: 1rem;
+      padding-inline: 0.25rem;
+    }
+
+    .prose h1 {
+      font-size: 1.95rem;
+    }
+
+    .prose h2 {
+      font-size: 1.55rem;
+    }
   }
 }

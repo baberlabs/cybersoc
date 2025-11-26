@@ -10,6 +10,8 @@ import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
 import ElectionNoticeModal from "./components/ElectionNoticeModal";
 import ScrollToTop from "./components/ScrollToTop";
+import BlogPost from "./pages/BlogPost";
+import Blogs from "./pages/Blogs";
 
 const App = () => {
   return (
@@ -29,6 +31,8 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/blog" element={<Blogs />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
