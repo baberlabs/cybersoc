@@ -24,7 +24,7 @@ const Contact = () => {
 
   // ---------- Derived committee data ----------
 
-  const { members, vacantRoles } = useMemo(() => {
+  const { members, vacantRoles, futureInternal } = useMemo(() => {
     if (!people || !roles || !committee) {
       return { members: [], vacantRoles: [] };
     }
@@ -55,19 +55,18 @@ const Contact = () => {
       roles: sortRoles(entry.roles),
     }));
 
-    // // Sort members by primary role priority, then name
-    // membersArr.sort((a, b) => {
-    //   const pa = a.roles[0]?.priority ?? 999;
-    //   const pb = b.roles[0]?.priority ?? 999;
-    //   if (pa !== pb) return pa - pb;
-    //   return a.person.name.localeCompare(b.person.name);
-    // });
-
     // Vacant roles = roles that do not appear in any assignment
     const assignedRoleIds = new Set(committee.map((a) => a.role));
-    const vacant = roles.filter((r) => !assignedRoleIds.has(r.id));
+    const vacant = roles.filter(
+      (r) => !assignedRoleIds.has(r.id) && !r.placeholder
+    );
 
-    return { members: membersArr, vacantRoles: vacant };
+    const futureInternal = roles.filter((r) => r.placeholder);
+    return {
+      members: membersArr,
+      vacantRoles: vacant,
+      futureInternal: futureInternal,
+    };
   }, [people, roles, committee]);
 
   return (
@@ -153,28 +152,55 @@ const Contact = () => {
           ))}
         </div>
 
-        {/* Vacant roles */}
-        {vacantRoles.length > 0 && (
-          <section className="mt-8 rounded-smooth border border-teal-400/40 bg-yellow-teal/5 p-4">
-            <h3 className="mb-2 text-sm font-semibold text-yellow-200">
-              Open roles
-            </h3>
-            <p className="mb-3 text-xs">
-              These committee roles are currently unfilled. Recruitment details
-              are usually posted in the Discord server and via BCUSU.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {vacantRoles.map((r) => (
-                <span
-                  key={r.id}
-                  className="rounded-full border border-red-300/40 bg-red-300/10 px-3 py-1 text-xs text-yellow-100"
-                >
-                  {r.title}
-                </span>
-              ))}
-            </div>
+        {(vacantRoles.length > 0 || futureInternal.length > 0) && (
+          <section className="mt-12 border-t border-white/10 pt-6 space-y-6">
+            {vacantRoles.length > 0 && (
+              <div>
+                <p className="mb-3 text-xs font-medium uppercase tracking-wide text-white/70">
+                  Currently open roles
+                </p>
+
+                <div className="flex flex-wrap gap-2">
+                  {vacantRoles.map((r) => (
+                    <span
+                      key={r.id}
+                      className="text-[11px] text-white/80 underline underline-offset-4 decoration-white/20"
+                    >
+                      {r.title}
+                    </span>
+                  ))}
+                </div>
+
+                <p className="mt-4 text-[11px] text-white/50">
+                  Recruitment notices are shared via Discord and BCUSU.
+                </p>
+              </div>
+            )}
+
+            {futureInternal.length > 0 && (
+              <div>
+                <p className="mb-2 text-xs font-medium uppercase tracking-wide text-white/50">
+                  Future internal roles
+                </p>
+
+                <p className="text-[11px] text-white/45 max-w-prose">
+                  Additional internal positions will be defined later in the
+                  academic year based on the society’s technical and operational
+                  needs.
+                </p>
+              </div>
+            )}
           </section>
         )}
+
+        <p className="text-sm text-white/60">
+          Our community standards, safeguarding rules, and ethical policies are
+          publicly available under
+          <a href="/governance" className="ml-1 text-cyan-300 underline">
+            Governance
+          </a>
+          .
+        </p>
       </section>
     </main>
   );

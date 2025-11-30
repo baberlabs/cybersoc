@@ -1,11 +1,42 @@
 [
-  { "id": "president", "title": "President" },
-  { "id": "secretary", "title": "Secretary" },
-  { "id": "treasurer", "title": "Treasurer" },
-  { "id": "participation", "title": "Participation & Inclusion Officer" },
-  { "id": "ctf_captain", "title": "CTF & Hackathons Captain" },
-  { "id": "web_engineer", "title": "Web Platform Engineer" },
-  { "id": "marketing", "title": "Marketing Officer" },
-  { "id": "operations", "title": "Operations Assistant" },
-  { "id": "graphics", "title": "Graphics Designer" }
+  { "id": "president", "title": "President", "type": "bcusu" },
+  { "id": "secretary", "title": "Secretary", "type": "bcusu" },
+  { "id": "treasurer", "title": "Treasurer", "type": "bcusu" },
+  {
+    "id": "participation",
+    "title": "Participation & Inclusion Officer",
+    "type": "bcusu"
+  },
+  { "id": "ctf_captain", "title": "CTF & Hackathons Captain", "type": "bcusu" },
+
+  {
+    "id": "web_engineer",
+    "title": "Web Platform Engineer",
+    "type": "internal"
+  },
+
+  {
+    "id": "internal_future_1",
+    "title": "Internal role (TBD)",
+    "type": "internal",
+    "placeholder": true
+  },
+  {
+    "id": "internal_future_2",
+    "title": "Internal role (TBD)",
+    "type": "internal",
+    "placeholder": true
+  },
+  {
+    "id": "internal_future_3",
+    "title": "Internal role (TBD)",
+    "type": "internal",
+    "placeholder": true
+  },
+  {
+    "id": "internal_future_4",
+    "title": "Internal role (TBD)",
+    "type": "internal",
+    "placeholder": true
+  }
 ]

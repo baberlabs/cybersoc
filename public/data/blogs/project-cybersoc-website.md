@@ -2,7 +2,7 @@
 id: cybersoc-platform
 title: "BCU Cybersoc Website: Design, Architecture, and Philosophy"
 author: "Baber Khan"
-date: "2025-01-12"
+date: "2025-11-25"
 reading_time: "7 min read"
 banner: "/images/blog/cybersoc-platform-banner.png"
 excerpt: "A concise breakdown of the engineering and design decisions behind the official BCU Cybersoc website."

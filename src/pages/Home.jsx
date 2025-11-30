@@ -9,25 +9,47 @@ const Home = () => {
   });
 
   useEffect(() => {
+    let cancelled = false;
+
     fetch("/data/projects.json")
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) throw new Error("Failed to load projects");
+        return r.json();
+      })
       .then((projects) => {
-        const active = projects.filter(
-          (p) => p.status === "in-progress"
-        ).length;
-        const completed = projects.filter(
-          (p) => p.status === "completed"
-        ).length;
-        setStats({ active, completed });
+        if (cancelled || !Array.isArray(projects)) return;
+
+        const counts = projects.reduce(
+          (acc, p) => {
+            const status = p.status ?? "unknown";
+
+            if (status === "in-progress") acc.active += 1;
+            else if (status === "completed") acc.completed += 1;
+
+            return acc;
+          },
+          { active: 0, completed: 0 }
+        );
+
+        setStats(counts);
+      })
+      .catch((err) => {
+        console.error("Project stats failed:", err);
+        setStats({ active: 0, completed: 0 });
       });
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return (
     <main id="main" className="container text-white flex flex-col gap-20">
       {/* HERO */}
-      <section className="flex flex-col md:flex-row justify-between space-y-10 md:space-y-0 md:space-x-20">
+      <section className="flex flex-col lg:flex-row justify-between space-y-10 lg:space-y-0 lg:space-x-20">
         {/* Left: Core pitch */}
         <div className="space-y-8 max-w-xl">
+          {/* Badge & Headings */}
           <header className="space-y-4">
             <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/70">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
@@ -43,15 +65,16 @@ const Home = () => {
             </h2>
           </header>
 
+          {/* Main pitch */}
           <p className="max-w-xl text-lg leading-relaxed text-white/80">
             Cybersoc is BCU&apos;s technical cyber security society. Each week
             you work on real security tasks, practical projects, and structured
-            support that fit your level &mdash; from first year to master&apos;s
-            and placement students. You leave with skills, evidence, and people
-            who can vouch for you.
+            support that fit your level — from first year to master&apos;s and
+            placement students. You leave with skills, evidence, and people who
+            can vouch for you.
           </p>
 
-          {/* CTA Row */}
+          {/* CTAs */}
           <div className="flex flex-wrap gap-4">
             <CTAButton
               to="https://www.bcusu.com/organisation/24254/"
@@ -67,18 +90,29 @@ const Home = () => {
           </div>
 
           {/* Stats */}
-          <dl className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-5">
-            <StatCard label="Total members" value="125+" />
+          <dl className="mt-6 flex flex-row gap-2">
+            <StatCard label="Total members (as of Nov 2025)" value="125+" />
             <StatCard label="Active projects" value={stats.active} />
             <StatCard label="Completed projects" value={stats.completed} />
           </dl>
         </div>
 
-        {/* Right: Current semester activity */}
+        {/* Right: Semester activity */}
         <ThisSemester />
       </section>
 
-      {/* WHAT YOU WILL ACTUALLY DO */}
+      {/* CMA & Ethics Banner (RecNine) */}
+      <section className="rounded-md border border-red-400/20 bg-red-500/5 p-4 text-sm text-red-200">
+        <strong className="font-semibold text-red-300">
+          Legal & Ethical Notice:
+        </strong>{" "}
+        All security tasks, CTF challenges, and tools used in Cybersoc sessions
+        must be performed only on systems you own or have explicit permission to
+        test. Activities follow the Computer Misuse Act 1990 and BCU/BCUSU
+        policies.
+      </section>
+
+      {/* WHAT YOU'LL DO */}
       <section>
         <h2 className="mb-3 text-3xl font-bold">
           What you&apos;ll actually do
@@ -87,8 +121,8 @@ const Home = () => {
         <p className="mb-8 text-white/70 max-w-5xl">
           Sessions feel like a quiet, focused workshop. You pick a task that
           fits your level, work through it at your own pace, and get help when
-          you need it. No spotlight, no performance &mdash; just steady progress
-          in real security work.
+          you need it. No spotlight, no performance — just steady progress in
+          real security work.
         </p>
 
         {/* Core weekly experience */}
@@ -99,19 +133,19 @@ const Home = () => {
           />
           <InfoCard
             title="Build and ship useful things"
-            text="Contribute to real projects like the Cybersoc website, P4sspl01t, and Game Off security work. You help design tools, scripts, and features that the society actually uses, and you leave with clean, portfolio-ready GitHub contributions."
+            text="Contribute to real projects like the Cybersoc website, P4sspl01t, and Game Off security work. You help design tools, scripts, and features that the society actively uses, and you leave with clean, portfolio-ready GitHub contributions."
           />
           <InfoCard
             title="Improve faster with peer support"
-            text="You work alongside people who are solving similar problems, trading ideas, and helping each other debug. Committee members and experienced students circulate, unblock you, and show how they think through problems step by step."
+            text="You work alongside people solving similar problems, trading ideas, and helping each other debug. Committee members and experienced students circulate, unblock you, and show how they think through problems step by step."
           />
         </div>
 
-        {/* How it fits different stages */}
+        {/* Stages */}
         <div className="mt-12 grid gap-6 md:grid-cols-3">
           <InfoCard
             title="If you're just starting"
-            text="You get clear beginner tracks with guided tasks, simple language, and no assumption of prior experience. You can focus on understanding the basics, asking questions, and building confidence without feeling behind."
+            text="You get clear beginner tracks with guided tasks, simple language, and no assumption of prior experience. You can focus on understanding the basics, asking questions, and building confidence."
           />
           <InfoCard
             title="If you're more advanced"
@@ -119,7 +153,7 @@ const Home = () => {
           />
           <InfoCard
             title="If you're on placement or postgrad"
-            text="You stay sharp by contributing to ongoing tools and security analysis, drop into sessions when you can, and help steer more realistic workflows. It gives you a low-pressure way to give back and keep your skills moving."
+            text="You stay sharp by contributing to ongoing tools and security analysis, drop into sessions when you can, and help steer more realistic workflows."
           />
         </div>
       </section>
@@ -150,7 +184,7 @@ const Home = () => {
           <StepCard
             step="03"
             title="Come to a session"
-            body="Turn up to a weekly meet, pick a beginner or advanced task, and settle in. You can just listen at first if you prefer."
+            body="Turn up to a weekly meet, pick a beginner or advanced task, and settle in."
             href="/events"
             linkText="See events"
           />
@@ -164,28 +198,28 @@ const Home = () => {
         </ol>
       </section>
 
-      {/* FOR STAFF, PARENTS & PARTNERS */}
+      {/* STAFF / PARENTS / PARTNERS */}
       <section>
         <h2 className="mb-3 text-3xl font-bold">
           For staff, parents, and partners
         </h2>
         <p className="mb-6 text-white/70">
           Cybersoc is run to be safe, structured, and useful alongside academic
-          study &mdash; not in competition with it.
+          study — not in competition with it.
         </p>
 
         <div className="grid gap-6 md:grid-cols-3">
           <InfoCard
             title="Academic alignment"
-            text="Activities reinforce core computing skills: problem-solving, programming practice, security thinking, and careful use of tools. Sessions are designed to sit alongside modules, not distract from them."
+            text="Activities reinforce core computing skills: problem-solving, programming practice, and security thinking. Sessions are designed to sit alongside modules without adding pressure."
           />
           <InfoCard
             title="Professional development"
-            text="Students build real artefacts: tools, write-ups, documentation, and code repositories. This gives employers concrete evidence of skill beyond grades, and helps students speak clearly about their experience."
+            text="Students build tangible artefacts: tools, write-ups, documentation, and repositories. This gives employers concrete evidence of skill beyond grades."
           />
           <InfoCard
             title="Safe, inclusive environment"
-            text="Events follow BCUSU policies and are managed by an elected committee. Communication runs through monitored channels, and the focus stays on learning, collaboration, and respectful behaviour."
+            text="Events follow BCUSU policies and are managed by an elected committee. Communication runs through monitored channels, with a focus on learning, collaboration, and respectful behaviour."
           />
         </div>
       </section>
@@ -193,7 +227,7 @@ const Home = () => {
   );
 };
 
-/* Components */
+/* Helper Components */
 
 const CTAButton = ({ to, label, variant }) => {
   const isExternal = /^https?:\/\//.test(to);
@@ -231,7 +265,7 @@ const CTAButton = ({ to, label, variant }) => {
 };
 
 const StatCard = ({ label, value }) => (
-  <div className="rounded-md border border-white/10 bg-white/3 p-3 shadow-sm">
+  <div className="rounded-md border border-white/10 bg-white/3 p-3 shadow-sm w-fit">
     <dd className="text-xl font-semibold text-white/70">{value}</dd>
     <dt className="text-[10px] uppercase tracking-widest text-white/50 mt-0.5">
       {label}

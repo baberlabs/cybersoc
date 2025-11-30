@@ -1,94 +1,11 @@
-import { useEffect, useState } from "react";
 import { LuClock3 } from "react-icons/lu";
 import { useSocietyData } from "../hooks/useSocietyData";
-
-const MS_PER_DAY = 1000 * 60 * 60 * 24;
-
-const ThisSemester = () => {
-  const { projects } = useSocietyData();
-  const [semester, setSemester] = useState(null);
-
-  useEffect(() => {
-    fetch("/data/semesters.json")
-      .then((r) => r.json())
-      .then((all) => {
-        if (!Array.isArray(all) || all.length === 0) return;
-        const current = all.find((s) => s.current) || all[0];
-        setSemester(current);
-      });
-  }, []);
-
-  if (!semester) return null;
-
-  const semStart = new Date(semester.start + "T00:00:00");
-  const semEnd = new Date(semester.end + "T23:59:59");
-  const now = new Date();
-
-  // Projects overlapping this semester
-  const semesterProjects = projects
-    .filter((p) => {
-      const ps = new Date(p.date_start + "T00:00:00");
-      const pe = p.date_end ? new Date(p.date_end + "T23:59:59") : semEnd; // open-ended defaults to semester end
-
-      return ps <= semEnd && pe >= semStart;
-    })
-    .sort(
-      (a, b) =>
-        new Date(a.date_start + "T00:00:00") -
-        new Date(b.date_start + "T00:00:00")
-    );
-
-  const items = semesterProjects.map((p) => {
-    const meta = getSemesterMeta(p, semEnd, now);
-    return {
-      id: p.id,
-      title: p.title,
-      link: `/projects#${p.id}`,
-      description: p.description_short,
-      ...meta,
-    };
-  });
-
-  if (items.length === 0) return null;
-
-  return (
-    <aside className="max-w-xl">
-      <div className="relative overflow-hidden rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-cyan-500/10 via-slate-900/80 to-slate-950 p-6 shadow-card">
-        {/* Header */}
-        <div className="mb-5 flex items-center justify-between">
-          <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
-            <LuClock3 className="text-cyan-300" />
-            {semester.label}
-          </p>
-
-          <span className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-cyan-200">
-            This semester
-          </span>
-        </div>
-
-        {/* Description */}
-        <p className="mb-6 max-w-prose text-sm leading-relaxed text-white/75">
-          Long-running projects active this semester. Join in, follow progress,
-          or explore the details on the{" "}
-          <a
-            href="/projects"
-            className="font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/60 hover:text-cyan-100"
-          >
-            Projects
-          </a>{" "}
-          page.
-        </p>
-
-        {/* Project List */}
-        <ul className="space-y-4">
-          {items.map((item) => (
-            <SemesterItem key={item.id} {...item} />
-          ))}
-        </ul>
-      </div>
-    </aside>
-  );
-};
+import { useSemester } from "../hooks/useSemester";
+import { useSemesterNotice } from "../hooks/useSemesterNotice";
+import {
+  projectOverlapsSemester,
+  getProjectSemesterStatus,
+} from "../lib/semesterDomain";
 
 const STATUS_STYLES = {
   ongoing: "border-cyan-500/30 text-cyan-300",
@@ -121,69 +38,96 @@ const SemesterItem = ({ title, description, link, statusLabel, tone }) => {
   );
 };
 
-function getSemesterMeta(project, semEnd, now) {
-  const status = project.status;
-  const start = new Date(project.date_start + "T00:00:00");
-  const end = project.date_end
-    ? new Date(project.date_end + "T23:59:59")
-    : semEnd;
+const ThisSemester = () => {
+  const { projects } = useSocietyData();
+  const { semester, error } = useSemester();
+  const notice = useSemesterNotice();
 
-  // Completed / past
-  if (status === "completed" || end < now) {
-    return {
-      statusLabel: "Completed this semester",
-      tone: "past",
-    };
+  if (error) {
+    return <p className="text-red-400 text-sm">{error}</p>;
   }
 
-  // Not started yet
-  if (status === "not-started" || start > now) {
-    const daysUntil = Math.round((start - now) / MS_PER_DAY);
+  if (!semester) return null;
 
-    if (daysUntil <= 7) {
-      return {
-        statusLabel: `Starts in ${daysUntil} day${daysUntil === 1 ? "" : "s"}`,
-        tone: "upcoming",
-      };
-    }
+  const semStart = new Date(semester.start);
+  const semEnd = new Date(semester.end);
+  const now = new Date();
 
-    const weeks = Math.round(daysUntil / 7);
-    return {
-      statusLabel: `Starts in ${weeks} week${weeks === 1 ? "" : "s"}`,
-      tone: "upcoming",
-    };
+  const semesterProjects = projects
+    .filter((p) => projectOverlapsSemester(p, semStart, semEnd))
+    .sort((a, b) => new Date(a.date_start) - new Date(b.date_start))
+    .map((p) => ({
+      ...p,
+      ...getProjectSemesterStatus(p, semEnd, now),
+    }));
+
+  if (semesterProjects.length === 0) {
+    return (
+      <aside className="max-w-xl">
+        <div className="rounded-2xl border border-white/10 p-6 text-sm text-white/60">
+          No long-running projects are scheduled for this semester.
+        </div>
+      </aside>
+    );
   }
 
-  // In progress
-  if (status === "in-progress") {
-    const daysLeft = Math.round((end - now) / MS_PER_DAY);
+  const semesterActive = now <= semEnd;
 
-    if (daysLeft <= 7) {
-      return {
-        statusLabel: `Ends in ${daysLeft} day${daysLeft === 1 ? "" : "s"}`,
-        tone: "urgent",
-      };
-    }
+  return (
+    <aside className="max-w-xl">
+      <div className="relative overflow-hidden rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-cyan-500/10 via-slate-900/80 to-slate-950 p-6 shadow-card">
+        <div className="mb-5 flex items-center justify-between">
+          <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
+            <LuClock3 className="text-cyan-300" />
+            {semester.label}
+          </p>
 
-    if (daysLeft <= 28) {
-      const weeks = Math.round(daysLeft / 7);
-      return {
-        statusLabel: `Ends in ${weeks} week${weeks === 1 ? "" : "s"}`,
-        tone: "warning",
-      };
-    }
+          <span className="rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-cyan-200">
+            {semesterActive ? "Active term" : "Semester concluded"}
+          </span>
+        </div>
 
-    return {
-      statusLabel: "Ongoing this semester",
-      tone: "ongoing",
-    };
-  }
+        {notice && (
+          <div className="mb-6 rounded-xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur">
+            <div className="space-y-1">
+              <p className="text-xs font-semibold uppercase tracking-wide text-white/90">
+                {notice.heading}
+              </p>
+              <p className="text-sm text-white/70">{notice.subtitle}</p>
+            </div>
 
-  // Fallback
-  return {
-    statusLabel: "Part of this semester",
-    tone: "ongoing",
-  };
-}
+            <p className="mt-3 text-[13px] leading-relaxed text-white/55 max-w-prose">
+              {notice.description}
+            </p>
+          </div>
+        )}
+
+        <p className="mb-6 max-w-prose text-sm leading-relaxed text-white/75">
+          Join in, follow progress, or explore the details on the{" "}
+          <a
+            href="/projects"
+            className="font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/60 hover:text-cyan-100"
+          >
+            Projects
+          </a>{" "}
+          page.
+        </p>
+
+        <ul className="space-y-4">
+          {semesterProjects.map((item) => (
+            <SemesterItem
+              key={item.id}
+              title={item.title}
+              description={item.description_short}
+              link={`/projects#${item.id}`}
+              statusLabel={item.statusLabel}
+              tone={item.tone}
+            />
+          ))}
+        </ul>
+      </div>
+    </aside>
+  );
+};
 
 export default ThisSemester;

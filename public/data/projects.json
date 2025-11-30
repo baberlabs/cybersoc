@@ -15,7 +15,7 @@
       "Implement secure-coding patterns"
     ],
 
-    "description_short": "A password-security suite built across multiple weeks: generation, cracking, breach detection, and entropy analysis.",
+    "description_short": "A password-security suite for generation, cracking, breach detection, and entropy analysis.",
     "description_long": "A hybrid offensive and defensive password security tool developed across several structured weekly workshops. Features include password generation, targeted brute-force attempts, dictionary-based cracking, basic breach detection logic, entropy scoring, and defensive recommendations. Built collaboratively using version control, structured sprints, and safe cyber-practice principles.",
 
     "repo": "https://github.com/HamishDS/BCU_Cybersecurity_P4sspl01t",
@@ -37,8 +37,8 @@
     "id": "game-off-2025",
     "title": "Game Off 2025: RE & Security Collaboration",
     "date_start": "2025-11-01",
-    "date_end": "2025-11-26",
-    "status": "in-progress",
+    "date_end": "2025-11-30",
+    "status": "completed",
 
     "difficulty": "Intermediate",
     "skills": [
@@ -54,17 +54,20 @@
       "Apply secure-coding to game loops"
     ],
 
-    "description_short": "Joint society project: CompSci teams build games; Cybersoc analyses, debugs, and secures them.",
+    "description_short": "Joint society project: CompSci teams build games; Cybersoc analyses and reverse engineers them.",
     "description_long": "A multi-society collaboration for Itch.io’s Game Off 2025. While Computer Science and Data Science teams create the game builds, Cybersoc focuses on security analysis: debugging binaries, inspecting unsafe operations, tracing control flow, patching minor defects, and providing structured secure-coding feedback to improve game stability.",
 
     "repo": "",
 
     "contributors": [
-      { "person": "tayyeb", "project_role": "Development Lead" },
-      { "person": "michael", "project_role": "Security Lead" },
-      { "person": "hamish", "project_role": "Game Developer" },
-      { "person": "shaun", "project_role": "Game Developer" },
-      { "person": "shakayat", "project_role": "Game Developer" }
+      { "person": "tayyeb", "project_role": "Collabroation Lead" },
+      { "person": "michael", "project_role": "Reverse Engineering Lead" },
+      { "person": "hamish", "project_role": "Game Project Lead" },
+      {
+        "person": "shakayat",
+        "project_role": "Game Project Lead (Wave Breaker)"
+      },
+      { "person": "baber", "project_role": "Game Project Lead (Wave/Null)" }
     ],
 
     "location": "Curzon C383"
@@ -75,9 +78,9 @@
     "title": "Cybersoc Website Platform",
     "date_start": "2025-11-01",
     "date_end": "2025-11-30",
-    "status": "in-progress",
+    "status": "completed",
 
-    "difficulty": "Beginner",
+    "difficulty": "Intermediate",
     "skills": ["React", "Tailwind", "Version Control", "Frontend Engineering"],
     "learning_outcomes": [
       "Use a modern React codebase",
@@ -91,33 +94,13 @@
     "repo": "https://github.com/baberlabs/cybersoc",
 
     "contributors": [
-      { "person": "baber", "project_role": "Project Lead" },
-      { "person": "michael", "project_role": "Contributor" }
+      {
+        "person": "baber",
+        "project_role": "Design and Development Lead"
+      },
+      { "person": "michael", "project_role": "Content Supervisor" }
     ],
 
-    "location": "Curzon C383"
-  },
-
-  {
-    "id": "silly-malware",
-    "title": "Silly Malware",
-    "date_start": "2025-12-01",
-    "date_end": "2025-12-12",
-    "status": "pending",
-
-    "difficulty": "Beginner",
-    "skills": ["Scripting", "File IO", "Behaviour Analysis"],
-    "learning_outcomes": [
-      "Understand how basic malware logic works",
-      "See how malicious files replicate",
-      "Learn safe analysis habits"
-    ],
-
-    "description_short": "A harmless ‘joke malware’ project teaching how malware behaves without risk.",
-    "description_long": "A small hands-on introduction to malware fundamentals. The project demonstrates how simple malicious behaviours operate in controlled, safe, non-destructive ways. Students learn the underlying concepts of repetition, persistence, file drops, and behavioural quirks used by real malware, without interacting with any harmful code.",
-
-    "repo": "",
-    "contributors": [],
     "location": "Curzon C383"
   }
 ]

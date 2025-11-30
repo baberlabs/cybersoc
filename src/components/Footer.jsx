@@ -17,12 +17,11 @@ const Footer = () => {
 
   return (
     <footer className="relative mt-28 border-t border-white/10 bg-black/60 backdrop-blur-sm text-sm">
-      {/* Subtle top accent */}
       <div className="pointer-events-none absolute inset-x-0 -top-px h-px bg-linear-to-r from-transparent via-white/15 to-transparent" />
 
       <div className="container">
-        <div className="grid gap-12 md:grid-cols-4 p-8 md:px-0">
-          {/* LEFT: Branding */}
+        <div className="grid gap-12 md:grid-cols-5 p-8 md:px-0">
+          {/* BRAND */}
           <div className="space-y-5 col-span-2">
             <div className="flex items-center gap-3">
               <img
@@ -54,7 +53,7 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* MIDDLE: Site Nav */}
+          {/* SITE */}
           <div>
             <SectionHeading>Site</SectionHeading>
             <ul className="space-y-2 text-white/70">
@@ -76,7 +75,19 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* RIGHT: External */}
+          {/* POLICIES ✅ NEW */}
+          <div>
+            <SectionHeading>Policies</SectionHeading>
+            <ul className="space-y-2 text-white/70">
+              <FooterLink href="/governance">Governance</FooterLink>
+              <FooterLink href="/code-of-conduct">Code of Conduct</FooterLink>
+              <FooterLink href="/ethics">Ethics Policy</FooterLink>
+              <FooterLink href="/safeguarding">Safeguarding</FooterLink>
+              <FooterLink href="/data-protection">Data Protection</FooterLink>
+            </ul>
+          </div>
+
+          {/* CONNECT */}
           <div>
             <SectionHeading>Connect</SectionHeading>
             <ul className="space-y-2 text-white/70">
@@ -84,7 +95,7 @@ const Footer = () => {
                 href="https://www.bcusu.com/organisation/24254/"
                 icon={<FaGlobe />}
               >
-                BCUSU Page
+                BCUSU
               </FooterLink>
               <FooterLink
                 href="https://discord.com/invite/3HcCg7sCqz"
@@ -106,11 +117,9 @@ const Footer = () => {
               </FooterLink>
             </ul>
 
-            {/* CTA strip */}
             <div className="mt-6 rounded-lg border border-white/10 bg-black/30 p-3">
               <p className="text-xs text-white/60">
-                Join our Discord to meet members, get updates, and find
-                resources.
+                Join our Discord to meet members and access resources.
               </p>
               <a
                 href="https://discord.com/invite/3HcCg7sCqz"
@@ -125,7 +134,6 @@ const Footer = () => {
         </div>
       </div>
 
-      {/* Bottom divider glow */}
       <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
     </footer>
   );
@@ -142,11 +150,9 @@ const FooterLink = ({ href, children, icon }) => (
   <li>
     <a
       href={href}
-      target="_blank"
-      rel="noopener noreferrer"
       className="flex items-center gap-2 rounded-md px-2 py-1 transition-colors hover:text-white"
     >
-      <span className="text-white/50">{icon}</span>
+      {icon && <span className="text-white/50">{icon}</span>}
       <span>{children}</span>
     </a>
   </li>

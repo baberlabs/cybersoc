@@ -1,30 +1,64 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
+
+const NAV_LINKS = [
+  { to: "/", label: "Home" },
+  { to: "/projects", label: "Projects" },
+  { to: "/events", label: "Events" },
+  { to: "/blog", label: "Blog" },
+  { to: "/resources", label: "Resources" },
+  { to: "/contact", label: "Contact" },
+];
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
-  const toggle = () => setOpen((o) => !o);
-  const close = () => setOpen(false);
+  const close = useCallback(() => setOpen(false), []);
+  const toggle = useCallback(() => setOpen((o) => !o), []);
 
-  // Close on ESC
+  // Lock body scroll when menu is open
   useEffect(() => {
-    const onKey = (e) => e.key === "Escape" && close();
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, []);
+    if (!open) return;
 
-  // Close when clicking outside menu
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [open]);
+
+  // Close on ESC (only when open)
   useEffect(() => {
-    const onClick = (e) => {
-      if (open && menuRef.current && !menuRef.current.contains(e.target)) {
+    if (!open) return;
+
+    const onKey = (e) => {
+      if (e.key === "Escape") {
         close();
+        buttonRef.current?.focus();
       }
     };
-    document.addEventListener("mousedown", onClick);
-    return () => document.removeEventListener("mousedown", onClick);
-  }, [open]);
+
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, close]);
+
+  // Close on outside click (pointer-safe, only when open)
+  useEffect(() => {
+    if (!open) return;
+
+    const onPointer = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        close();
+        buttonRef.current?.focus();
+      }
+    };
+
+    document.addEventListener("pointerdown", onPointer);
+    return () => document.removeEventListener("pointerdown", onPointer);
+  }, [open, close]);
 
   const linkClass = ({ isActive }) =>
     `relative px-3 py-2 text-sm font-medium transition-colors
@@ -37,7 +71,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/75 backdrop-blur-xl mb-24 md:mb-32">
       <div className="container flex h-20 md:h-24 items-center justify-between">
-        {/* Logo block */}
+        {/* Logo */}
         <NavLink
           to="/"
           onClick={close}
@@ -53,12 +87,14 @@ const Header = () => {
           </span>
         </NavLink>
 
-        {/* Mobile button */}
+        {/* Mobile toggle */}
         <button
+          ref={buttonRef}
           type="button"
           onClick={toggle}
           aria-label="Toggle navigation"
           aria-expanded={open}
+          aria-controls="primary-navigation"
           className="md:hidden flex h-9 w-9 items-center justify-center rounded-md border border-white/20 text-white/80 transition hover:border-white/40 hover:text-white"
         >
           <span className="flex h-4 w-5 flex-col justify-between">
@@ -68,8 +104,9 @@ const Header = () => {
           </span>
         </button>
 
-        {/* Nav */}
+        {/* Navigation */}
         <nav
+          id="primary-navigation"
           ref={menuRef}
           aria-label="Primary"
           className={`${
@@ -77,38 +114,14 @@ const Header = () => {
           } absolute left-0 top-full w-full flex-col gap-4 bg-black/95 backdrop-blur-xl px-6 py-6 border-b border-white/10
               md:static md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:bg-transparent md:p-0 md:border-none`}
         >
-          {/* Link group */}
+          {/* Links */}
           <div className="flex flex-col gap-2 md:flex-row md:gap-2 lg:gap-6">
-            <NavLink to="/" onClick={close} className={linkClass}>
-              Home
-            </NavLink>
-            <NavLink to="/projects" onClick={close} className={linkClass}>
-              Projects
-            </NavLink>
-            <NavLink to="/events" onClick={close} className={linkClass}>
-              Events
-            </NavLink>
-            <NavLink to="/blog" onClick={close} className={linkClass}>
-              Blog
-            </NavLink>
-            <NavLink to="/resources" onClick={close} className={linkClass}>
-              Resources
-            </NavLink>
-            <NavLink to="/contact" onClick={close} className={linkClass}>
-              Contact
-            </NavLink>
+            {NAV_LINKS.map(({ to, label }) => (
+              <NavLink key={to} to={to} onClick={close} className={linkClass}>
+                {label}
+              </NavLink>
+            ))}
           </div>
-
-          {/* CTA */}
-          <a
-            href="https://www.bcusu.com/organisation/24254/"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={close}
-            className="inline-flex items-center justify-center rounded-full bg-white px-4 py-1.5 text-sm font-semibold text-black shadow-sm shadow-white/20 transition hover:bg-neutral-100 md:ml-4"
-          >
-            Join Free
-          </a>
         </nav>
       </div>
     </header>

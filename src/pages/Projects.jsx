@@ -213,6 +213,20 @@ const Projects = () => {
         </p>
       </header>
 
+      <article className="mb-12 rounded-smooth border border-white/10 bg-white/[0.04] px-6 py-4 text-sm text-white/70">
+        <p>
+          If you participated in a project and would like to be added as a
+          contributor, please contact the Web Platform Engineer (Baber Khan) via
+          LinkedIn or Discord (see the Contact page).
+        </p>
+
+        <p className="mt-2">
+          If your name appears in the contributors list and you would like it
+          removed, you may also request removal at any time. No reason is
+          required for the removal of any data related to you.
+        </p>
+      </article>
+
       {/* MOBILE TOC */}
       <MobileProjectsTOC
         active={active}
