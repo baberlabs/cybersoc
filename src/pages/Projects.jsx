@@ -144,18 +144,18 @@ const ProjectCard = ({ project, people }) => {
         </div>
       )}
 
-      {/* External Links */}
       {(repo?.trim() || linkedin?.trim() || live?.trim()) && (
-        <div className="mt-2 flex flex-wrap items-center gap-5 text-xs font-medium text-white/45">
+        <div className="mt-2 flex flex-wrap items-center gap-4 text-xs text-white/50">
           {repo?.trim() && (
             <a
               href={repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-teal-200/80 transition hover:text-white focus:text-white focus:outline-none"
+              className="inline-flex items-center gap-1 font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/40 hover:text-cyan-100"
             >
-              <FaSquareGithub size={13} />
-              <span>Source code</span>
+              <FaSquareGithub size={12} />
+              <span>Source Code</span>
+              <span aria-hidden="true">↗</span>
             </a>
           )}
 
@@ -164,10 +164,11 @@ const ProjectCard = ({ project, people }) => {
               href={live}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-teal-200/80 transition hover:text-white focus:text-white focus:outline-none"
+              className="inline-flex items-center gap-1 font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/40 hover:text-cyan-100"
             >
-              <FaGlobe size={13} />
-              <span>Live view</span>
+              <FaGlobe size={12} />
+              <span>Live View</span>
+              <span aria-hidden="true">↗</span>
             </a>
           )}
 
@@ -176,10 +177,11 @@ const ProjectCard = ({ project, people }) => {
               href={linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-teal-200/80 transition hover:text-white focus:text-white focus:outline-none"
+              className="inline-flex items-center gap-1 font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/40 hover:text-cyan-100"
             >
-              <FaLinkedin size={13} />
-              <span>Project post</span>
+              <FaLinkedin size={12} />
+              <span>Project Post</span>
+              <span aria-hidden="true">↗</span>
             </a>
           )}
         </div>
