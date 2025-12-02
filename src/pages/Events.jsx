@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { FaGlobe, FaLinkedin } from "react-icons/fa6";
 import { LuCalendarDays, LuClock3, LuMapPin } from "react-icons/lu";
 
 const formatDate = (iso) => {
@@ -40,8 +41,9 @@ const EventCard = ({
   date_end,
   time,
   location,
-  link,
-  linkText,
+  linkedin,
+  other_link,
+  other_link_text,
   variant,
 }) => {
   const colorClasses =
@@ -97,15 +99,34 @@ const EventCard = ({
 
       <p className="mb-4 text-white/80">{description}</p>
 
-      {link && link.trim() !== "" && (
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/60 hover:text-cyan-100"
-        >
-          {linkText || "Learn more"}
-        </a>
+      {/* External Links */}
+
+      {(linkedin?.trim() || other_link?.trim()) && (
+        <div className="mt-2 flex flex-wrap items-center gap-5 text-xs font-medium text-white/45">
+          {linkedin?.trim() && (
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-teal-200/80 transition hover:text-white focus:text-white focus:outline-none"
+            >
+              <FaLinkedin size={13} />
+              <span>Event post</span>
+            </a>
+          )}
+
+          {other_link?.trim() && (
+            <a
+              href={other_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-teal-200/80 transition hover:text-white focus:text-white focus:outline-none"
+            >
+              <FaGlobe size={13} />
+              <span>{other_link_text || "Read more"}</span>
+            </a>
+          )}
+        </div>
       )}
     </article>
   );

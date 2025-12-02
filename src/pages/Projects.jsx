@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { LuCalendarDays, LuMapPin } from "react-icons/lu";
 import { useSocietyData } from "../hooks/useSocietyData";
-import { FaLinkedin, FaSquareGithub } from "react-icons/fa6";
+import { FaGlobe, FaLinkedin, FaSquareGithub } from "react-icons/fa6";
 
 const formatDate = (iso) => {
   const d = new Date(iso + "T00:00:00");
@@ -56,6 +56,8 @@ const ProjectCard = ({ project, people }) => {
     date_end,
     status,
     repo,
+    linkedin,
+    live,
     contributors = [],
     location,
     difficulty,
@@ -91,10 +93,12 @@ const ProjectCard = ({ project, people }) => {
             ? `${formatDate(date_start)} – ${formatDate(date_end)}`
             : `Started ${formatDate(date_start)}`}
         </p>
-        <p className="flex items-center gap-2">
-          <LuMapPin className="text-white/40" />
-          {location}
-        </p>
+        {location && (
+          <p className="flex items-center gap-2">
+            <LuMapPin className="text-white/40" />
+            {location}
+          </p>
+        )}
       </div>
 
       {/* Skills */}
@@ -136,23 +140,49 @@ const ProjectCard = ({ project, people }) => {
           <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/50">
             Contributors
           </p>
-          <ContributorsList
-            contributors={project.contributors}
-            resolve={resolve}
-          />
+          <ContributorsList contributors={contributors} resolve={resolve} />
         </div>
       )}
 
-      {/* Repo link */}
-      {repo && repo.trim() !== "" && (
-        <a
-          href={repo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex flex-row items-center gap-2 text-sm font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/60 hover:text-cyan-100"
-        >
-          <FaSquareGithub size={20} /> View repository
-        </a>
+      {/* External Links */}
+      {(repo?.trim() || linkedin?.trim() || live?.trim()) && (
+        <div className="mt-2 flex flex-wrap items-center gap-5 text-xs font-medium text-white/45">
+          {repo?.trim() && (
+            <a
+              href={repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-teal-200/80 transition hover:text-white focus:text-white focus:outline-none"
+            >
+              <FaSquareGithub size={13} />
+              <span>Source code</span>
+            </a>
+          )}
+
+          {live?.trim() && (
+            <a
+              href={live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-teal-200/80 transition hover:text-white focus:text-white focus:outline-none"
+            >
+              <FaGlobe size={13} />
+              <span>Live view</span>
+            </a>
+          )}
+
+          {linkedin?.trim() && (
+            <a
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-teal-200/80 transition hover:text-white focus:text-white focus:outline-none"
+            >
+              <FaLinkedin size={13} />
+              <span>Project post</span>
+            </a>
+          )}
+        </div>
       )}
     </article>
   );
