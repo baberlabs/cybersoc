@@ -111,7 +111,7 @@ const EventCard = ({
               className="inline-flex items-center gap-1 font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/40 hover:text-cyan-100"
             >
               <FaLinkedin size={12} />
-              <span>Project Post</span>
+              <span>Event Post</span>
               <span aria-hidden="true">↗</span>
             </a>
           )}
