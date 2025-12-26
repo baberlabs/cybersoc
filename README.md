@@ -1,63 +1,142 @@
-# Cybersoc Website
+# Cybersoc Website Platform
 
-This is the official website for the Birmingham City University Cyber Security Society.  
-It gives students a clear place to learn what the society does, when it meets, and how to join.
+The official web platform for the Birmingham City University **Cyber Security Society** (Cybersoc).
 
-## What It Offers
+This repository contains the full source code for the society's public website, including events, projects, resources, and publicly available governance documents. The platform is designed to be maintainable across academic years and committee handovers.
 
-- Overview of the society’s purpose and activities
-- Weekly meeting time and location
-- Updates on events, workshops, and projects
-- Study resources and learning support
-- Direct links to membership, Discord, and socials
+Live site: [https://bcucybersoc.com](https://bcucybersoc.com)
 
-## Main Sections
-
-- **Home:** Quick introduction + join links
-- **Projects:** Society-led learning and coding projects
-- **Events:** Upcoming sessions and past highlights
-- **Resources:** Study material and useful references
-- **Contact:** Reach the team or join the Discord
-
-## Links
-
-- **Membership (BCUSU):** https://www.bcusu.com/organisation/24254/
-- **Discord Server:** https://discord.gg/bcucybersoc
-- **Instagram:** https://www.instagram.com/bcucybersoc/
-- **LinkedIn:** https://www.linkedin.com/company/bcu-cyber-security-society/
+---
 
 ## Purpose
 
-The website keeps all information in one place so new and existing members can stay informed, participate easily, and get the support they need.
+The website serves as Cybersoc's single authoritative public interface. It is used to:
 
-## Run Locally
+- Publish events, projects, and learning resources
+- Document society activity and outputs
+- Provide transparent governance, ethics, and safeguarding information
+- Act as a maintained technical platform supporting student-led society activities
 
-- Clone the repository.
+The platform prioritises clarity, accessibility, legal compliance, and long-term maintainability over novelty or excessive interactivity.
 
-```bash
-git clone https://github.com/baberlabs/cybersoc
+---
+
+## Architectural Overview
+
+- **Frontend:** React (SPA) with React Router
+- **Styling:** Tailwind CSS v4
+- **Build tooling:** Vite
+- **Content model:** JSON-driven, static data files
+- **Deployment:** Static hosting on Netlify (no backend services)
+
+There is intentionally:
+
+- no authentication
+- no user tracking or analytics
+- no server-side code
+- no database
+
+This keeps the platform transparent, auditable, and low-risk.
+
+---
+
+## Content & Data Model
+
+All site content is stored as structured JSON files under `/public/data/`.
+
+Examples include:
+
+- `events.json`
+- `projects.json`
+- `resources.json`
+- `members.json`
+- `committee_roles.json`
+- `committee_assignments.json`
+
+Pages and components consume these files at runtime. This allows non-developers to update site content without modifying application logic and ensures continuity during committee transitions.
+
+Blog posts are written in Markdown with `front-matter` metadata and rendered client-side.
+
+---
+
+## Governance & Compliance
+
+The platform explicitly reflects Cybersoc's governance and compliance responsibilities.
+
+Included public documents:
+
+- Governance structure
+- Code of Conduct
+- Ethical Use Policy
+- Safeguarding Policy
+- Data Protection notice (UK GDPR aligned)
+
+No personal data is collected or processed beyond explicitly consented committee information. Contributors may request removal of their data at any time.
+
+---
+
+## Repository Structure (high-level)
+
+```text
+src/
+  components/           # Reusable UI components
+  pages/                # Route-level pages
+  hooks/                # Data and domain hooks
+  lib/                  # Domain logic (semester/project rules)
+  index.css             # Global styles and typography
+  main.jsx              # Application entry point
+
+public/
+  data/                 # JSON content files
+  images/               # Static assets
 ```
 
-- Enter `cybersoc` folder
+---
+
+## Local Development
+
+### Requirements
+
+- Node.js (LTS recommended)
+
+### Setup
+
+Clone the repository:
 
 ```bash
-cd cybersoc
+git clone https://github.com/baberlabs/cybersoc && cd cybersoc
 ```
 
-- Install packages:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-- Start development server:
+Run the development server:
 
 ```bash
 npm run dev
 ```
 
-The website should be live on `http://localhost:5173`.
+The site will be available at: `http://localhost:5173`.
 
-## Contribute
+---
 
-To contribute, message **@Baber** in the **general-chat** channel on the Cybersoc Discord server or DM privately.
+## Contributions
+
+This repository is maintained by the Cybersoc technical team.
+
+Students may contribute through:
+
+- Society projects
+- Approved fixes or enhancements
+- Content updates under committee guidance
+
+For access, coordination, or questions, [contact](https://bcucybersoc.com/contact) the current _Web Platform Engineer_ via Cybersoc Discord or LinkedIn.
+
+---
+
+## License & Usage
+
+This repository supports the operations of the Birmingham City University Cyber Security Society (Cybersoc). Source code may be referenced for educational purposes. Society branding, content, and identity are not licensed for reuse.
