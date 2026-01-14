@@ -70,7 +70,7 @@ const ProjectCard = ({ project, people }) => {
   return (
     <article
       id={id}
-      className="rounded-smooth border border-white/10 bg-white/[0.02] p-6 shadow-sm transition hover:border-white/25 hover:bg-white/[0.05] hover:shadow-hover"
+      className="rounded-smooth border border-white/10 bg-white/2 p-6 shadow-sm transition hover:border-white/25 hover:bg-white/5 hover:shadow-hover"
     >
       {/* Status + difficulty */}
       <div className="mb-3 flex flex-wrap items-center gap-2">
@@ -245,7 +245,7 @@ const Projects = () => {
         </p>
       </header>
 
-      <article className="mb-12 rounded-smooth border border-white/10 bg-white/[0.04] px-6 py-4 text-sm text-white/70">
+      <article className="mb-12 rounded-smooth border border-white/10 bg-white/4 px-6 py-4 text-sm text-white/70">
         <p>
           If you participated in a project and would like to be added as a
           contributor, please contact the Web Platform Engineer (Baber Khan) via
@@ -526,14 +526,14 @@ const MobileProjectsTOC = ({
     <div className="lg:hidden mb-10">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full rounded-smooth border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-white flex justify-between"
+        className="w-full rounded-smooth border border-white/10 bg-white/4 px-4 py-3 text-sm font-semibold text-white flex justify-between"
       >
         Jump to project
         <span>{open ? "▲" : "▼"}</span>
       </button>
 
       {open && (
-        <div className="mt-3 rounded-smooth border border-white/10 bg-white/[0.03] p-4 space-y-6 text-sm">
+        <div className="mt-3 rounded-smooth border border-white/10 bg-white/3 p-4 space-y-6 text-sm">
           {/* ACTIVE */}
           {active.length > 0 && (
             <div>

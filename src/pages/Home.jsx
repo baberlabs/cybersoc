@@ -282,7 +282,7 @@ const StatCard = ({ label, value }) => (
 );
 
 const InfoCard = ({ title, text }) => (
-  <article className="rounded-smooth border border-white/10 bg-white/[0.02] p-5 shadow-sm transition-colors hover:bg-white/[0.06]">
+  <article className="rounded-smooth border border-white/10 bg-white/6 p-5 shadow-sm transition-colors hover:bg-white/6">
     <h3 className="mb-2 text-lg font-semibold text-white">{title}</h3>
     <p className="text-sm leading-relaxed text-white/70">{text}</p>
   </article>
@@ -292,7 +292,7 @@ const StepCard = ({ step, title, body, href, linkText }) => {
   const external = href.startsWith("http");
 
   return (
-    <li className="flex flex-col gap-2 rounded-smooth border border-white/10 bg-white/[0.02] p-4">
+    <li className="flex flex-col gap-2 rounded-smooth border border-white/10 bg-white/2 p-4">
       <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-cyan-400/60 text-xs font-semibold text-cyan-200">
         {step}
       </span>
