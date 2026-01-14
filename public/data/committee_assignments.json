@@ -4,5 +4,8 @@
   { "role": "treasurer", "person": "zak" },
   { "role": "participation", "person": "rafi" },
   { "role": "ctf_captain", "person": "tayyeb" },
-  { "role": "web_engineer", "person": "baber" }
+  { "role": "web_engineer", "person": "baber" },
+  { "role": "graphics_designer", "person": "adam" },
+  { "role": "social_media_manager", "person": "hamza" },
+  { "role": "workshop_assistant", "person": "orlando" }
 ]

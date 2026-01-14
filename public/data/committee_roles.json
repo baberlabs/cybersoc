@@ -16,25 +16,22 @@
   },
 
   {
+    "id": "workshop_assistant",
+    "title": "Workshop Assistant",
+    "type": "internal"
+  },
+  {
+    "id": "graphics_designer",
+    "title": "Graphics Designer",
+    "type": "internal"
+  },
+  {
+    "id": "social_media_manager",
+    "title": "Social Media Manager",
+    "type": "internal"
+  },
+  {
     "id": "internal_future_1",
-    "title": "Internal role (TBD)",
-    "type": "internal",
-    "placeholder": true
-  },
-  {
-    "id": "internal_future_2",
-    "title": "Internal role (TBD)",
-    "type": "internal",
-    "placeholder": true
-  },
-  {
-    "id": "internal_future_3",
-    "title": "Internal role (TBD)",
-    "type": "internal",
-    "placeholder": true
-  },
-  {
-    "id": "internal_future_4",
     "title": "Internal role (TBD)",
     "type": "internal",
     "placeholder": true

@@ -58,5 +58,20 @@
     "id": "shaun",
     "name": "Shaun",
     "linkedin": ""
+  },
+  {
+    "id": "orlando",
+    "name": "Orlando Igwe",
+    "linkedin": "https://www.linkedin.com/in/orlando-igwe/"
+  },
+  {
+    "id": "adam",
+    "name": "Adam Khattab",
+    "linkedin": "https://www.linkedin.com/in/adamkhattab/"
+  },
+  {
+    "id": "hamza",
+    "name": "Mohammad Hamza",
+    "linkedin": "https://www.linkedin.com/in/mohammad-hamza-97729322b/"
   }
 ]
