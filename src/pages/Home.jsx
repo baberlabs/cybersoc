@@ -43,6 +43,11 @@ const Home = () => {
     };
   }, []);
 
+  const monthYear = new Intl.DateTimeFormat("en-GB", {
+    month: "short",
+    year: "numeric",
+  }).format(new Date());
+
   return (
     <main id="main" className="container text-white flex flex-col gap-20">
       {/* HERO */}
@@ -91,7 +96,10 @@ const Home = () => {
 
           {/* Stats */}
           <dl className="mt-6 flex flex-row gap-2">
-            <StatCard label="Total members (as of Nov 2025)" value="125+" />
+            <StatCard
+              label={`Total members (as of ${monthYear})`}
+              value="125+"
+            />
             <StatCard label="Active projects" value={stats.active} />
             <StatCard label="Completed projects" value={stats.completed} />
           </dl>
