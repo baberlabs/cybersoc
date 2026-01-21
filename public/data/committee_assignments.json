@@ -7,5 +7,6 @@
   { "role": "web_engineer", "person": "baber" },
   { "role": "graphics_designer", "person": "adam" },
   { "role": "social_media_manager", "person": "hamza" },
-  { "role": "workshop_assistant", "person": "orlando" }
+  { "role": "workshop_assistant", "person": "orlando" },
+  { "role": "cyber_security_researcher", "person": "bilal" }
 ]

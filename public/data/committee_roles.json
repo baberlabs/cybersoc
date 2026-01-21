@@ -31,6 +31,11 @@
     "type": "internal"
   },
   {
+    "id": "cyber_security_researcher",
+    "title": "Cyber Security Researcher",
+    "type": "internal"
+  },
+  {
     "id": "internal_future_1",
     "title": "Internal role (TBD)",
     "type": "internal",
