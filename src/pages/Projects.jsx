@@ -47,7 +47,7 @@ const StatusBadge = ({ status }) => {
   );
 };
 
-const ProjectCard = ({ project, people }) => {
+const ProjectCard = ({ project, members }) => {
   const {
     id,
     title,
@@ -65,7 +65,7 @@ const ProjectCard = ({ project, people }) => {
     learning_outcomes = [],
   } = project;
 
-  const resolve = (id) => people.find((p) => p.id === id);
+  const resolve = (id) => members.find((p) => p.id === id);
 
   return (
     <article
@@ -191,11 +191,11 @@ const ProjectCard = ({ project, people }) => {
 };
 
 const Projects = () => {
-  const { projects, people } = useSocietyData();
+  const { projects, members } = useSocietyData();
 
   // Sort newest first by start date
   const sorted = [...projects].sort(
-    (a, b) => new Date(b.date_start) - new Date(a.date_start)
+    (a, b) => new Date(b.date_start) - new Date(a.date_start),
   );
 
   const now = new Date();
@@ -227,7 +227,7 @@ const Projects = () => {
     return Object.entries(groups).sort(([a], [b]) => new Date(b) - new Date(a));
   })();
 
-  const resolve = (id) => people.find((p) => p.id === id);
+  const resolve = (id) => members.find((p) => p.id === id);
 
   return (
     <main id="main" className="container">
@@ -292,7 +292,7 @@ const Projects = () => {
             ) : (
               <div className="grid gap-6 md:grid-cols-2">
                 {active.map((p) => (
-                  <ProjectCard key={p.id} project={p} people={people} />
+                  <ProjectCard key={p.id} project={p} members={members} />
                 ))}
               </div>
             )}
@@ -315,7 +315,7 @@ const Projects = () => {
             ) : (
               <div className="grid gap-6 md:grid-cols-2">
                 {upcoming.map((p) => (
-                  <ProjectCard key={p.id} project={p} people={people} />
+                  <ProjectCard key={p.id} project={p} members={members} />
                 ))}
               </div>
             )}
@@ -342,7 +342,7 @@ const Projects = () => {
                     </h3>
                     <div className="grid gap-6 md:grid-cols-2">
                       {items.map((p) => (
-                        <ProjectCard key={p.id} project={p} people={people} />
+                        <ProjectCard key={p.id} project={p} members={members} />
                       ))}
                     </div>
                   </div>
@@ -364,7 +364,7 @@ const Projects = () => {
             ) : (
               <div className="grid gap-6 md:grid-cols-2">
                 {archived.map((p) => (
-                  <ProjectCard key={p.id} project={p} people={people} />
+                  <ProjectCard key={p.id} project={p} members={members} />
                 ))}
               </div>
             )}

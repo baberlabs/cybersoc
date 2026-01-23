@@ -1,12 +1,10 @@
 [
-  { "role": "president", "person": "michael" },
-  { "role": "secretary", "person": "shakayat" },
-  { "role": "treasurer", "person": "zak" },
-  { "role": "participation", "person": "rafi" },
-  { "role": "ctf_captain", "person": "tayyeb" },
-  { "role": "web_engineer", "person": "baber" },
-  { "role": "graphics_designer", "person": "adam" },
-  { "role": "social_media_manager", "person": "hamza" },
-  { "role": "workshop_assistant", "person": "orlando" },
-  { "role": "cyber_security_researcher", "person": "bilal" }
+  { "role_id": "president", "member_id": "michael" },
+  { "role_id": "secretary", "member_id": "shakayat" },
+  { "role_id": "treasurer", "member_id": "zak" },
+  { "role_id": "participation", "member_id": "rafi" },
+  { "role_id": "ctf_captain", "member_id": "tayyeb" },
+  { "role_id": "web_engineer", "member_id": "baber" },
+  { "role_id": "social_media_manager", "member_id": "hamza" },
+  { "role_id": "workshop_assistant", "member_id": "orlando" }
 ]

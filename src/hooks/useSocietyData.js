@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 
 export const useSocietyData = () => {
   const [data, setData] = useState({
-    people: [],
+    members: [],
     roles: [],
-    committee: [],
+    assignments: [],
     projects: [],
   });
 
@@ -14,8 +14,13 @@ export const useSocietyData = () => {
       fetch("/data/committee_roles.json").then((r) => r.json()),
       fetch("/data/committee_assignments.json").then((r) => r.json()),
       fetch("/data/projects.json").then((r) => r.json()),
-    ]).then(([people, roles, committee, projects]) => {
-      setData({ people, roles, committee, projects });
+    ]).then(([members, roles, assignments, projects]) => {
+      setData({
+        members,
+        roles,
+        assignments,
+        projects,
+      });
     });
   }, []);
 

@@ -1,13 +1,29 @@
 [
-  { "id": "president", "title": "President", "type": "bcusu" },
-  { "id": "secretary", "title": "Secretary", "type": "bcusu" },
-  { "id": "treasurer", "title": "Treasurer", "type": "bcusu" },
+  {
+    "id": "president",
+    "title": "President",
+    "type": "bcusu"
+  },
+  {
+    "id": "secretary",
+    "title": "Secretary",
+    "type": "bcusu"
+  },
+  {
+    "id": "treasurer",
+    "title": "Treasurer",
+    "type": "bcusu"
+  },
   {
     "id": "participation",
     "title": "Participation & Inclusion Officer",
     "type": "bcusu"
   },
-  { "id": "ctf_captain", "title": "CTF & Hackathons Captain", "type": "bcusu" },
+  {
+    "id": "ctf_captain",
+    "title": "CTF & Hackathons Captain",
+    "type": "bcusu"
+  },
 
   {
     "id": "web_engineer",
@@ -29,16 +45,5 @@
     "id": "social_media_manager",
     "title": "Social Media Manager",
     "type": "internal"
-  },
-  {
-    "id": "cyber_security_researcher",
-    "title": "Cyber Security Researcher",
-    "type": "internal"
-  },
-  {
-    "id": "internal_future_1",
-    "title": "Internal role (TBD)",
-    "type": "internal",
-    "placeholder": true
   }
 ]
