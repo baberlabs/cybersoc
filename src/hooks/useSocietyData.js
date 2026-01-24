@@ -6,6 +6,7 @@ export const useSocietyData = () => {
     roles: [],
     assignments: [],
     projects: [],
+    departments: [],
   });
 
   useEffect(() => {
@@ -14,12 +15,14 @@ export const useSocietyData = () => {
       fetch("/data/committee_roles.json").then((r) => r.json()),
       fetch("/data/committee_assignments.json").then((r) => r.json()),
       fetch("/data/projects.json").then((r) => r.json()),
-    ]).then(([members, roles, assignments, projects]) => {
+      fetch("/data/departments.json").then((r) => r.json()),
+    ]).then(([members, roles, assignments, projects, departments]) => {
       setData({
         members,
         roles,
         assignments,
         projects,
+        departments,
       });
     });
   }, []);
