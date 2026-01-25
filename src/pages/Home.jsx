@@ -1,47 +1,10 @@
 import { Link } from "react-router-dom";
+import { useStats } from "../hooks/useStats";
+
 import ThisSemester from "../components/ThisSemester";
-import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [stats, setStats] = useState({
-    active: 0,
-    completed: 0,
-  });
-
-  useEffect(() => {
-    let cancelled = false;
-
-    fetch("/data/projects.json")
-      .then((r) => {
-        if (!r.ok) throw new Error("Failed to load projects");
-        return r.json();
-      })
-      .then((projects) => {
-        if (cancelled || !Array.isArray(projects)) return;
-
-        const counts = projects.reduce(
-          (acc, p) => {
-            const status = p.status ?? "unknown";
-
-            if (status === "in-progress") acc.active += 1;
-            else if (status === "completed") acc.completed += 1;
-
-            return acc;
-          },
-          { active: 0, completed: 0 }
-        );
-
-        setStats(counts);
-      })
-      .catch((err) => {
-        console.error("Project stats failed:", err);
-        setStats({ active: 0, completed: 0 });
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const { stats, loading } = useStats();
 
   const monthYear = new Intl.DateTimeFormat("en-GB", {
     month: "short",
@@ -100,8 +63,14 @@ const Home = () => {
               label={`Total members (as of ${monthYear})`}
               value="125+"
             />
-            <StatCard label="Active projects" value={stats.active} />
-            <StatCard label="Completed projects" value={stats.completed} />
+            <StatCard
+              label="Active projects"
+              value={loading ? "Loading..." : stats.active}
+            />
+            <StatCard
+              label="Completed projects"
+              value={loading ? "Loading..." : stats.completed}
+            />
           </dl>
         </div>
 
@@ -247,8 +216,8 @@ const CTAButton = ({ to, label, variant }) => {
     variant === "primary"
       ? "bg-white text-black hover:bg-neutral-100 shadow-[0_0_16px_rgba(255,255,255,0.25)]"
       : variant === "secondary"
-      ? "border border-white/25 text-white/90 hover:bg-white/[0.06]"
-      : "text-white/75 hover:text-white";
+        ? "border border-white/25 text-white/90 hover:bg-white/[0.06]"
+        : "text-white/75 hover:text-white";
 
   const className = `${base} ${styles}`;
 
