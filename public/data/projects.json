@@ -1,5 +1,36 @@
 [
   {
+    "id": "social-engineering-ai-toolkit",
+    "title": "Social Engineering AI Toolkit",
+    "date_start": "2026-02-04",
+    "date_end": "2026-02-25",
+    "status": "in-progress",
+    "difficulty": "Hard",
+    "skills": [
+      "Python",
+      "C++",
+      "Artificial Intelligence",
+      "Prompt Engineering",
+      "Social Engineering",
+      "Computer Vision",
+      "Embedded Systems"
+    ],
+    "description_short": "A multi-module cybersecurity toolkit that demonstrates and detects modern social engineering attacks across biometric impersonation, AI prompt exploitation, and phishing via text and voice.",
+    "description_long": "A research-driven cybersecurity defense suite focused on the human element of security. The toolkit consists of three parallel modules: a biometric identity verification system using computer vision and embedded hardware; a controlled GenAI vulnerability lab demonstrating prompt injection and chatbot jailbreaking; and a communication threat scanner that analyses email, SMS, and voice data for phishing and social engineering patterns. Designed for hands-on demonstrations, security education, and applied research within Cybersoc.",
+    "repo": "https://github.com/Oliyxz/Social-Engineering-AI-Toolkit",
+    "linkedin": "",
+    "live": "",
+    "location": "Curzon C385",
+    "contributors": [
+      { "person": "orlando", "project_role": "Project Lead" },
+      { "person": "hamish", "project_role": "Jailbroken AI Team" },
+      { "person": "baber", "project_role": "Jailbroken AI Team" },
+      { "person": "shakayat", "project_role": "Jailbroken AI Team" },
+      { "person": "zak", "project_role": "Biometric ID Verificaton Team" },
+      { "person": "peace", "project_role": "Fraud Detection Team" }
+    ]
+  },
+  {
     "id": "p4sspl01t",
     "title": "P4sspl01t Ethical Security Tool",
     "date_start": "2025-10-01",
