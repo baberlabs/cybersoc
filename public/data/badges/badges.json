@@ -1,0 +1,9 @@
+{
+  "hackathon-winning-team": {
+    "name": "Cyber Security Society Hackathon - Winning Team",
+    "issuer": "BCU Cyber Security Society",
+    "description": "Awarded to members of the winning team at an official Cybersoc hackathon.",
+    "criteria": "Placed first in a Cybersoc-run hackathon event.",
+    "badge_image": "/images/badges/cyber-security-hackathon-winning-team.png"
+  }
+}
