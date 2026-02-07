@@ -2,9 +2,9 @@
   {
     "id": "research",
     "name": "Research Department",
-    "description": "Researches current cyber security threats, techniques, and best practices, with the aim of producing technical write-ups and research papers.",
+    "description": "Researches current cyber security threats, techniques, and best practices.",
     "members": [
-      { "id": "tayyeb", "role": "Department Manager" },
+      { "id": "tayyeb", "role": "Head of Research" },
       { "id": "michael", "role": "Security Researcher" },
       { "id": "bilal", "role": "Security Researcher" }
     ]
@@ -12,7 +12,7 @@
   {
     "id": "writing",
     "name": "Writing Department",
-    "description": "Produces written content, documentation, and articles to communicate Cybersoc’s technical work clearly and accessibly.",
-    "members": []
+    "description": "Produces written content, documentation, and articles.",
+    "members": [{ "id": "daeron", "role": "Technical Blog Writer" }]
   }
 ]
