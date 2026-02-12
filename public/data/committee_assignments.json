@@ -6,5 +6,6 @@
   { "role_id": "ctf_captain", "member_id": "tayyeb" },
   { "role_id": "web_engineer", "member_id": "baber" },
   { "role_id": "social_media_manager", "member_id": "hamza" },
+  { "role_id": "ai_security_lead", "member_id": "orlando" },
   { "role_id": "workshop_assistant", "member_id": "orlando" }
 ]

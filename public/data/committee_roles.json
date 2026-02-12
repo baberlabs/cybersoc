@@ -37,6 +37,11 @@
     "type": "internal"
   },
   {
+    "id": "ai_security_lead",
+    "title": "AI Security Lead",
+    "type": "internal"
+  },
+  {
     "id": "graphics_designer",
     "title": "Graphics Designer",
     "type": "internal"

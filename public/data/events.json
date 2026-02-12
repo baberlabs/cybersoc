@@ -5,7 +5,7 @@
     "date_start": "2026-02-12",
     "date_end": "2026-02-12",
     "time": "15:00-20:00",
-    "ongoing": false,
+    "ongoing": true,
     "location": "STEAMHouse CST203",
     "description": "Get hands-on real-world cyber challenges in a fun, supportive environment. No prior experience is needed. AI use is allowed and encouraged. Apply solo or in a team. Whether you're new to cyber security or just want to test your skills, come along and get involved.",
     "other_link": "https://luma.com/bge41d58",
