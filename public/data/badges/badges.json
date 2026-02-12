@@ -5,5 +5,12 @@
     "description": "Awarded to members of the winning team at an official Cybersoc hackathon.",
     "criteria": "Placed first in a Cybersoc-run hackathon event.",
     "badge_image": "/images/badges/cyber-security-hackathon-winning-team.png"
+  },
+  "hackathon-participant": {
+    "name": "Cyber Security Society Hackathon - Participant",
+    "issuer": "BCU Cyber Security Society",
+    "description": "Awarded to registered participants of an official Cybersoc hackathon.",
+    "criteria": "Participated in a Cybersoc-run hackathon event.",
+    "badge_image": "/images/badges/cyber-security-hackathon-participant.png"
   }
 }

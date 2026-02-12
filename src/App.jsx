@@ -42,7 +42,7 @@ const App = () => {
           <Route path="/safeguarding" element={<Safeguarding />} />
           <Route path="/data-protection" element={<DataProtection />} />
 
-          <Route path="/badges/:badgeId/:recipientSlug" element={<Badge />} />
+          <Route path="/badges/:awardId" element={<Badge />} />
         </Routes>
       </div>
 

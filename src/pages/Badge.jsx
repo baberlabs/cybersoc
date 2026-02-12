@@ -3,8 +3,8 @@ import { useBadge } from "../hooks/useBadge";
 import { formatMonthYear } from "../lib/formatMonthYear";
 
 const Badge = () => {
-  const { badgeId, recipientSlug } = useParams();
-  const { badge, award, error } = useBadge({ badgeId, recipientSlug });
+  const { awardId } = useParams();
+  const { badge, award, error } = useBadge({ awardId });
 
   if (error) {
     return (
@@ -36,9 +36,6 @@ const Badge = () => {
     );
   }
 
-  const theadCellClass = "font-semibold p-4 text-xs border border-white/15";
-  const tbodyCellClass = "p-4 text-xs border border-white/15";
-
   return (
     <main id="main" className="container text-white max-w-5xl">
       <header className="mb-10">
@@ -48,23 +45,6 @@ const Badge = () => {
         <h1 className="text-4xl font-extrabold">{badge.name}</h1>
       </header>
 
-      {/* 
-      
-      - Recipient name
-      - Recipient linkedin
-
-      - Badge Name
-      - Badge Issuer
-      - Badge Description
-      - Badge Criteria
-      - Badge Image
-
-      - Event
-      - Issue date
-      - Event URL
-      
-      */}
-
       <section className="space-y-6 text-white/80">
         <p>
           This is to confirm that <strong>{award.recipient.name}</strong> has
@@ -72,31 +52,6 @@ const Badge = () => {
         </p>
 
         <p className="p-2 bg-cyan-700">{badge.description}</p>
-
-        {/* <table className="border border-white/15 border-collapse">
-        <thead>
-          <tr>
-            <td className={theadCellClass}>Recipient</td>
-            <td className={theadCellClass}>Badge</td>
-            <td className={theadCellClass}>Issuer</td>
-            <td className={theadCellClass}>Description</td>
-            <td className={theadCellClass}>Criteria</td>
-            <td className={theadCellClass}>Event</td>
-            <td className={theadCellClass}>Issue Date</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className={tbodyCellClass}>{award.recipient.name}</td>
-            <td className={tbodyCellClass}>{badge.name}</td>
-            <td className={tbodyCellClass}>{badge.issuer}</td>
-            <td className={tbodyCellClass}>{badge.description}</td>
-            <td className={tbodyCellClass}>{badge.criteria}</td>
-            <td className={tbodyCellClass}><Link to={award.event_url} className="text-xs font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/60 hover:text-cyan-100">{award.event}</Link></td>
-            <td className={tbodyCellClass}>{formatMonthYear(award.issue_date)}</td>
-          </tr>
-        </tbody>
-      </table> */}
 
         <article className="flex flex-col border border-white/15">
           {[
@@ -115,11 +70,11 @@ const Badge = () => {
           ))}
         </article>
 
-        <div className="flex justify-center">
+        <div className="mt-6 flex justify-center">
           <img
             src={badge.badge_image}
             alt={`Badge image for ${badge.name}`}
-            className="size-100 select-none pointer-events-none"
+            className="size-50 md:size-60 lg:size-100 select-none pointer-events-none"
             draggable="false"
           />
         </div>

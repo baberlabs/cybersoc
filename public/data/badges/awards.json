@@ -1,9 +1,10 @@
 [
   {
+    "id": "c4c7487d-8d1c-4adb-ab5f-812bc0b3b6e7",
     "badge_id": "hackathon-winning-team",
     "recipient": {
-      "slug": "baber-khan",
       "name": "Baber Khan",
+      "email": "baber.khan@mail.bcu.ac.uk",
       "linkedin": "https://www.linkedin.com/in/baberr"
     },
     "event": "Cybersoc Hackathon 2026",

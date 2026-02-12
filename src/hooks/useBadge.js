@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { useSocietyData } from "./useSocietyData";
 
-export const useBadge = ({ badgeId, recipientSlug }) => {
+export const useBadge = ({ awardId }) => {
   const [badge, setBadge] = useState(null);
   const [award, setAward] = useState(null);
   const [error, setError] = useState("");
@@ -26,17 +25,16 @@ export const useBadge = ({ badgeId, recipientSlug }) => {
         const badges = await badgesRes.json();
         const awards = await awardsRes.json();
 
-        const badgeDef = badges[badgeId];
-        if (!badgeDef) {
-          throw new Error("Badge not found");
-        }
-
-        const awardEntry = awards.find(
-          (a) => a.badge_id === badgeId && a.recipient.slug === recipientSlug,
-        );
+        const awardEntry = awards.find((award) => award.id == awardId);
 
         if (!awardEntry) {
           throw new Error("Award not found");
+        }
+
+        const badgeDef = badges[awardEntry.badge_id];
+
+        if (!badgeDef) {
+          throw new Error("Badge definition not found");
         }
 
         if (!cancelled) {
@@ -55,11 +53,12 @@ export const useBadge = ({ badgeId, recipientSlug }) => {
     return () => {
       cancelled = true;
     };
-  }, [badgeId, recipientSlug]);
+  }, [awardId]);
 
   return {
     badge,
     award,
     error,
+    loading,
   };
 };
