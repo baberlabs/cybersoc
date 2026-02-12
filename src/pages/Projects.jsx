@@ -47,7 +47,7 @@ const StatusBadge = ({ status }) => {
   );
 };
 
-const ProjectCard = ({ project, people }) => {
+const ProjectCard = ({ project, members }) => {
   const {
     id,
     title,
@@ -65,12 +65,12 @@ const ProjectCard = ({ project, people }) => {
     learning_outcomes = [],
   } = project;
 
-  const resolve = (id) => people.find((p) => p.id === id);
+  const resolve = (id) => members.find((p) => p.id === id);
 
   return (
     <article
       id={id}
-      className="rounded-smooth border border-white/10 bg-white/[0.02] p-6 shadow-sm transition hover:border-white/25 hover:bg-white/[0.05] hover:shadow-hover"
+      className="rounded-smooth border border-white/10 bg-white/2 p-6 shadow-sm transition hover:border-white/25 hover:bg-white/5 hover:shadow-hover"
     >
       {/* Status + difficulty */}
       <div className="mb-3 flex flex-wrap items-center gap-2">
@@ -191,11 +191,11 @@ const ProjectCard = ({ project, people }) => {
 };
 
 const Projects = () => {
-  const { projects, people } = useSocietyData();
+  const { projects, members } = useSocietyData();
 
   // Sort newest first by start date
   const sorted = [...projects].sort(
-    (a, b) => new Date(b.date_start) - new Date(a.date_start)
+    (a, b) => new Date(b.date_start) - new Date(a.date_start),
   );
 
   const now = new Date();
@@ -227,7 +227,7 @@ const Projects = () => {
     return Object.entries(groups).sort(([a], [b]) => new Date(b) - new Date(a));
   })();
 
-  const resolve = (id) => people.find((p) => p.id === id);
+  const resolve = (id) => members.find((p) => p.id === id);
 
   return (
     <main id="main" className="container">
@@ -245,7 +245,7 @@ const Projects = () => {
         </p>
       </header>
 
-      <article className="mb-12 rounded-smooth border border-white/10 bg-white/[0.04] px-6 py-4 text-sm text-white/70">
+      <article className="mb-12 rounded-smooth border border-white/10 bg-white/4 px-6 py-4 text-sm text-white/70">
         <p>
           If you participated in a project and would like to be added as a
           contributor, please contact the Web Platform Engineer (Baber Khan) via
@@ -292,7 +292,7 @@ const Projects = () => {
             ) : (
               <div className="grid gap-6 md:grid-cols-2">
                 {active.map((p) => (
-                  <ProjectCard key={p.id} project={p} people={people} />
+                  <ProjectCard key={p.id} project={p} members={members} />
                 ))}
               </div>
             )}
@@ -315,7 +315,7 @@ const Projects = () => {
             ) : (
               <div className="grid gap-6 md:grid-cols-2">
                 {upcoming.map((p) => (
-                  <ProjectCard key={p.id} project={p} people={people} />
+                  <ProjectCard key={p.id} project={p} members={members} />
                 ))}
               </div>
             )}
@@ -342,7 +342,7 @@ const Projects = () => {
                     </h3>
                     <div className="grid gap-6 md:grid-cols-2">
                       {items.map((p) => (
-                        <ProjectCard key={p.id} project={p} people={people} />
+                        <ProjectCard key={p.id} project={p} members={members} />
                       ))}
                     </div>
                   </div>
@@ -364,7 +364,7 @@ const Projects = () => {
             ) : (
               <div className="grid gap-6 md:grid-cols-2">
                 {archived.map((p) => (
-                  <ProjectCard key={p.id} project={p} people={people} />
+                  <ProjectCard key={p.id} project={p} members={members} />
                 ))}
               </div>
             )}
@@ -526,14 +526,14 @@ const MobileProjectsTOC = ({
     <div className="lg:hidden mb-10">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full rounded-smooth border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-white flex justify-between"
+        className="w-full rounded-smooth border border-white/10 bg-white/4 px-4 py-3 text-sm font-semibold text-white flex justify-between"
       >
         Jump to project
         <span>{open ? "▲" : "▼"}</span>
       </button>
 
       {open && (
-        <div className="mt-3 rounded-smooth border border-white/10 bg-white/[0.03] p-4 space-y-6 text-sm">
+        <div className="mt-3 rounded-smooth border border-white/10 bg-white/3 p-4 space-y-6 text-sm">
           {/* ACTIVE */}
           {active.length > 0 && (
             <div>

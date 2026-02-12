@@ -124,7 +124,7 @@ const FilterPill = ({ label, active, onClick }) => (
     className={`rounded-full px-3 py-1 text-xs font-semibold tracking-wide border transition ${
       active
         ? "border-white bg-white text-black"
-        : "border-white/20 text-white/70 hover:bg-white/[0.06]"
+        : "border-white/20 text-white/70 hover:bg-white/6"
     }`}
   >
     {label}

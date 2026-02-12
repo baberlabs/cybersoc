@@ -16,6 +16,8 @@ import EthicsPolicy from "./pages/EthicsPolicy";
 import Safeguarding from "./pages/Safeguarding";
 import DataProtection from "./pages/DataProtection";
 
+import Badge from "./pages/Badge";
+
 import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
@@ -39,6 +41,8 @@ const App = () => {
           <Route path="/ethics" element={<EthicsPolicy />} />
           <Route path="/safeguarding" element={<Safeguarding />} />
           <Route path="/data-protection" element={<DataProtection />} />
+
+          <Route path="/badges/:awardId" element={<Badge />} />
         </Routes>
       </div>
 

@@ -243,14 +243,14 @@ const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
     <div className="lg:hidden mb-10">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full rounded-smooth border border-white/10 bg-white/[0.04] px-4 py-3 text-sm font-semibold text-white flex justify-between"
+        className="w-full rounded-smooth border border-white/10 bg-white/4 px-4 py-3 text-sm font-semibold text-white flex justify-between"
       >
         Jump to event
         <span>{open ? "▲" : "▼"}</span>
       </button>
 
       {open && (
-        <div className="mt-3 rounded-smooth border border-white/10 bg-white/[0.03] p-4 space-y-6 text-sm">
+        <div className="mt-3 rounded-smooth border border-white/10 bg-white/4 p-4 space-y-6 text-sm">
           {/* Next */}
           {nextEvent && (
             <Section label="Next event">

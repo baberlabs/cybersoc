@@ -98,9 +98,9 @@ const Header = () => {
           className="md:hidden flex h-9 w-9 items-center justify-center rounded-md border border-white/20 text-white/80 transition hover:border-white/40 hover:text-white"
         >
           <span className="flex h-4 w-5 flex-col justify-between">
-            <span className="h-[2px] w-full bg-current" />
-            <span className="h-[2px] w-full bg-current" />
-            <span className="h-[2px] w-full bg-current" />
+            <span className="h-0.5 w-full bg-current" />
+            <span className="h-0.5 w-full bg-current" />
+            <span className="h-0.5 w-full bg-current" />
           </span>
         </button>
 

@@ -1,47 +1,11 @@
 import { Link } from "react-router-dom";
+import { useStats } from "../hooks/useStats";
+import { getCurrentMonthYear } from "../lib/getCurrentMonthYear";
+
 import ThisSemester from "../components/ThisSemester";
-import { useEffect, useState } from "react";
 
 const Home = () => {
-  const [stats, setStats] = useState({
-    active: 0,
-    completed: 0,
-  });
-
-  useEffect(() => {
-    let cancelled = false;
-
-    fetch("/data/projects.json")
-      .then((r) => {
-        if (!r.ok) throw new Error("Failed to load projects");
-        return r.json();
-      })
-      .then((projects) => {
-        if (cancelled || !Array.isArray(projects)) return;
-
-        const counts = projects.reduce(
-          (acc, p) => {
-            const status = p.status ?? "unknown";
-
-            if (status === "in-progress") acc.active += 1;
-            else if (status === "completed") acc.completed += 1;
-
-            return acc;
-          },
-          { active: 0, completed: 0 }
-        );
-
-        setStats(counts);
-      })
-      .catch((err) => {
-        console.error("Project stats failed:", err);
-        setStats({ active: 0, completed: 0 });
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+  const { stats, loading } = useStats();
 
   return (
     <main id="main" className="container text-white flex flex-col gap-20">
@@ -91,9 +55,18 @@ const Home = () => {
 
           {/* Stats */}
           <dl className="mt-6 flex flex-row gap-2">
-            <StatCard label="Total members (as of Nov 2025)" value="125+" />
-            <StatCard label="Active projects" value={stats.active} />
-            <StatCard label="Completed projects" value={stats.completed} />
+            <StatCard
+              label={`Total members (as of ${getCurrentMonthYear})`}
+              value="125+"
+            />
+            <StatCard
+              label="Active projects"
+              value={loading ? "Loading..." : stats.active}
+            />
+            <StatCard
+              label="Completed projects"
+              value={loading ? "Loading..." : stats.completed}
+            />
           </dl>
         </div>
 
@@ -239,8 +212,8 @@ const CTAButton = ({ to, label, variant }) => {
     variant === "primary"
       ? "bg-white text-black hover:bg-neutral-100 shadow-[0_0_16px_rgba(255,255,255,0.25)]"
       : variant === "secondary"
-      ? "border border-white/25 text-white/90 hover:bg-white/[0.06]"
-      : "text-white/75 hover:text-white";
+        ? "border border-white/25 text-white/90 hover:bg-white/[0.06]"
+        : "text-white/75 hover:text-white";
 
   const className = `${base} ${styles}`;
 
@@ -274,7 +247,7 @@ const StatCard = ({ label, value }) => (
 );
 
 const InfoCard = ({ title, text }) => (
-  <article className="rounded-smooth border border-white/10 bg-white/[0.02] p-5 shadow-sm transition-colors hover:bg-white/[0.06]">
+  <article className="rounded-smooth border border-white/10 bg-white/6 p-5 shadow-sm transition-colors hover:bg-white/6">
     <h3 className="mb-2 text-lg font-semibold text-white">{title}</h3>
     <p className="text-sm leading-relaxed text-white/70">{text}</p>
   </article>
@@ -284,7 +257,7 @@ const StepCard = ({ step, title, body, href, linkText }) => {
   const external = href.startsWith("http");
 
   return (
-    <li className="flex flex-col gap-2 rounded-smooth border border-white/10 bg-white/[0.02] p-4">
+    <li className="flex flex-col gap-2 rounded-smooth border border-white/10 bg-white/2 p-4">
       <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-cyan-400/60 text-xs font-semibold text-cyan-200">
         {step}
       </span>

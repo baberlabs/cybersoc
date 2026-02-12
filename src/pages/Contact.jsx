@@ -1,6 +1,9 @@
 import { useEffect, useState, useMemo } from "react";
 import { FaDiscord, FaInstagram, FaLinkedin } from "react-icons/fa6";
 import { useSocietyData } from "../hooks/useSocietyData";
+import { useCommittee } from "../hooks/useCommittee";
+import { useDepartments } from "../hooks/useDepartments";
+import { ImInfo } from "react-icons/im";
 
 const ICON_MAP = {
   bcusu: "/icons/bcusu.svg",
@@ -12,7 +15,8 @@ const ICON_MAP = {
 const Contact = () => {
   const [contacts, setContacts] = useState([]);
 
-  const { people, roles, committee } = useSocietyData();
+  const { committeeMembers, vacantRoles } = useCommittee();
+  const { membersByDepartments } = useDepartments();
 
   // Load platform links
   useEffect(() => {
@@ -21,53 +25,6 @@ const Contact = () => {
       .then((data) => setContacts(data || []))
       .catch(() => setContacts([]));
   }, []);
-
-  // ---------- Derived committee data ----------
-
-  const { members, vacantRoles, futureInternal } = useMemo(() => {
-    if (!people || !roles || !committee) {
-      return { members: [], vacantRoles: [] };
-    }
-
-    const roleById = Object.fromEntries(roles.map((r) => [r.id, r]));
-    const personById = Object.fromEntries(people.map((p) => [p.id, p]));
-
-    // personId -> { person, roles: Role[] }
-    const personRoleMap = {};
-
-    committee.forEach((assignment) => {
-      const person = personById[assignment.person];
-      const role = roleById[assignment.role];
-      if (!person || !role) return;
-
-      if (!personRoleMap[person.id]) {
-        personRoleMap[person.id] = { person, roles: [] };
-      }
-      personRoleMap[person.id].roles.push(role);
-    });
-
-    // Sort roles by priority for each member
-    const sortRoles = (roleList) =>
-      [...roleList].sort((a, b) => (a.priority ?? 999) - (b.priority ?? 999));
-
-    let membersArr = Object.values(personRoleMap).map((entry) => ({
-      person: entry.person,
-      roles: sortRoles(entry.roles),
-    }));
-
-    // Vacant roles = roles that do not appear in any assignment
-    const assignedRoleIds = new Set(committee.map((a) => a.role));
-    const vacant = roles.filter(
-      (r) => !assignedRoleIds.has(r.id) && !r.placeholder
-    );
-
-    const futureInternal = roles.filter((r) => r.placeholder);
-    return {
-      members: membersArr,
-      vacantRoles: vacant,
-      futureInternal: futureInternal,
-    };
-  }, [people, roles, committee]);
 
   return (
     <main id="main" className="container text-white flex flex-col gap-20">
@@ -132,27 +89,22 @@ const Contact = () => {
             </p>
           </div>
 
-          {members.length > 0 && (
+          {committeeMembers.length > 0 && (
             <p className="text-xs text-white/50">
-              {members.length} committee member
-              {members.length > 1 ? "s" : ""} listed
+              {committeeMembers.length} committee member
+              {committeeMembers.length > 1 ? "s" : ""} listed
             </p>
           )}
         </div>
 
         {/* Members grid */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {members.map(({ person, roles }) => (
-            <CommitteeCard
-              key={person.id}
-              name={person.name}
-              linkedin={person.linkedin}
-              roles={roles.map((r) => r.title)}
-            />
+          {committeeMembers.map((member) => (
+            <CommitteeCard key={member.id} member={member} />
           ))}
         </div>
 
-        {(vacantRoles.length > 0 || futureInternal.length > 0) && (
+        {vacantRoles.length > 0 && (
           <section className="mt-12 border-t border-white/10 pt-6 space-y-6">
             {vacantRoles.length > 0 && (
               <div>
@@ -177,22 +129,78 @@ const Contact = () => {
               </div>
             )}
 
-            {futureInternal.length > 0 && (
-              <div>
-                <p className="mb-2 text-xs font-medium uppercase tracking-wide text-white/50">
-                  Future internal roles
-                </p>
+            {/* <div>
+              <p className="mb-2 text-xs font-medium uppercase tracking-wide text-white/50">
+                Future internal roles
+              </p>
 
-                <p className="text-[11px] text-white/45 max-w-prose">
-                  Additional internal positions will be defined later in the
-                  academic year based on the society’s technical and operational
-                  needs.
-                </p>
-              </div>
-            )}
+              <p className="text-[11px] text-white/45 max-w-prose">
+                Additional internal positions will be defined later in the
+                academic year based on the society’s technical and operational
+                needs.
+              </p>
+            </div> */}
           </section>
         )}
+      </section>
 
+      {/* Departments */}
+      <section className="space-y-8">
+        <div>
+          <h2 className="text-2xl font-bold text-white">Departments</h2>
+          <p className="mt-2 text-sm leading-relaxed text-white/70">
+            Departments group members by focus area and responsibility. They
+            support ongoing research, writing, and internal work within the
+            society.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {membersByDepartments.map((department) => (
+            <div key={department.id} className="border border-white/10 p-4">
+              <h3 className="font-semibold">{department.name}</h3>
+              <p className="mt-2 text-[12px] leading-relaxed text-white/70">
+                {department.description}
+              </p>
+              {department.members.length ? (
+                <ul className="mt-6 grid grid-cols-2 gap-2">
+                  {department.members.map((member) => (
+                    <li
+                      key={member.id}
+                      className="relative border border-white/10 bg-neutral-900/40 text-[12px] shadow-sm transition hover:bg-neutral-900/70 p-4"
+                    >
+                      <div className="text-white text-[12px]">
+                        {member.name}
+                      </div>
+                      <div className="text-white/60 text-[11px]">
+                        {member.role}
+                      </div>
+                      {member.linkedin && (
+                        <a
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`LinkedIn profile of ${member.name}`}
+                          className="absolute right-1 top-1 inline-flex h-8 w-8 items-center justify-center rounded-md bg-white/5 text-white/80 transition hover:bg-white/10 hover:text-white"
+                        >
+                          <FaLinkedin size={18} />
+                        </a>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="mt-4 text-[12px] text-white/60 flex flex-row items-center gap-2">
+                  <ImInfo size={12} />
+                  No members have been assigned to this department yet.
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section>
         <p className="text-sm text-white/60">
           Our community standards, safeguarding rules, and ethical policies are
           publicly available under
@@ -263,7 +271,8 @@ function getPlatformDescription(label) {
 /* COMMITTEE CARD                                                             */
 /* -------------------------------------------------------------------------- */
 
-const CommitteeCard = ({ name, linkedin, roles }) => {
+const CommitteeCard = ({ member }) => {
+  const { id, name, linkedin, role, role_type } = member;
   const hasLinkedIn = Boolean(linkedin);
 
   return (
@@ -287,12 +296,12 @@ const CommitteeCard = ({ name, linkedin, roles }) => {
       </div>
 
       <ul className="mb-2 flex flex-wrap gap-2">
-        {roles.map((role) => (
+        {member.roles.map((role) => (
           <li
-            key={role}
+            key={role.id}
             className="rounded-full border border-white/15 bg-white/5 px-2.5 py-0.5 text-[11px] text-white/75"
           >
-            {role}
+            {role.title}
           </li>
         ))}
       </ul>

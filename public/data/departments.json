@@ -1,0 +1,18 @@
+[
+  {
+    "id": "research",
+    "name": "Research Department",
+    "description": "Researches current cyber security threats, techniques, and best practices.",
+    "members": [
+      { "id": "tayyeb", "role": "Head of Research" },
+      { "id": "michael", "role": "Security Researcher" },
+      { "id": "bilal", "role": "Security Researcher" }
+    ]
+  },
+  {
+    "id": "writing",
+    "name": "Writing Department",
+    "description": "Produces written content, documentation, and articles.",
+    "members": [{ "id": "daeron", "role": "Technical Blog Writer" }]
+  }
+]
