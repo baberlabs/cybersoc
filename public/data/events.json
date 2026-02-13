@@ -1,15 +1,15 @@
 [
   {
-    "title": "Cyber Security Society Hackathon",
-    "id": "hackathon-2026-02-12",
+    "title": "Cyber Security Society Hackathon (Cyberthon 2026)",
+    "id": "hackathon-20260212",
     "date_start": "2026-02-12",
     "date_end": "2026-02-12",
-    "time": "15:00-20:00",
-    "ongoing": true,
+    "time": "15:00–20:00",
+    "ongoing": false,
     "location": "STEAMHouse CST203",
-    "description": "Get hands-on real-world cyber challenges in a fun, supportive environment. No prior experience is needed. AI use is allowed and encouraged. Apply solo or in a team. Whether you're new to cyber security or just want to test your skills, come along and get involved.",
-    "other_link": "https://luma.com/bge41d58",
-    "other_link_text": "Apply now (limited spaces available)",
+    "description": "A 5-hour technical hackathon focused on building real security systems under pressure. Over 50 students formed teams and selected one of three advanced security challenges: (1) Intelligent Threat Detection & Incident Correlation from raw logs, (2) Privilege Escalation Detection & IAM Risk Analysis using graph modelling, or (3) AI Application Security & Prompt Injection Defence via secure middleware design. Teams built functional prototypes, defined detection logic, modelled realistic threat scenarios, and pitched their systems to judges at the end. Snacks and drinks were provided throughout. One team was awarded first place for technical depth, clarity of threat modelling, and working implementation.",
+    "other_link": "",
+    "other_link_text": "",
     "participants": []
   },
 
