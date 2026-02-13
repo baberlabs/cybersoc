@@ -17,6 +17,7 @@ import Safeguarding from "./pages/Safeguarding";
 import DataProtection from "./pages/DataProtection";
 
 import Badge from "./pages/Badge";
+import HowToAddBadgeToLinkedInProfile from "./pages/HowToAddBadgeToLinkedInProfile";
 
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -43,6 +44,10 @@ const App = () => {
           <Route path="/data-protection" element={<DataProtection />} />
 
           <Route path="/badges/:awardId" element={<Badge />} />
+          <Route
+            path="/guide/add-badge-to-linkedin-profile"
+            element={<HowToAddBadgeToLinkedInProfile />}
+          />
         </Routes>
       </div>
 
