@@ -62,9 +62,9 @@ const Badge = () => {
             { field: "Criteria", value: badge.criteria },
             {
               field: "Event",
-              value: { event: award.event, url: award.event_url },
+              value: { event: award.event.name, url: award.event.url },
             },
-            { field: "Issue Date", value: formatMonthYear(award.issue_date) },
+            { field: "Issue Date", value: formatMonthYear(award.issueDate) },
           ].map(({ field, value }) => (
             <BadgeInfoRow key={field} field={field} value={value} />
           ))}
