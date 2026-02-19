@@ -57,7 +57,7 @@ const Home = () => {
           <dl className="mt-6 flex flex-row gap-2">
             <StatCard
               label={`Total members (as of ${getCurrentMonthYear})`}
-              value="125+"
+              value="150+"
             />
             <StatCard
               label="Active projects"
