@@ -44,7 +44,10 @@ const HowToAddBadgeToLinkedInProfile = () => {
               <strong>Issue Date:</strong> February 2026.
             </li>
             <li>Leave expiration date empty.</li>
-            <li>Leave Credential ID empty.</li>
+            <li>
+              Paste your <strong>Credential ID</strong>. Leave empty if none
+              provided.
+            </li>
             <li>
               Paste your <strong>Credential URL</strong>.
             </li>
