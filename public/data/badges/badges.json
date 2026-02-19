@@ -1,6 +1,6 @@
 {
   "hackathon-winning-team": {
-    "name": "Cyber Security Society Hackathon - Winning Team",
+    "name": "Cyber Security Society Hackathon - Winning Team Member",
     "issuer": "BCU Cyber Security Society",
     "description": "Awarded to members of the winning team at an official Cybersoc hackathon.",
     "criteria": "Placed first in a Cybersoc-run hackathon event.",
@@ -9,8 +9,22 @@
   "hackathon-participant": {
     "name": "Cyber Security Society Hackathon - Participant",
     "issuer": "BCU Cyber Security Society",
-    "description": "Awarded to registered participants of an official Cybersoc hackathon.",
+    "description": "Awarded to participants of an official Cybersoc hackathon.",
     "criteria": "Participated in a Cybersoc-run hackathon event.",
+    "badge_image": "/images/badges/cyber-security-hackathon-participant.png"
+  },
+  "mini-hackathon-winning-team": {
+    "name": "Cyber Security Society Mini-Hackathon - Winning Team Member",
+    "issuer": "BCU Cyber Security Society",
+    "description": "Awarded to members of the winning team at an official Cybersoc mini-hackathon.",
+    "criteria": "Placed first in a Cybersoc-run mini-hackathon event.",
+    "badge_image": "/images/badges/cyber-security-hackathon-winning-team.png"
+  },
+  "mini-hackathon-participant": {
+    "name": "Cyber Security Society Mini-Hackathon - Participant",
+    "issuer": "BCU Cyber Security Society",
+    "description": "Awarded to participants of an official Cybersoc mini-hackathon.",
+    "criteria": "Participated in a Cybersoc-run mini-hackathon event.",
     "badge_image": "/images/badges/cyber-security-hackathon-participant.png"
   }
 }
