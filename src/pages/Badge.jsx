@@ -41,7 +41,9 @@ const Badge = () => {
       <header className="mb-10">
         <p className="text-xs uppercase tracking-[0.14em] text-white/40 mb-2 flex flex-row gap-x-2">
           Badge{" "}
-          {award.credential_id && <p>(Credential ID {award.credential_id})</p>}
+          {award.credential_id && (
+            <span>(Credential ID {award.credential_id})</span>
+          )}
         </p>
         <h1 className="text-4xl font-extrabold">{badge.name}</h1>
       </header>
