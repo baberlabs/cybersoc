@@ -1,5 +1,229 @@
 [
   {
+    "id": "da5c945c-71f4-4ce1-8358-60015ec2a1fa",
+    "credential_id": "CYBDN260304000",
+    "badgeId": "debate-night-champion",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Baber Khan"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "ca07ef96-6c38-4102-9188-f6552252ea60",
+    "credential_id": "CYBDN260304001",
+    "badgeId": "debate-night-champion",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Shakayat Ali Bhuiyan"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "dfd40e5e-22d4-4f5b-996d-de15841a1e2b",
+    "credential_id": "CYBDN260304002",
+    "badgeId": "debate-night-individual-winner",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Michael Martinak"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "21314ac6-c1b9-4173-8a67-aa5f978d0001",
+    "credential_id": "CYBDN260304003",
+    "badgeId": "debate-night-judge",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Maryam Ahmad"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "2ab2f75c-76c8-4413-ba53-5f2de0bf1835",
+    "credential_id": "CYBDN260304004",
+    "badgeId": "debate-night-judge",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Khadija Bashar"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "d1a36f70-94fd-4ab5-8663-e24003d9b3d9",
+    "credential_id": "CYBDN260304005",
+    "badgeId": "debate-night-judge",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Haroon Irshad"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "6cf9d5eb-f33a-4862-b3cd-1c395cc20daa",
+    "credential_id": "CYBDN260304006",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Mursal Hottak"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "79e5f7c1-a9cf-4342-b11d-4a0c64609e4c",
+    "credential_id": "CYBDN260304007",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Luyando Chonya"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "b1d44354-ea86-4065-b4aa-88e2d3e12d42",
+    "credential_id": "CYBDN260304008",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Jonathan Nwanze"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "f37b9896-7f98-4ae6-9235-e64ca2b0fac5",
+    "credential_id": "CYBDN260304009",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Amaan Jahid"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "f9d1c083-be1a-4dfe-83f1-862560ed1954",
+    "credential_id": "CYBDN260304010",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Ayaan Ahmed"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "6679eda5-2ff3-4449-9324-c809a535aaf9",
+    "credential_id": "CYBDN260304011",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Al Tahsin Rafi"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "0214d1a5-72d9-4391-b78f-c23635d17e28",
+    "credential_id": "CYBDN260304012",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Orlando Igwe"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "63b74f68-03eb-4ff4-bf38-5845b6a86cca",
+    "credential_id": "CYBDN260304013",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Daeron Wallace"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "088eae39-c430-40ae-ad90-d545f89490f9",
+    "credential_id": "CYBDN260304014",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Lilly Morgan"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "091315c0-4835-4201-b1fe-d7b9989da48b",
+    "credential_id": "CYBDN260304015",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Jafita Israr"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
     "id": "a62862e0-bbb2-4058-ae83-699c974d37dd",
     "credential_id": "CYBMH260219001",
     "badgeId": "mini-hackathon-winning-team",
