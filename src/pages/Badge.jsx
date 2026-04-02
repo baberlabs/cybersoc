@@ -39,8 +39,11 @@ const Badge = () => {
   return (
     <main id="main" className="container text-white max-w-5xl">
       <header className="mb-10">
-        <p className="text-xs uppercase tracking-[0.14em] text-white/40 mb-2">
-          Badge
+        <p className="text-xs uppercase tracking-[0.14em] text-white/40 mb-2 flex flex-row gap-x-2">
+          Badge{" "}
+          {award.credential_id && (
+            <span>(Credential ID {award.credential_id})</span>
+          )}
         </p>
         <h1 className="text-4xl font-extrabold">{badge.name}</h1>
       </header>
@@ -62,22 +65,23 @@ const Badge = () => {
             { field: "Criteria", value: badge.criteria },
             {
               field: "Event",
-              value: { event: award.event, url: award.event_url },
+              value: { event: award.event.name, url: award.event.url },
             },
-            { field: "Issue Date", value: formatMonthYear(award.issue_date) },
+            { field: "Issue Date", value: formatMonthYear(award.issueDate) },
           ].map(({ field, value }) => (
             <BadgeInfoRow key={field} field={field} value={value} />
           ))}
         </article>
 
-        <div className="mt-6 flex justify-center">
-          <img
-            src={badge.badge_image}
-            alt={`Badge image for ${badge.name}`}
-            className="size-50 md:size-60 lg:size-100 select-none pointer-events-none"
-            draggable="false"
-          />
-        </div>
+        <Link
+          to="/guide/add-badge-to-linkedin-profile"
+          className="text-xs font-semibold text-cyan-300 underline underline-offset-4 decoration-cyan-500/60 hover:text-cyan-100"
+        >
+          Read this guide on how to add a digital badge to your LinkedIn
+          profile.
+        </Link>
+
+        <BadgeImageDownload badge={badge} />
       </section>
     </main>
   );
@@ -101,6 +105,33 @@ const BadgeInfoRow = ({ field, value }) => {
           value
         )}
       </p>
+    </div>
+  );
+};
+
+const BadgeImageDownload = ({ badge }) => {
+  return (
+    <div className="mt-6 w-fit group">
+      <div className="relative rounded-2xl border border-white/10 bg-neutral-900/60 backdrop-blur-sm shadow-lg transition-all duration-300 group-hover:shadow-cyan-400/20 group-hover:border-cyan-400/40">
+        {/* Badge Container */}
+        <div className="p-6 md:p-8 lg:p-10 flex items-center justify-center">
+          <img
+            src={badge.badge_image}
+            alt={`Badge image for ${badge.name}`}
+            className="w-52 md:w-64 lg:w-72 transition-transform duration-300 group-hover:scale-105"
+            draggable="false"
+          />
+        </div>
+
+        {/* Download Button */}
+        <a
+          href={badge.badge_image}
+          download={`${badge.name.replace(/\s+/g, "-").toLowerCase()}.png`}
+          className="block text-center rounded-b-2xl bg-cyan-400 text-black font-semibold py-3 text-sm tracking-wide transition-all duration-200 hover:bg-cyan-300 active:scale-[0.98]"
+        >
+          Download Badge Image
+        </a>
+      </div>
     </div>
   );
 };

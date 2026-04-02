@@ -5,8 +5,9 @@
     "description": "Researches current cyber security threats, techniques, and best practices.",
     "members": [
       { "id": "tayyeb", "role": "Head of Research" },
-      { "id": "michael", "role": "Security Researcher" },
-      { "id": "bilal", "role": "Security Researcher" }
+      { "id": "michael", "role": "Senior Security Researcher" },
+      { "id": "bilal", "role": "Security Researcher" },
+      { "id": "riyadh", "role": "Security Researcher " }
     ]
   },
   {

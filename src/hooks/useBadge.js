@@ -31,7 +31,7 @@ export const useBadge = ({ awardId }) => {
           throw new Error("Award not found");
         }
 
-        const badgeDef = badges[awardEntry.badge_id];
+        const badgeDef = badges[awardEntry.badgeId];
 
         if (!badgeDef) {
           throw new Error("Badge definition not found");

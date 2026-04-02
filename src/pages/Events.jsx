@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaGlobe, FaLinkedin } from "react-icons/fa6";
 import { LuCalendarDays, LuClock3, LuMapPin } from "react-icons/lu";
+import { deriveEventStatus } from "../lib/deriveEventStatus";
 
 const formatDate = (iso) => {
   const d = new Date(iso + "T00:00:00");
@@ -21,8 +22,8 @@ const Badge = ({ variant, children }) => {
     variant === "ongoing"
       ? "border-cyan-400/30 bg-cyan-400/10 text-cyan-200"
       : variant === "upcoming"
-      ? "border-yellow-400/30 bg-yellow-400/10 text-yellow-200"
-      : "border-white/20 bg-white/5 text-white/60";
+        ? "border-yellow-400/30 bg-yellow-400/10 text-yellow-200"
+        : "border-white/20 bg-white/5 text-white/60";
 
   return (
     <span
@@ -50,22 +51,22 @@ const EventCard = ({
     variant === "ongoing"
       ? "border-cyan-400/25 bg-cyan-400/[0.03]"
       : variant === "upcoming"
-      ? "border-yellow-400/25 bg-yellow-400/[0.03]"
-      : "border-white/10 bg-white/[0.02]";
+        ? "border-yellow-400/25 bg-yellow-400/[0.03]"
+        : "border-white/10 bg-white/[0.02]";
 
   const badgeLabel =
     variant === "ongoing"
       ? "Happening now"
       : variant === "upcoming"
-      ? "Upcoming"
-      : "Completed";
+        ? "Upcoming"
+        : "Completed";
 
   const badgeVariant =
     variant === "ongoing"
       ? "ongoing"
       : variant === "upcoming"
-      ? "upcoming"
-      : "past";
+        ? "upcoming"
+        : "past";
 
   return (
     <article
@@ -340,16 +341,46 @@ const Events = () => {
       .then((data) => setEvents(data));
   }, []);
 
-  const now = new Date();
+  // const now = new Date();
 
-  const ongoing = events.filter((e) => e.ongoing);
+  // const ongoing = events.filter((e) => e.ongoing);
+
+  // const upcoming = events.filter(
+  //   (e) => !e.ongoing && new Date(e.date_start + "T00:00:00") > now
+  // );
+
+  // const past = events.filter(
+  //   (e) => !e.ongoing && new Date(e.date_start + "T00:00:00") < now
+  // );
+
+  // const nextEvent =
+  //   upcoming.length > 0
+  //     ? upcoming.reduce((soonest, e) => {
+  //         const d = new Date(e.date_start + "T00:00:00");
+  //         const s = new Date(soonest.date_start + "T00:00:00");
+  //         return d < s ? e : soonest;
+  //       })
+  //     : null;
+
+  // const upcomingWithoutNext = upcoming.filter((e) => e.id !== nextEvent?.id);
+
+  const sorted = [...events].sort(
+    (a, b) => new Date(b.date_start) - new Date(a.date_start),
+  );
+
+  const ongoing = events.filter(
+    ({ date_start, date_end, time }) =>
+      deriveEventStatus({ date_start, date_end, time }) === "ongoing",
+  );
 
   const upcoming = events.filter(
-    (e) => !e.ongoing && new Date(e.date_start + "T00:00:00") > now
+    ({ date_start, date_end, time }) =>
+      deriveEventStatus({ date_start, date_end, time }) === "upcoming",
   );
 
   const past = events.filter(
-    (e) => !e.ongoing && new Date(e.date_start + "T00:00:00") < now
+    ({ date_start, date_end, time }) =>
+      deriveEventStatus({ date_start, date_end, time }) === "past",
   );
 
   const nextEvent =
@@ -396,7 +427,7 @@ const Events = () => {
       <MobileEventsTOC
         nextEvent={nextEvent}
         ongoing={ongoing}
-        upcoming={upcomingWithoutNext}
+        upcoming={upcoming}
         groupedPast={groupedPast}
       />
 
@@ -405,7 +436,7 @@ const Events = () => {
         <EventsTOC
           nextEvent={nextEvent}
           ongoing={ongoing}
-          upcoming={upcomingWithoutNext}
+          upcoming={upcoming}
           groupedPast={groupedPast}
         />
 
@@ -446,10 +477,10 @@ const Events = () => {
               Upcoming events
             </h2>
             <div className="grid gap-6 md:grid-cols-2">
-              {upcomingWithoutNext.length === 0 ? (
+              {upcoming.length === 0 ? (
                 <p className="text-white/60">No additional upcoming events.</p>
               ) : (
-                upcomingWithoutNext.map((e) => (
+                upcoming.map((e) => (
                   <EventCard key={e.id} {...e} variant="upcoming" />
                 ))
               )}

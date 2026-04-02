@@ -1,16 +1,44 @@
 [
   {
-    "title": "Cyber Security Society Hackathon",
-    "id": "hackathon-2026-02-12",
+    "title": "Games Night Charity Iftar - Cyber Security & Computer Science Collaboration",
+    "id": "charity-iftar-games-night-20260306",
+    "date_start": "2026-03-05",
+    "date_end": "2026-03-05",
+    "time": "17:00-20:00",
+    "location": "Curzon Building C385",
+    "description": "A community charity iftar and games night organised jointly by the BCU Cyber Security Society and the BCU Computer Science Society. The event sold out with 45 tickets within 72 hours and brought members together for an evening of social gaming and community building. Attendees played a wide variety of games including Valorant, CS2, Uno, Chess, Table Tennis, and multiple PS5 and Nintendo titles. The evening also included a three-course iftar meal where members could relax, talk, and meet others from across the computing community. The event combined friendly competition, casual gaming, and shared food to create a welcoming environment for students from different courses and experience levels.",
+    "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_yesterday-we-hosted-a-community-games-night-activity-7435718358035099650-cGsP"
+  },
+
+  {
+    "title": "Debate Night - Cyber Security & Law Collaboration",
+    "id": "debate-night-20260304",
+    "date_start": "2026-03-04",
+    "date_end": "2026-03-04",
+    "time": "15:00-18:00",
+    "location": "Curzon Building C385",
+    "description": "A structured debate event jointly organised by the BCU Cyber Security Society and the BCU Law, Debating and Mooting Society. The session began with an individual round where participants delivered short 2-minute arguments on selected technology and policy topics. The event then moved into a team debate format with four teams composed of members from both societies. Teams presented structured arguments, rebuttals, and closing statements, with judging based on reasoning, clarity, evidence, and debating technique. At the end of the session, one team was recognised as overall debate champion. The event brought together legal reasoning and cybersecurity perspectives to explore real-world ethical and policy questions. Pizzas, cookies, water and soft drinks were served.",
+    "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_this-wednesday-we-hosted-a-debate-night-activity-7435323527395774464-bzDc"
+  },
+  {
+    "title": "Cyber Security Mini-Hackathon (Cyberthon Mini 2026)",
+    "id": "mini-hackathon-20260219",
+    "date_start": "2026-02-19",
+    "date_end": "2026-02-19",
+    "time": "15:00-18:00",
+    "location": "Curzon Building C319/C320",
+    "description": "A 3-hour mini-hackathon built around one deliberately playful challenge: design and build the most creatively 'annoying' security app possible. Participants worked in teams to rapidly prototype applications that interrupt unsafe behaviour, exaggerate security friction, or enforce over-the-top protective controls in humorous but technically functional ways. The focus was creativity, working proof-of-concepts, and clear security reasoning rather than polish. Each team gave a short pitch at the end explaining the insecure behaviour they targeted and how their app 'annoys' users into safer habits. Iftar, snacks, and drinks were provided. A £50 prize was awarded to the winning team.",
+    "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_yesterday-our-members-accepted-the-challenge-activity-7430714402657505281-UEzn"
+  },
+  {
+    "title": "Cyber Security Hackathon (Cyberthon 2026)",
+    "id": "hackathon-20260212",
     "date_start": "2026-02-12",
     "date_end": "2026-02-12",
     "time": "15:00-20:00",
-    "ongoing": false,
     "location": "STEAMHouse CST203",
-    "description": "Get hands-on real-world cyber challenges in a fun, supportive environment. No prior experience is needed. AI use is allowed and encouraged. Apply solo or in a team. Whether you're new to cyber security or just want to test your skills, come along and get involved.",
-    "other_link": "https://luma.com/bge41d58",
-    "other_link_text": "Apply now (limited spaces available)",
-    "participants": []
+    "description": "A 5-hour technical hackathon focused on building real security systems under pressure. Over 50 students formed teams and selected one of three advanced security challenges: (1) Intelligent Threat Detection & Incident Correlation from raw logs, (2) Privilege Escalation Detection & IAM Risk Analysis using graph modelling, or (3) AI Application Security & Prompt Injection Defence via secure middleware design. Teams built functional prototypes, defined detection logic, modelled realistic threat scenarios, and pitched their systems to judges at the end. Snacks and drinks were provided throughout. One team was awarded first place for technical depth, clarity of threat modelling, and working implementation.",
+    "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_on-thursday-this-week-we-hosted-a-security-based-activity-7428104395096997891-i1S8"
   },
 
   {
@@ -18,13 +46,9 @@
     "id": "ctf-series",
     "date_start": "2025-09-22",
     "date_end": "2025-12-12",
-    "ongoing": false,
     "location": "Discord + Independent Work",
     "description": "A 12-week challenge series releasing three TryHackMe offensive security labs weekly, covering OSINT, forensics, reverse engineering, malware, cryptography, networking, penetration testing, and web security. Open all semester with technical support.",
-    "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_launching-bcu-cybersoc-semester-long-tryhackme-activity-7375803362643988480-sIUk",
-    "other_link": "",
-    "other_link_text": "",
-    "participants": []
+    "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_launching-bcu-cybersoc-semester-long-tryhackme-activity-7375803362643988480-sIUk"
   },
 
   {
@@ -32,13 +56,11 @@
     "id": "game-off-2025",
     "date_start": "2025-11-01",
     "date_end": "2025-11-30",
-    "ongoing": false,
     "location": "Curzon C383",
     "description": "Weekly Wednesday sessions with Cyber Security, Computer Science, and Data Science societies to plan and develop entries for the Itch.io Game Off 2025. Includes brainstorming, prototyping, gameplay development, reverse engineering, and collaborative security analysis.",
     "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_bcu-cybersoc-game-off-2025-collaboration-activity-7399867196270764032-GPn9",
     "other_link": "https://itch.io/jam/game-off-2025",
-    "other_link_text": "View Jam",
-    "participants": []
+    "other_link_text": "View Jam"
   },
 
   {
@@ -47,13 +69,8 @@
     "date_start": "2025-10-02",
     "date_end": "2025-10-30",
     "time": "17:00-20:00",
-    "ongoing": false,
     "location": "Discord, every other Thursday",
-    "description": "Community-driven online meets for games, open discussion, event planning, and ideation sessions. Designed to build connections across members.",
-    "linkedin": "",
-    "other_link": "",
-    "other_link_text": "",
-    "participants": []
+    "description": "Community-driven online meets for games, open discussion, event planning, and ideation sessions. Designed to build connections across members."
   },
 
   {
@@ -61,13 +78,9 @@
     "id": "open-day-2025",
     "date_start": "2025-11-15",
     "date_end": "2025-11-15",
-    "time": "09:00–15:00",
-    "ongoing": false,
+    "time": "09:00-15:00",
     "location": "STEAMHouse",
-    "description": "Represented the Cyber Security Society at the BCU Open Day. Spoke with prospective computing and cybersecurity students, introduced the society’s purpose and activities, and supported course leaders during demonstrations.",
-    "linkedin": "",
-    "other_link": "",
-    "other_link_text": "",
+    "description": "Represented the Cyber Security Society at the BCU Open Day. Spoke with prospective computing and cybersecurity students, introduced the society's purpose and activities, and supported course leaders during demonstrations.",
     "participants": [
       "Michael Martinak",
       "Tayyeb Nadeem Somro",
@@ -81,8 +94,7 @@
     "id": "cyber-awareness-2025",
     "date_start": "2025-10-24",
     "date_end": "2025-10-24",
-    "time": "15:00–17:00",
-    "ongoing": false,
+    "time": "15:00-17:00",
     "location": "Millennium Point, MP433",
     "description": "Talks on the impact of cybercrime, cybersecurity career paths, phishing challenges, Google phishing game, sender-verification exercises, Kahoot quiz, and pizza.",
     "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_bcu-cybersoc-cyber-security-awareness-activity-7388266558734753792-7lVL",
@@ -103,13 +115,10 @@
     "id": "big-welcome-2025",
     "date_start": "2025-09-17",
     "date_end": "2025-09-17",
-    "time": "09:00–15:00",
-    "ongoing": false,
+    "time": "09:00-15:00",
     "location": "BCU Big Welcome Fair, City Centre Campus",
-    "description": "The society’s launch event at the Big Welcome Fair. Helped new students across tech degrees, answered questions, gave demos, and led to a 760% membership increase (from 5 to 40+ members).",
+    "description": "The society's launch event at the Big Welcome Fair. Helped new students across tech degrees, answered questions, gave demos, and led to a 760% membership increase (from 5 to 40+ members).",
     "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_bcu-cybersoc-stall-success-at-big-welcome-activity-7374448362927996928-2pzd",
-    "other_link": "",
-    "other_link_text": "",
     "participants": ["Michael Martinak", "Ali Bhuiyan", "Zakaria"]
   }
 ]

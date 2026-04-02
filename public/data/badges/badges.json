@@ -1,6 +1,37 @@
 {
+  "debate-night-champion": {
+    "name": "Debate Night - Champion",
+    "issuer": "BCU Cyber Security Society",
+    "description": "Awarded to members of the team that won the overall Debate Night event.",
+    "criteria": "Awarded to the participants who demonstrated the strongest overall argumentation, reasoning, and debating performance.",
+    "badge_image": "/images/badges/debate-night-champion.png"
+  },
+
+  "debate-night-individual-winner": {
+    "name": "Debate Night - Individual Debate Winner",
+    "issuer": "BCU Cyber Security Society",
+    "description": "Awarded to the highest-scoring speaker in the individual debate round at Debate Night.",
+    "criteria": "Delivered the strongest individual argument in the timed speech round as evaluated by the judging panel.",
+    "badge_image": "/images/badges/debate-night-individual-winner.png"
+  },
+
+  "debate-night-judge": {
+    "name": "Debate Night - Judge",
+    "issuer": "BCU Cyber Security Society",
+    "description": "Awarded to individuals who served as judges during Debate Night.",
+    "criteria": "Evaluated debates, scored arguments, and contributed to determining the event results.",
+    "badge_image": "/images/badges/debate-night-judge.png"
+  },
+
+  "debate-night-participant": {
+    "name": "Debate Night - Participant",
+    "issuer": "BCU Cyber Security Society",
+    "description": "Awarded to participants who took part in Debate Night.",
+    "criteria": "Actively participated in the individual or team debate rounds during the event.",
+    "badge_image": "/images/badges/debate-night-participant.png"
+  },
   "hackathon-winning-team": {
-    "name": "Cyber Security Society Hackathon - Winning Team",
+    "name": "Cyber Security Society Hackathon - Winning Team Member",
     "issuer": "BCU Cyber Security Society",
     "description": "Awarded to members of the winning team at an official Cybersoc hackathon.",
     "criteria": "Placed first in a Cybersoc-run hackathon event.",
@@ -9,8 +40,22 @@
   "hackathon-participant": {
     "name": "Cyber Security Society Hackathon - Participant",
     "issuer": "BCU Cyber Security Society",
-    "description": "Awarded to registered participants of an official Cybersoc hackathon.",
+    "description": "Awarded to participants of an official Cybersoc hackathon.",
     "criteria": "Participated in a Cybersoc-run hackathon event.",
+    "badge_image": "/images/badges/cyber-security-hackathon-participant.png"
+  },
+  "mini-hackathon-winning-team": {
+    "name": "Cyber Security Society Mini-Hackathon - Winning Team Member",
+    "issuer": "BCU Cyber Security Society",
+    "description": "Awarded to members of the winning team at an official Cybersoc mini-hackathon.",
+    "criteria": "Placed first in a Cybersoc-run mini-hackathon event.",
+    "badge_image": "/images/badges/cyber-security-hackathon-winning-team.png"
+  },
+  "mini-hackathon-participant": {
+    "name": "Cyber Security Society Mini-Hackathon - Participant",
+    "issuer": "BCU Cyber Security Society",
+    "description": "Awarded to participants of an official Cybersoc mini-hackathon.",
+    "criteria": "Participated in a Cybersoc-run mini-hackathon event.",
     "badge_image": "/images/badges/cyber-security-hackathon-participant.png"
   }
 }

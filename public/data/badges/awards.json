@@ -1,14 +1,795 @@
 [
   {
-    "id": "c4c7487d-8d1c-4adb-ab5f-812bc0b3b6e7",
-    "badge_id": "hackathon-winning-team",
-    "recipient": {
-      "name": "Baber Khan",
-      "email": "baber.khan@mail.bcu.ac.uk",
-      "linkedin": "https://www.linkedin.com/in/baberr"
+    "id": "da5c945c-71f4-4ce1-8358-60015ec2a1fa",
+    "credential_id": "CYBDN260304000",
+    "badgeId": "debate-night-champion",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
     },
-    "event": "Cybersoc Hackathon 2026",
-    "issue_date": "2026-02",
-    "event_url": "https://bcucybersoc.com/events#hackathon-2026-02-12"
+    "recipient": {
+      "name": "Baber Khan"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "ca07ef96-6c38-4102-9188-f6552252ea60",
+    "credential_id": "CYBDN260304001",
+    "badgeId": "debate-night-champion",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Shakayat Ali Bhuiyan"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "dfd40e5e-22d4-4f5b-996d-de15841a1e2b",
+    "credential_id": "CYBDN260304002",
+    "badgeId": "debate-night-individual-winner",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Michael Martinak"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "21314ac6-c1b9-4173-8a67-aa5f978d0001",
+    "credential_id": "CYBDN260304003",
+    "badgeId": "debate-night-judge",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Maryam Ahmad"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "2ab2f75c-76c8-4413-ba53-5f2de0bf1835",
+    "credential_id": "CYBDN260304004",
+    "badgeId": "debate-night-judge",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Khadija Bashar"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "d1a36f70-94fd-4ab5-8663-e24003d9b3d9",
+    "credential_id": "CYBDN260304005",
+    "badgeId": "debate-night-judge",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Haroon Irshad"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "6cf9d5eb-f33a-4862-b3cd-1c395cc20daa",
+    "credential_id": "CYBDN260304006",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Mursal Hottak"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "79e5f7c1-a9cf-4342-b11d-4a0c64609e4c",
+    "credential_id": "CYBDN260304007",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Luyando Chonya"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "b1d44354-ea86-4065-b4aa-88e2d3e12d42",
+    "credential_id": "CYBDN260304008",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Jonathan Nwanze"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "f37b9896-7f98-4ae6-9235-e64ca2b0fac5",
+    "credential_id": "CYBDN260304009",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Amaan Jahid"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "f9d1c083-be1a-4dfe-83f1-862560ed1954",
+    "credential_id": "CYBDN260304010",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Ayaan Ahmed"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "6679eda5-2ff3-4449-9324-c809a535aaf9",
+    "credential_id": "CYBDN260304011",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Al Tahsin Rafi"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "0214d1a5-72d9-4391-b78f-c23635d17e28",
+    "credential_id": "CYBDN260304012",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Orlando Igwe"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "63b74f68-03eb-4ff4-bf38-5845b6a86cca",
+    "credential_id": "CYBDN260304013",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Daeron Wallace"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "088eae39-c430-40ae-ad90-d545f89490f9",
+    "credential_id": "CYBDN260304014",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Lilly Morgan"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "091315c0-4835-4201-b1fe-d7b9989da48b",
+    "credential_id": "CYBDN260304015",
+    "badgeId": "debate-night-participant",
+    "event": {
+      "name": "Debate Night (Mar 2026)",
+      "url": "https://bcucybersoc.com/events#debate-night-20260304"
+    },
+    "recipient": {
+      "name": "Jafita Israr"
+    },
+    "issueDate": "2026-03"
+  },
+
+  {
+    "id": "a62862e0-bbb2-4058-ae83-699c974d37dd",
+    "credential_id": "CYBMH260219001",
+    "badgeId": "mini-hackathon-winning-team",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Tayyeb Nadeem Somro"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "dd4bb32f-38cd-4101-85ce-d1a941e211e7",
+    "credential_id": "CYBMH260219002",
+    "badgeId": "mini-hackathon-winning-team",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Raheem Temple"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "44c6c10b-78b7-4f0f-a5e6-864d34cf449c",
+    "credential_id": "CYBMH260219003",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Jordan Walters"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "6f89677b-828e-4df1-a1c2-a75af698cbeb",
+    "credential_id": "CYBMH260219004",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Mohamed Hamid"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "ce9a68df-6e24-4943-9212-8554f58d9bc5",
+    "credential_id": "CYBMH260219005",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Mohammed Ahmadzai"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "8017a2ac-7060-4054-9f09-de3dcb0aff3d",
+    "credential_id": "CYBMH260219006",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Adam Khattab"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "881f4420-9711-4b18-ac3c-788038d392ee",
+    "credential_id": "CYBMH260219007",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Ayaan Ahmed"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "4cb1e03f-5475-4b62-9776-8248978a05a5",
+    "credential_id": "CYBMH260219008",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Hamzah Abdur Rahman"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "7ba1917c-6b73-44db-8de0-142499649cb6",
+    "credential_id": "CYBMH260219009",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Ahamed Kawan"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "e229919c-37c4-4bd7-be27-d32bf9553374",
+    "credential_id": "CYBMH260219010",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Waleed Ali"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "c0bd058e-3bcc-4c94-ac43-f89f1cf0b86c",
+    "credential_id": "CYBMH260219011",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Danish Hanif"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "2d368b40-c29b-485c-9efa-16928bc1c62a",
+    "credential_id": "CYBMH260219012",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Usman Basharat"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "c9ef4b02-e5d4-4653-924c-6050d51992fc",
+    "credential_id": "CYBMH260219013",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Hari Pandya"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "ee373c0b-40ed-41ab-8da4-c1670b716905",
+    "credential_id": "CYBMH260219014",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Umar Al-Mahfuz"
+    },
+    "issueDate": "2026-02"
+  },
+
+  {
+    "id": "16013815-54aa-4d93-969e-7e9d66ba2c7f",
+    "credential_id": "CYBMH260219015",
+    "badgeId": "mini-hackathon-participant",
+    "event": {
+      "name": "Cyber Security Mini-Hackathon (Feb 2026)",
+      "url": "https://bcucybersoc.com/events#mini-hackathon-20260219"
+    },
+    "recipient": {
+      "name": "Abdul Quadri Sanusi"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "90f846c1-55b4-4e71-b638-5f97b397c44b",
+    "badgeId": "hackathon-winning-team",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Nisarg Kaushibhai Chasmawala"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "8357d41d-b951-4015-8b96-01e2158be094",
+    "badgeId": "hackathon-winning-team",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Santhakumar Parivallal"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "9f096f6e-3067-4c8a-9d51-adeb9761df8a",
+    "badgeId": "hackathon-winning-team",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Jatin Kumar"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "c4c7487d-8d1c-4adb-ab5f-812bc0b3b6e7",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Mohammed Adnan Gul"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "d4d01271-a9ab-4337-ac18-7cbb09f62818",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Benyamin Bansal"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "82486be5-b594-41b7-90f1-b568bf2ab1f9",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Layton Woods"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "b906dbeb-7fe1-41e3-bf8e-029cd14e20a4",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Mohammed Chowdhury"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "5d8cf1d1-f8be-4199-9092-9c80fa3427c7",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Hamzah Abdur Rahman"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "a3569974-f75c-4d36-a5e0-336aec529e1d",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Brynly Hobson"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "e1ebd9db-28a2-4cd7-84de-2e39a4e13102",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Jordan Walters"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "661f1236-dce1-481a-b3b9-02611eb85102",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Samuel Adegbusi"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "bd8266e7-3c6d-4f93-9565-f701aa76a312",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Saad Mikidam"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "98b287e9-2cb5-4317-ae84-9ae90f205f45",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Sean Allbutt"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "442554e1-9e36-4903-b02c-51af2cef2346",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Raheem Temple"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "caba946f-55b6-4327-bc98-71492ea4d95f",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Amogh Dath Kalasapura Arunkumar"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "95ba8a37-a1d1-456f-9c7f-cf34301a802a",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Rajveer Singh Saini"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "f8673ae9-86a7-48ee-91de-5b619dba5f04",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Harman Singh"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "7a760449-106a-49d8-ad26-9e2e33b0f32d",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Muhammad Hussain Shigry"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "6704e607-c905-40ba-89cc-a3d846569e86",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Izma Batool"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "07b19588-95a5-4fb2-b910-81de9afd4ef4",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Hamza Khan"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "e934fd02-47b5-42be-82c7-bcc9534752f9",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Socrates Lourenco Da Silva Viegas"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "dbfb6378-6457-436f-a60a-5bc9ddf2a60a",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Hari Om Pandya"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "5f2643a0-76d6-4d49-b5c3-189a609331f0",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Obinna Ayerite"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "06995cab-c0fa-424c-838e-3a7d45c7f1e4",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Adam Khattab"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "a125cd11-8472-44e0-b464-5db8dcc2817b",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Kana-Maluwe Adam"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "2551bd65-cfc3-40fc-82a9-41bc83582bc1",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "George James"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "e8c2cece-3376-46ca-a7fc-b9f29a397e8a",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Hamish Dobson-Smyth"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "cd1d0f72-0019-4780-842b-7537c6c37f39",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Victor Murgeneanu"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "baec333d-50fc-48a3-b3b3-e80e4ba7d280",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Ayaan Ahmed"
+    },
+    "issueDate": "2026-02"
+  },
+  {
+    "id": "90f846c1-55b4-4e71-b638-5f97b397c44b",
+    "badgeId": "hackathon-participant",
+    "event": {
+      "name": "Cyber Security Hackathon",
+      "url": "https://bcucybersoc.com/events#hackathon-20260212"
+    },
+    "recipient": {
+      "name": "Nisarg Kaushibhai Chasmawala"
+    },
+    "issueDate": "2026-02"
   }
 ]
