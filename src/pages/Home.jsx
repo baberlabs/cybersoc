@@ -28,17 +28,17 @@ const Home = () => {
             </h1>
 
             <p className="text-xl text-white/80 sm:text-2xl md:text-3xl">
-              Do cyber security, not just hear about it.
+              Learn by doing, with people who will back you.
             </p>
           </header>
 
           {/* Main pitch */}
           <p className="max-w-xl text-lg leading-relaxed text-white/80">
-            Cybersoc is BCU&apos;s technical cyber security society. Each week
-            you work on real security tasks, practical projects, and structured
-            support that fit your level — from first year to master&apos;s and
-            placement students. You leave with skills, evidence, and people who
-            can vouch for you.
+            Cybersoc is BCU&apos;s technical cyber security society. Every week,
+            members get stuck into practical tasks, project work, and guided
+            support that meets them where they are, whether they are in first
+            year, on placement, or doing a master&apos;s. You build real skills,
+            real work to show, and real connections.
           </p>
 
           {/* CTAs */}
@@ -180,8 +180,9 @@ const Home = () => {
           For staff, parents, and partners
         </h2>
         <p className="mb-6 text-white/75">
-          Cybersoc is run to be safe, structured, and useful alongside academic
-          study — not in competition with it.
+          Cybersoc is run to support your degree, not compete with it. We keep
+          sessions practical, safe, and realistic so students can grow without
+          burning out.
         </p>
 
         <div className="grid gap-6 md:grid-cols-3">

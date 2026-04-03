@@ -37,8 +37,8 @@ const Contact = () => {
         <p className="page-kicker">Get in touch</p>
         <h1 className="page-title">Contact</h1>
         <p className="page-intro">
-          Use this page to join the society, find the right channel for your
-          question, or see who&apos;s currently running Cybersoc.
+          Join the society, pick the best contact route for your question, and
+          see who is currently running Cybersoc.
         </p>
         <p className="mt-2 text-sm text-white/60">
           If you&apos;re a student, start with{" "}
@@ -263,7 +263,7 @@ function getPlatformDescription(label) {
     case "instagram":
       return "Event highlights and quick updates";
     case "linkedin":
-      return "Professional posts and public activity";
+      return "Public updates and professional highlights";
     case "bcusu":
       return "Official membership and society admin";
     default:

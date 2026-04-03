@@ -35,8 +35,9 @@ const Footer = () => {
             </div>
 
             <p className="max-w-xl leading-relaxed text-white/65">
-              Technical Cyber Security Society of Birmingham City University.
-              Helping students learn, build, and explore applied security.
+              Birmingham City University&apos;s student cyber security society.
+              We run practical sessions, collaborative projects, and a friendly
+              community for anyone who wants to learn.
             </p>
 
             <div className="flex items-center gap-3 text-xs text-white/50">

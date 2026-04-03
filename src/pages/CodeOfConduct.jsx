@@ -5,8 +5,8 @@ export default function CodeOfConduct() {
         <p className="page-kicker">Standards</p>
         <h1 className="page-title">Code of Conduct</h1>
         <p className="page-intro max-w-3xl text-white/85">
-          These standards protect learning quality, personal safety, and a
-          professional environment for all members and guests.
+          These rules are here to keep Cybersoc safe, respectful, and useful for
+          everyone attending sessions or taking part online.
         </p>
       </header>
 

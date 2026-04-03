@@ -98,8 +98,8 @@ export default function Blogs() {
         <h1 className="page-title">Articles & Write-ups</h1>
 
         <p className="page-intro mt-5">
-          Technical deep dives, project documentation, architecture decisions,
-          and student engineering workflows from the BCU Cyber Security Society.
+          Notes from our builds, lessons learned, and technical write-ups from
+          students in the BCU Cyber Security Society.
         </p>
       </header>
 

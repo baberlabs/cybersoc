@@ -8,61 +8,53 @@ banner: "/images/blog/cybersoc-platform-banner.png"
 excerpt: "A concise breakdown of the engineering and design decisions behind the official BCU Cybersoc website."
 ---
 
-> DISCLAIMER: This blog was prepared with assistance from ChatGPT (November 2025) to test the blog pipeline.
+The Cybersoc website started because our old setup made simple updates harder than they should have been. Committee details changed, events moved around, and project info went out of date quickly.
 
-The Cybersoc website was built to solve a simple problem: student societies operate like real organisations, but their platforms rarely reflect that. The goal was to create a system that is maintainable, scalable, and immediately useful for both students and committee members.
-
-This document outlines the core decisions that shaped the platform.
+We wanted a site that students could trust and committee members could actually maintain during a busy semester.
 
 ---
 
-## 1. Problem Definition
+## 1. What we needed
 
-The website needed to support:
+At minimum, the site had to do five things well:
 
-- Clear and immediate access to events, projects, and resources
-- Accurate, up-to-date committee information
-- A consistent structure across academic years
-- Zero backend dependencies
-- A codebase simple enough for new contributors to understand within a day
-
-The design approach prioritised clarity, maintainability, and predictable behaviour.
+- Show events, projects, and resources without extra clicks
+- Keep committee information accurate
+- Stay easy to update year after year
+- Avoid backend complexity
+- Be simple enough for new student contributors to pick up quickly
 
 ---
 
-## 2. Core Architectural Principles
+## 2. Architecture choices
 
-### **1. Single Source of Truth**
+### 1. One source of truth
 
-One unified data model defines all people, roles, projects, and committee relationships. No duplication. No repeated strings. No hidden references.
+People, roles, projects, and assignments are all mapped from shared data. That means fewer mismatches and fewer copy-paste errors.
 
-### **2. JSON-Driven Content**
+### 2. JSON-first content
 
-All key sections—projects, events, committee roles, contact links—are fully JSON-powered. Updating JSON updates the platform instantly without touching React.
+Most content lives in JSON, so committee updates do not require editing React components.
 
-### **3. Accessibility & Readability**
+### 3. Readability and accessibility
 
-The UI uses semantic HTML, proper spacing, strong contrast, predictable layout, and mobile-first behaviour.
+We focused on clear structure, semantic markup, and readable spacing/contrast on both desktop and mobile.
 
-### **4. Smooth Navigation**
+### 4. Navigation that behaves properly
 
-The site supports:
+Route transitions, scroll reset, and hash links were treated as core UX, not extras.
 
-- Automatic scroll-to-top on route change
-- Scroll position restoration
-- Hash-based navigation (`/events#ctf`)
+### 5. Different audiences, one structure
 
-### **5. Audience-Centered Structure**
-
-The website is designed for nine user groups: first-years, returning students, placement students, master’s students, lecturers, SU staff, employers, parents, and general visitors.
+The site needs to make sense to new students, returning members, staff, and external visitors without becoming cluttered.
 
 ---
 
-## 3. Data Architecture
+## 3. Data model
 
-A structured, minimal set of JSON files powers the entire platform.
+The platform runs on a small set of JSON files with clear responsibilities.
 
-### **people.json**
+### people.json
 
 Stores every person associated with the society.
 
@@ -75,15 +67,15 @@ Stores every person associated with the society.
 }
 ```
 
-### **roles.json**
+### roles.json
 
 Defines every possible committee role.
 
-### **committee.json**
+### committee.json
 
 Maps each role to the person currently holding it.
 
-### **projects.json**
+### projects.json
 
 Each project defines:
 
@@ -94,23 +86,21 @@ Each project defines:
 - Skills, difficulty, outcomes
 - Status: active, upcoming, completed
 
-### **contacts.json**
+### contacts.json
 
 Stores all official platforms: BCUSU, Discord, Instagram, LinkedIn.
 
-#### Benefits of this structure
+#### Why this helped
 
-- Update a person once → reflected across every page
-- Update a role mapping → committee pages update instantly
-- Mark a project “completed” → homepage, semester section, archives all update automatically
-
-This model removes 95% of future maintenance overhead.
+- Update a person once and the change appears everywhere
+- Reassign a role and the committee view updates instantly
+- Change project status and related sections follow automatically
 
 ---
 
-## 4. Projects System
+## 4. Projects section
 
-The Projects section is designed for both quick scanning and detailed reading.
+The projects page had to work for both quick scanning and deeper reading.
 
 ### Key features:
 
@@ -121,13 +111,13 @@ The Projects section is designed for both quick scanning and detailed reading.
 - **Skill and difficulty indicators**
 - **Automatic semester relevance** based on dates
 
-This gives students a clear view of what Cybersoc builds and how to get involved.
+This makes it easier for students to understand what is active and where they can contribute.
 
 ---
 
-## 5. Events System
+## 5. Events section
 
-The Events section mirrors the project architecture but is optimised for time-sensitive information.
+Events follow a similar structure, but tuned for dates and urgency.
 
 ### Features:
 
@@ -139,24 +129,22 @@ The Events section mirrors the project architecture but is optimised for time-se
   - Cyan → ongoing
   - Yellow → upcoming
 
-The system requires no manual sorting or page edits.
+Most ordering happens automatically from event dates.
 
 ---
 
-## 6. Homepage Structure
+## 6. Homepage approach
 
-The homepage is strictly functional and high-signal.
+The homepage is intentionally practical.
 
 ### Sections:
 
 1. **Hero**
-
    - Clear identity statement
    - Two core CTAs
    - Live stats pulled from JSON
 
 2. **This Semester**
-
    - Real-time summaries of active and upcoming projects/events
 
 3. **What You’ll Actually Do**
@@ -164,13 +152,13 @@ The homepage is strictly functional and high-signal.
    - Tiered activities
    - No jargon, no pressure
 
-The page is intentionally minimal to prioritise speed and immediate clarity.
+We kept it lightweight so new visitors can understand the society quickly.
 
 ---
 
-## 7. Contact Page
+## 7. Contact page
 
-This was the most structurally sensitive page.
+This was one of the trickiest pages to get right.
 
 ### Needs addressed:
 
@@ -189,31 +177,19 @@ The final design uses a hybrid layout:
 4. Vacancies
 5. Notices
 
-It avoids redundancy while remaining intuitive for new visitors.
+The final layout avoids duplication and keeps responsibilities clear.
 
 ---
 
-## 8. Header & Navigation
+## 8. Header and navigation
 
-The navigation bar was refined repeatedly for:
-
-- Clean alignment
-- Predictable mobile behaviour
-- Minimal spacing inconsistencies
-- Clear separation of the CTA
-- Smooth scroll handling
-
-The result behaves like a production-ready component rather than a student prototype.
+We iterated several times on spacing, mobile behavior, and clarity so navigation feels stable and predictable.
 
 ---
 
-## 9. Popup System
-
-A lightweight popup system communicates important announcements (e.g., elections). It appears once per session, is dismissible, and avoids disrupting navigation.
-
 ---
 
-## 10. Key Lessons
+## 9. Lessons learned
 
 1. **Systems matter more than pages**  
    Good architecture simplifies everything long-term.
@@ -234,6 +210,4 @@ A lightweight popup system communicates important announcements (e.g., elections
 
 ## Conclusion
 
-The Cybersoc website is built as a long-term, low-maintenance platform with a unified data architecture, predictable navigation, and simple extensibility. The system can grow without redesigns, and future committees can update content without touching the code.
-
-The focus was never on aesthetics alone—it was on structure, clarity, and responsible engineering.
+This project gave Cybersoc a maintainable platform that can be handed over cleanly between committees. The biggest win is not visual polish, it is that members can keep content current without fighting the codebase.

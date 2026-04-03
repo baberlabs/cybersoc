@@ -5,8 +5,8 @@ export default function Safeguarding() {
         <p className="page-kicker">Safety</p>
         <h1 className="page-title">Safeguarding Policy</h1>
         <p className="page-intro max-w-3xl text-white/85">
-          Cybersoc prioritises member wellbeing. This page explains what must be
-          escalated immediately and how to report concerns safely.
+          Member safety comes first. This page explains what needs immediate
+          escalation and how to report concerns.
         </p>
       </header>
 

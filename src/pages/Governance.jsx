@@ -5,8 +5,8 @@ export default function Governance() {
         <p className="page-kicker">Governance</p>
         <h1 className="page-title">Society Governance</h1>
         <p className="page-intro max-w-3xl text-white/85">
-          This page defines how Cybersoc decisions are made and where society
-          authority sits within BCUSU and University policy.
+          This page explains who can make decisions in Cybersoc, what requires
+          committee agreement, and when issues must be escalated to BCUSU.
         </p>
       </header>
 
@@ -20,10 +20,10 @@ export default function Governance() {
         <h2 className="text-2xl font-bold">Committee Authority</h2>
         <ul className="list-disc ml-6 space-y-2">
           <li>
-            No officer may act unilaterally in finance, safeguarding, or
-            discipline.
+            No single officer can make final decisions on finance, safeguarding,
+            or disciplinary matters.
           </li>
-          <li>Strategic decisions require committee consensus.</li>
+          <li>Major society decisions are made collectively by committee.</li>
           <li>Safeguarding and elections are escalated directly to BCUSU.</li>
         </ul>
 

@@ -235,9 +235,9 @@ const Projects = () => {
         <p className="page-kicker">Builds & tooling</p>
         <h1 className="page-title">Projects</h1>
         <p className="page-intro">
-          Software and tooling engineered by Cybersoc — including password
-          security systems, game reverse engineering work, the society website,
-          and teaching projects that introduce core security ideas safely.
+          Real projects members have built in Cybersoc, from password tooling
+          and reverse engineering work to the society website and beginner
+          teaching tools.
         </p>
       </header>
 

@@ -5,8 +5,8 @@ export default function DataProtection() {
         <p className="page-kicker">Privacy</p>
         <h1 className="page-title">Data Protection</h1>
         <p className="page-intro max-w-3xl text-white/85">
-          This page explains what personal data is shown, what is never stored,
-          and how members can request corrections or removal.
+          This page sets out what personal data is shown on the site, what we do
+          not store, and how to request corrections or removal.
         </p>
       </header>
 

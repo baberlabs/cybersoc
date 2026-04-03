@@ -33,7 +33,7 @@
   "hackathon-winning-team": {
     "name": "Cyber Security Society Hackathon - Winning Team Member",
     "issuer": "BCU Cyber Security Society",
-    "description": "Awarded to members of the winning team at an official Cybersoc hackathon.",
+    "description": "Given to students in the first-place team at an official Cybersoc hackathon.",
     "criteria": "Placed first in a Cybersoc-run hackathon event.",
     "badge_image": "/images/badges/cyber-security-hackathon-winning-team.png"
   },
@@ -47,7 +47,7 @@
   "mini-hackathon-winning-team": {
     "name": "Cyber Security Society Mini-Hackathon - Winning Team Member",
     "issuer": "BCU Cyber Security Society",
-    "description": "Awarded to members of the winning team at an official Cybersoc mini-hackathon.",
+    "description": "Given to students in the first-place team at an official Cybersoc mini-hackathon.",
     "criteria": "Placed first in a Cybersoc-run mini-hackathon event.",
     "badge_image": "/images/badges/cyber-security-hackathon-winning-team.png"
   },

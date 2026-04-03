@@ -5,16 +5,15 @@ export default function EthicsPolicy() {
         <p className="page-kicker">Ethics</p>
         <h1 className="page-title">Ethical Use Policy</h1>
         <p className="page-intro max-w-3xl text-white/85">
-          Cybersoc training is built for lawful, defensive, and educational
-          outcomes only. This policy sets those non-negotiable boundaries.
+          Cybersoc activity is for legal learning and defensive security work
+          only. This policy sets the boundaries clearly.
         </p>
       </header>
 
       <section className="space-y-6 text-white/85 leading-relaxed">
         <p>
-          Cybersoc operates strictly within UK law, including the Computer
-          Misuse Act, and in alignment with university acceptable-use and
-          disciplinary regulations.
+          We follow UK law, including the Computer Misuse Act, alongside BCU and
+          BCUSU acceptable-use and disciplinary rules.
         </p>
 
         <h2 className="text-2xl font-bold">Permitted Use</h2>

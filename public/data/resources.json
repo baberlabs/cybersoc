@@ -11,7 +11,7 @@
 
   {
     "title": "Python for Hackers (Automate Tasks & Security Scripts)",
-    "description": "A curated collection of practical Python tutorials focusing on file handling, requests, subprocess, parsing logs, and writing automation scripts relevant to cybersecurity.",
+    "description": "Practical Python tutorials covering file handling, requests, subprocess usage, log parsing, and automation scripts that are useful in cyber workflows.",
     "category": "Programming",
     "level": "Beginner",
     "kind": "Guide",
@@ -21,7 +21,7 @@
 
   {
     "title": "TryHackMe: Complete Beginner Path",
-    "description": "A structured entry-level pathway used during Cybersoc’s semester-long CTF series. Builds strong fundamentals in recon, OSINT, file forensics, basic web vulns, and Linux navigation.",
+    "description": "An entry-level pathway we use during Cybersoc CTF activity. It builds confidence in recon, OSINT, file forensics, basic web vulnerabilities, and Linux navigation.",
     "category": "CTF & Labs",
     "level": "Beginner",
     "kind": "Lab Path",

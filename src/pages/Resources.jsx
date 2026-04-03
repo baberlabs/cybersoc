@@ -52,10 +52,9 @@ const Resources = () => {
         <p className="page-kicker">Learning hub</p>
         <h1 className="page-title">Resources</h1>
         <p className="page-intro">
-          Curated material used across Cybersoc CTFs, workshops, and projects.
-          Start with the beginner-friendly items, then branch into specialised
-          areas such as web hacking, OSINT, reverse engineering, and blue-team
-          operations.
+          Resources members actually use in Cybersoc sessions, CTF prep, and
+          project work. Start with the beginner picks, then move into areas like
+          web security, OSINT, reverse engineering, and blue-team skills.
         </p>
       </header>
 
