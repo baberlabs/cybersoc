@@ -1,21 +1,23 @@
 export default function Safeguarding() {
   return (
     <main id="main" className="container text-white max-w-5xl">
-      <header className="mb-10">
-        <p className="text-xs uppercase tracking-[0.14em] text-white/40 mb-2">
-          Safety
+      <header className="page-header">
+        <p className="page-kicker">Safety</p>
+        <h1 className="page-title">Safeguarding Policy</h1>
+        <p className="page-intro max-w-3xl text-white/85">
+          Cybersoc prioritises member wellbeing. This page explains what must be
+          escalated immediately and how to report concerns safely.
         </p>
-        <h1 className="text-4xl font-extrabold">Safeguarding Policy</h1>
       </header>
 
-      <section className="space-y-6 text-white/80">
+      <section className="space-y-6 text-white/85 leading-relaxed">
         <p>
           Cybersoc prioritises the safety, wellbeing, and inclusion of all
           members, attendees, and guests.
         </p>
 
         <h2 className="text-2xl font-bold">Immediate Escalation</h2>
-        <ul className="list-disc ml-6 space-y-1">
+        <ul className="list-disc ml-6 space-y-2">
           <li>Threats or acts of violence</li>
           <li>Sexual misconduct or exploitation</li>
           <li>Harassment, stalking, or intimidation</li>

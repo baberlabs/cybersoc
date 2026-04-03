@@ -8,25 +8,28 @@ const Home = () => {
   const { stats, loading } = useStats();
 
   return (
-    <main id="main" className="container text-white flex flex-col gap-20">
+    <main
+      id="main"
+      className="container flex flex-col gap-16 text-white md:gap-20"
+    >
       {/* HERO */}
-      <section className="flex flex-col lg:flex-row justify-between space-y-10 lg:space-y-0 lg:space-x-20">
+      <section className="flex flex-col justify-between gap-10 lg:flex-row lg:gap-20">
         {/* Left: Core pitch */}
-        <div className="space-y-8 max-w-xl">
+        <div className="max-w-xl space-y-7 sm:space-y-8">
           {/* Badge & Headings */}
           <header className="space-y-4">
-            <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/70">
+            <p className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-white/75">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
               Student-led Cyber Security Society · Birmingham City University
             </p>
 
-            <h1 className="text-4xl font-extrabold tracking-tight md:text-6xl">
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
               Cybersoc
             </h1>
 
-            <h2 className="text-2xl text-white/80 md:text-3xl">
+            <p className="text-xl text-white/80 sm:text-2xl md:text-3xl">
               Do cyber security, not just hear about it.
-            </h2>
+            </p>
           </header>
 
           {/* Main pitch */}
@@ -54,7 +57,7 @@ const Home = () => {
           </div>
 
           {/* Stats */}
-          <dl className="mt-6 flex flex-row gap-2">
+          <dl className="mt-6 flex flex-wrap gap-2">
             <StatCard
               label={`Total members (as of ${getCurrentMonthYear})`}
               value="150+"
@@ -75,7 +78,7 @@ const Home = () => {
       </section>
 
       {/* CMA & Ethics Banner (RecNine) */}
-      <section className="rounded-md border border-red-400/20 bg-red-500/5 p-4 text-sm text-red-200">
+      <section className="ui-card rounded-md border-red-400/20 bg-red-500/5 p-4 text-sm text-red-200">
         <strong className="font-semibold text-red-300">
           Legal & Ethical Notice:
         </strong>{" "}
@@ -91,7 +94,7 @@ const Home = () => {
           What you&apos;ll actually do
         </h2>
 
-        <p className="mb-8 text-white/70 max-w-5xl">
+        <p className="mb-8 max-w-5xl text-white/75">
           Sessions feel like a quiet, focused workshop. You pick a task that
           fits your level, work through it at your own pace, and get help when
           you need it. No spotlight, no performance — just steady progress in
@@ -134,7 +137,7 @@ const Home = () => {
       {/* HOW TO JOIN */}
       <section>
         <h2 className="mb-3 text-3xl font-bold">How to get started</h2>
-        <p className="mb-8 text-white/70">
+        <p className="mb-8 text-white/75">
           Follow these steps and you&apos;ll be connected to events, projects,
           and support.
         </p>
@@ -176,7 +179,7 @@ const Home = () => {
         <h2 className="mb-3 text-3xl font-bold">
           For staff, parents, and partners
         </h2>
-        <p className="mb-6 text-white/70">
+        <p className="mb-6 text-white/75">
           Cybersoc is run to be safe, structured, and useful alongside academic
           study — not in competition with it.
         </p>
@@ -206,14 +209,14 @@ const CTAButton = ({ to, label, variant }) => {
   const isExternal = /^https?:\/\//.test(to);
 
   const base =
-    "inline-flex items-center rounded-md px-5 py-2.5 text-sm font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60 transition-all";
+    "btn-base px-5 py-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60";
 
   const styles =
     variant === "primary"
-      ? "bg-white text-black hover:bg-neutral-100 shadow-[0_0_16px_rgba(255,255,255,0.25)]"
+      ? "btn-primary"
       : variant === "secondary"
-        ? "border border-white/25 text-white/90 hover:bg-white/[0.06]"
-        : "text-white/75 hover:text-white";
+        ? "btn-secondary"
+        : "btn-ghost";
 
   const className = `${base} ${styles}`;
 
@@ -238,18 +241,18 @@ const CTAButton = ({ to, label, variant }) => {
 };
 
 const StatCard = ({ label, value }) => (
-  <div className="rounded-md border border-white/10 bg-white/3 p-3 shadow-sm w-fit">
-    <dd className="text-xl font-semibold text-white/70">{value}</dd>
-    <dt className="text-[10px] uppercase tracking-widest text-white/50 mt-0.5">
+  <div className="ui-card ui-card-hover w-fit rounded-md border border-white/10 bg-white/3 p-3 shadow-sm">
+    <dt className="mt-0.5 text-[10px] uppercase tracking-widest text-white/60">
       {label}
     </dt>
+    <dd className="text-xl font-semibold text-white/80">{value}</dd>
   </div>
 );
 
 const InfoCard = ({ title, text }) => (
-  <article className="rounded-smooth border border-white/10 bg-white/6 p-5 shadow-sm transition-colors hover:bg-white/6">
+  <article className="ui-card ui-card-hover rounded-smooth border border-white/10 bg-white/6 p-5 shadow-sm transition-colors hover:bg-white/6">
     <h3 className="mb-2 text-lg font-semibold text-white">{title}</h3>
-    <p className="text-sm leading-relaxed text-white/70">{text}</p>
+    <p className="text-sm leading-relaxed text-white/75">{text}</p>
   </article>
 );
 
@@ -257,12 +260,12 @@ const StepCard = ({ step, title, body, href, linkText }) => {
   const external = href.startsWith("http");
 
   return (
-    <li className="flex flex-col gap-2 rounded-smooth border border-white/10 bg-white/2 p-4">
+    <li className="ui-card ui-card-hover flex flex-col gap-2 rounded-smooth border border-white/10 bg-white/2 p-4">
       <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-cyan-400/60 text-xs font-semibold text-cyan-200">
         {step}
       </span>
       <h3 className="text-sm font-semibold text-white">{title}</h3>
-      <p className="flex-1 text-sm leading-relaxed text-white/70">{body}</p>
+      <p className="flex-1 text-sm leading-relaxed text-white/75">{body}</p>
       <a
         href={href}
         target={external ? "_blank" : undefined}

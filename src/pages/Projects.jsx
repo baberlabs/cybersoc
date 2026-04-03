@@ -70,13 +70,13 @@ const ProjectCard = ({ project, members }) => {
   return (
     <article
       id={id}
-      className="rounded-smooth border border-white/10 bg-white/2 p-6 shadow-sm transition hover:border-white/25 hover:bg-white/5 hover:shadow-hover"
+      className="ui-card ui-card-hover rounded-smooth border border-white/10 bg-white/2 p-6 shadow-sm transition hover:border-white/25 hover:bg-white/5 hover:shadow-hover"
     >
       {/* Status + difficulty */}
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <StatusBadge status={status} />
         {difficulty && (
-          <span className="inline-flex items-center rounded-sm border border-white/20 bg-white/5 px-2 py-0.5 text-[11px] font-medium text-white/70">
+          <span className="inline-flex items-center rounded-sm border border-white/20 bg-white/5 px-2 py-0.5 text-[11px] font-medium text-white/75">
             {difficulty}
           </span>
         )}
@@ -107,7 +107,7 @@ const ProjectCard = ({ project, members }) => {
           {skills.map((skill) => (
             <span
               key={skill}
-              className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[11px] text-white/70"
+              className="rounded-full border border-white/10 bg-white/5 px-2.5 py-0.5 text-[11px] text-white/75"
             >
               {skill}
             </span>
@@ -123,7 +123,7 @@ const ProjectCard = ({ project, members }) => {
       {/* Learning outcomes */}
       {learning_outcomes.length > 0 && (
         <div className="mb-4">
-          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/50">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/60">
             Learning outcomes
           </p>
           <ul className="ml-4 list-disc space-y-0.5 text-sm text-white/70">
@@ -137,7 +137,7 @@ const ProjectCard = ({ project, members }) => {
       {/* Contributors */}
       {contributors.length > 0 && (
         <div className="mt-5 mb-4">
-          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/50">
+          <p className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/60">
             Contributors
           </p>
           <ContributorsList contributors={contributors} resolve={resolve} />
@@ -145,7 +145,7 @@ const ProjectCard = ({ project, members }) => {
       )}
 
       {(repo?.trim() || linkedin?.trim() || live?.trim()) && (
-        <div className="mt-2 flex flex-wrap items-center gap-4 text-xs text-white/50">
+        <div className="mt-2 flex flex-wrap items-center gap-4 text-xs text-white/60">
           {repo?.trim() && (
             <a
               href={repo}
@@ -231,21 +231,17 @@ const Projects = () => {
 
   return (
     <main id="main" className="container">
-      <header className="mb-12">
-        <p className="mb-2 text-xs uppercase tracking-[0.14em] text-white/40">
-          Builds & tooling
-        </p>
-        <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-          Projects
-        </h1>
-        <p className="mt-4 max-w-5xl text-lg leading-relaxed text-white/70">
+      <header className="page-header">
+        <p className="page-kicker">Builds & tooling</p>
+        <h1 className="page-title">Projects</h1>
+        <p className="page-intro">
           Software and tooling engineered by Cybersoc — including password
           security systems, game reverse engineering work, the society website,
           and teaching projects that introduce core security ideas safely.
         </p>
       </header>
 
-      <article className="mb-12 rounded-smooth border border-white/10 bg-white/4 px-6 py-4 text-sm text-white/70">
+      <article className="ui-card mb-12 rounded-smooth border border-white/10 bg-white/4 px-6 py-4 text-sm text-white/70">
         <p>
           If you participated in a project and would like to be added as a
           contributor, please contact the Web Platform Engineer (Baber Khan) via
@@ -279,10 +275,8 @@ const Projects = () => {
         <div className="flex-1 space-y-20">
           {/* Active */}
           <section className="mb-20">
-            <h2 className="mb-3 text-2xl font-bold text-white">
-              Active projects
-            </h2>
-            <p className="mb-6 text-sm text-white/65">
+            <h2 className="section-title">Active projects</h2>
+            <p className="section-lead">
               Ongoing work you can still join this semester: projects with
               regular sessions, clear tasks, and room for new contributors.
             </p>
@@ -300,10 +294,8 @@ const Projects = () => {
 
           {/* Upcoming */}
           <section className="mb-20">
-            <h2 className="mb-3 text-2xl font-bold text-white">
-              Upcoming projects
-            </h2>
-            <p className="mb-6 text-sm text-white/65">
+            <h2 className="section-title">Upcoming projects</h2>
+            <p className="section-lead">
               Planned and not-yet-started projects. These are good entry points
               if you want to join from the very beginning of a build.
             </p>
@@ -323,10 +315,8 @@ const Projects = () => {
 
           {/* Completed */}
           <section className="mb-20">
-            <h2 className="mb-4 text-2xl font-bold text-white">
-              Completed projects
-            </h2>
-            <p className="mb-6 text-sm text-white/65">
+            <h2 className="section-title">Completed projects</h2>
+            <p className="section-lead">
               Finished projects that members can reference on CVs, portfolios,
               and applications. They also act as examples for future work.
             </p>
@@ -353,8 +343,8 @@ const Projects = () => {
 
           {/* Archived */}
           <section>
-            <h2 className="mb-3 text-2xl font-bold text-white">Archived</h2>
-            <p className="mb-6 text-sm text-white/65">
+            <h2 className="section-title">Archived</h2>
+            <p className="section-lead">
               Historical or paused projects kept for reference and inspiration.
               They show how the society experiments and iterates over time.
             </p>
@@ -383,7 +373,7 @@ const ContributorsList = ({ contributors, resolve }) => {
 
   return (
     <>
-      <ul className="ml-4 list-disc space-y-0.5 text-sm text-white/65">
+      <ul className="ml-4 list-disc space-y-0.5 text-sm text-white/70">
         {visible.map((c, idx) => {
           const p = resolve(c.person);
           if (!p) return null;
@@ -422,7 +412,7 @@ const ContributorsList = ({ contributors, resolve }) => {
 const ProjectsTOC = ({ active, upcoming, groupedCompleted, archived }) => {
   return (
     <aside className="hidden lg:block w-64 sticky top-28 mr-12 border-r border-white/10 pr-8">
-      <p className="mb-3 text-xs uppercase tracking-[0.14em] text-white/40">
+      <p className="mb-3 text-xs uppercase tracking-[0.14em] text-white/60">
         Quick navigation
       </p>
 
@@ -472,7 +462,7 @@ const ProjectsTOC = ({ active, upcoming, groupedCompleted, archived }) => {
             <ul className="space-y-2">
               {groupedCompleted.map(([month, items]) => (
                 <li key={month}>
-                  <p className="text-white/40 text-xs mb-1">{month}</p>
+                  <p className="text-white/60 text-xs mb-1">{month}</p>
                   <ul className="space-y-1">
                     {items.map((p) => (
                       <li key={p.id}>
@@ -524,16 +514,13 @@ const MobileProjectsTOC = ({
 
   return (
     <div className="lg:hidden mb-10">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full rounded-smooth border border-white/10 bg-white/4 px-4 py-3 text-sm font-semibold text-white flex justify-between"
-      >
+      <button onClick={() => setOpen(!open)} className="ui-nav-toggle">
         Jump to project
         <span>{open ? "▲" : "▼"}</span>
       </button>
 
       {open && (
-        <div className="mt-3 rounded-smooth border border-white/10 bg-white/3 p-4 space-y-6 text-sm">
+        <div className="ui-nav-panel space-y-6">
           {/* ACTIVE */}
           {active.length > 0 && (
             <div>
@@ -581,7 +568,7 @@ const MobileProjectsTOC = ({
 
               {groupedCompleted.map(([month, items]) => (
                 <div key={month} className="mb-2">
-                  <p className="text-white/40 text-xs mb-1">{month}</p>
+                  <p className="text-white/60 text-xs mb-1">{month}</p>
                   <ul className="space-y-1">
                     {items.map((p) => (
                       <li key={p.id}>

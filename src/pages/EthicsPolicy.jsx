@@ -1,14 +1,16 @@
 export default function EthicsPolicy() {
   return (
     <main id="main" className="container text-white max-w-5xl">
-      <header className="mb-10">
-        <p className="text-xs uppercase tracking-[0.14em] text-white/40 mb-2">
-          Ethics
+      <header className="page-header">
+        <p className="page-kicker">Ethics</p>
+        <h1 className="page-title">Ethical Use Policy</h1>
+        <p className="page-intro max-w-3xl text-white/85">
+          Cybersoc training is built for lawful, defensive, and educational
+          outcomes only. This policy sets those non-negotiable boundaries.
         </p>
-        <h1 className="text-4xl font-extrabold">Ethical Use Policy</h1>
       </header>
 
-      <section className="space-y-6 text-white/80">
+      <section className="space-y-6 text-white/85 leading-relaxed">
         <p>
           Cybersoc operates strictly within UK law, including the Computer
           Misuse Act, and in alignment with university acceptable-use and
@@ -16,14 +18,14 @@ export default function EthicsPolicy() {
         </p>
 
         <h2 className="text-2xl font-bold">Permitted Use</h2>
-        <ul className="list-disc ml-6 space-y-1">
+        <ul className="list-disc ml-6 space-y-2">
           <li>Security research in sandboxed or simulated environments</li>
           <li>Participation in legal capture-the-flag platforms</li>
           <li>Reverse engineering of consented or open-source binaries</li>
         </ul>
 
         <h2 className="text-2xl font-bold">Prohibited Use</h2>
-        <ul className="list-disc ml-6 space-y-1">
+        <ul className="list-disc ml-6 space-y-2">
           <li>Real-world unauthorised exploitation</li>
           <li>Attacks against live infrastructure</li>
           <li>Disclosure of vulnerabilities without consent or coordination</li>

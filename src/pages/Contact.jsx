@@ -1,6 +1,5 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState } from "react";
 import { FaDiscord, FaInstagram, FaLinkedin } from "react-icons/fa6";
-import { useSocietyData } from "../hooks/useSocietyData";
 import { useCommittee } from "../hooks/useCommittee";
 import { useDepartments } from "../hooks/useDepartments";
 import { ImInfo } from "react-icons/im";
@@ -27,22 +26,21 @@ const Contact = () => {
   }, []);
 
   return (
-    <main id="main" className="container text-white flex flex-col gap-20">
+    <main
+      id="main"
+      className="container flex flex-col gap-16 text-white md:gap-20"
+    >
       {/* ------------------------------------------------------------------ */}
       {/* HEADER                                                             */}
       {/* ------------------------------------------------------------------ */}
-      <header className="max-w-5xl">
-        <p className="mb-2 text-xs uppercase tracking-[0.14em] text-white/40">
-          Get in touch
-        </p>
-        <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-          Contact
-        </h1>
-        <p className="mt-4 text-lg leading-relaxed text-white/70">
+      <header className="page-header max-w-5xl">
+        <p className="page-kicker">Get in touch</p>
+        <h1 className="page-title">Contact</h1>
+        <p className="page-intro">
           Use this page to join the society, find the right channel for your
           question, or see who&apos;s currently running Cybersoc.
         </p>
-        <p className="mt-2 text-sm text-white/55">
+        <p className="mt-2 text-sm text-white/60">
           If you&apos;re a student, start with{" "}
           <span className="text-white">BCUSU</span> and{" "}
           <span className="text-white">Discord</span>. If you&apos;re staff,
@@ -56,7 +54,7 @@ const Contact = () => {
       {/* ------------------------------------------------------------------ */}
       <section className="grid gap-10 lg:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
         <div className="space-y-4">
-          <h2 className="text-2xl font-bold">Platforms</h2>
+          <h2 className="section-title mb-0">Platforms</h2>
           <p className="text-sm leading-relaxed text-white/70">
             These are the official communication and membership routes for
             Cybersoc. For most students, the typical flow is:
@@ -81,7 +79,7 @@ const Contact = () => {
       <section className="space-y-8">
         <div className="flex flex-col gap-3 md:flex-row md:items-baseline md:justify-between">
           <div>
-            <h2 className="text-2xl font-bold text-white">Committee</h2>
+            <h2 className="section-title mb-0">Committee</h2>
             <p className="mt-2 text-sm leading-relaxed text-white/70">
               The current student-led team running Cybersoc. These are the
               people responsible for events, projects, operations, and
@@ -90,7 +88,7 @@ const Contact = () => {
           </div>
 
           {committeeMembers.length > 0 && (
-            <p className="text-xs text-white/50">
+            <p className="text-xs text-white/60">
               {committeeMembers.length} committee member
               {committeeMembers.length > 1 ? "s" : ""} listed
             </p>
@@ -123,7 +121,7 @@ const Contact = () => {
                   ))}
                 </div>
 
-                <p className="mt-4 text-[11px] text-white/50">
+                <p className="mt-4 text-[11px] text-white/60">
                   Recruitment notices are shared via Discord and BCUSU.
                 </p>
               </div>
@@ -147,7 +145,7 @@ const Contact = () => {
       {/* Departments */}
       <section className="space-y-8">
         <div>
-          <h2 className="text-2xl font-bold text-white">Departments</h2>
+          <h2 className="section-title mb-0">Departments</h2>
           <p className="mt-2 text-sm leading-relaxed text-white/70">
             Departments group members by focus area and responsibility. They
             support ongoing research, writing, and internal work within the
@@ -157,7 +155,10 @@ const Contact = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {membersByDepartments.map((department) => (
-            <div key={department.id} className="border border-white/10 p-4">
+            <div
+              key={department.id}
+              className="ui-card rounded-smooth border border-white/10 p-4"
+            >
               <h3 className="font-semibold">{department.name}</h3>
               <p className="mt-2 text-[12px] leading-relaxed text-white/70">
                 {department.description}
@@ -167,7 +168,7 @@ const Contact = () => {
                   {department.members.map((member) => (
                     <li
                       key={member.id}
-                      className="relative border border-white/10 bg-neutral-900/40 text-[12px] shadow-sm transition hover:bg-neutral-900/70 p-4"
+                      className="ui-card ui-card-hover relative border border-white/10 bg-neutral-900/40 p-4 text-[12px] shadow-sm transition hover:bg-neutral-900/70"
                     >
                       <div className="text-white text-[12px]">
                         {member.name}
@@ -201,10 +202,13 @@ const Contact = () => {
       </section>
 
       <section>
-        <p className="text-sm text-white/60">
+        <p className="text-sm text-white/70">
           Our community standards, safeguarding rules, and ethical policies are
           publicly available under
-          <a href="/governance" className="ml-1 text-cyan-300 underline">
+          <a
+            href="/governance"
+            className="ml-1 font-semibold text-cyan-300 underline decoration-cyan-500/60 underline-offset-4 hover:text-cyan-100"
+          >
             Governance
           </a>
           .
@@ -227,7 +231,7 @@ const ContactPlatformCard = ({ label, href }) => {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex items-center gap-4 rounded-smooth border border-white/10 bg-neutral-900/40 p-4 text-sm shadow-sm transition hover:bg-neutral-900/70"
+      className="ui-card ui-card-hover group flex items-center gap-4 rounded-smooth border border-white/10 bg-neutral-900/40 p-4 text-sm shadow-sm transition hover:bg-neutral-900/70"
     >
       <div className="flex h-11 w-11 items-center justify-center rounded-md bg-neutral-800/80 transition group-hover:bg-neutral-700">
         {typeof Icon === "string" ? (
@@ -244,7 +248,7 @@ const ContactPlatformCard = ({ label, href }) => {
 
       <div className="flex flex-col">
         <span className="font-semibold text-white">{label}</span>
-        <span className="text-xs text-white/55">
+        <span className="text-xs text-white/60">
           {getPlatformDescription(label)}
         </span>
       </div>
@@ -272,11 +276,11 @@ function getPlatformDescription(label) {
 /* -------------------------------------------------------------------------- */
 
 const CommitteeCard = ({ member }) => {
-  const { id, name, linkedin, role, role_type } = member;
+  const { name, linkedin } = member;
   const hasLinkedIn = Boolean(linkedin);
 
   return (
-    <article className="flex flex-col rounded-smooth border border-white/10 bg-neutral-900/40 p-4 text-sm shadow-sm transition hover:bg-neutral-900/70">
+    <article className="ui-card ui-card-hover flex flex-col rounded-smooth border border-white/10 bg-neutral-900/40 p-4 text-sm shadow-sm transition hover:bg-neutral-900/70">
       <div className="mb-3 flex items-center justify-between gap-2">
         <h3 className="text-base font-semibold text-white">
           {name || "Vacant position"}

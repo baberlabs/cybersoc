@@ -1,15 +1,10 @@
 const HowToAddBadgeToLinkedInProfile = () => {
-  const badgeTitle = null;
   return (
     <main id="main" className="container text-white max-w-5xl">
-      <header className="mb-10">
-        <p className="text-xs uppercase tracking-[0.14em] text-white/40 mb-2">
-          Guide
-        </p>
-        <h1 className="text-4xl font-extrabold">
-          Add Your Digital Badge to LinkedIn
-        </h1>
-        <p className="mt-4 text-white/70 max-w-3xl">
+      <header className="page-header">
+        <p className="page-kicker">Guide</p>
+        <h1 className="page-title">Add Your Digital Badge to LinkedIn</h1>
+        <p className="page-intro max-w-3xl">
           Your badge can be added under "Licenses & Certifications" on LinkedIn.
           Employers can verify it using the Credential URL in your award email.
         </p>
@@ -33,8 +28,7 @@ const HowToAddBadgeToLinkedInProfile = () => {
               <strong>Licenses & Certifications</strong>.
             </li>
             <li>
-              <strong>Name:</strong>{" "}
-              {badgeTitle || "Use the exact badge title from your email."}
+              <strong>Name:</strong> Use the exact badge title from your email.
             </li>
             <li>
               <strong>Issuing Organisation:</strong> BCU Cybersoc (select from
@@ -55,7 +49,7 @@ const HowToAddBadgeToLinkedInProfile = () => {
           </ol>
         </div>
 
-        <div className="rounded-md border border-white/10 bg-white/5 p-4 text-sm">
+        <div className="ui-note">
           <p className="font-semibold mb-1">Verification</p>
           <p>
             The Credential URL links to an official Cybersoc verification page.

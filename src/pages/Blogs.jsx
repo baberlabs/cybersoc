@@ -15,35 +15,76 @@ const formatDate = (iso) => {
 export default function Blogs() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("/data/blogs.json")
-      .then((res) => res.json())
-      .then(async (list) => {
+    let cancelled = false;
+
+    const loadPosts = async () => {
+      try {
+        const res = await fetch("/data/blogs.json");
+        if (!res.ok) {
+          throw new Error(`Failed to load blog index (HTTP ${res.status})`);
+        }
+
+        const list = await res.json();
         const loaded = await Promise.all(
           list.map(async (entry) => {
-            const raw = await fetch(`/data/blogs/${entry.file}`).then((r) =>
-              r.text()
-            );
+            const blogRes = await fetch(`/data/blogs/${entry.file}`);
+            if (!blogRes.ok) {
+              throw new Error(
+                `Failed to load ${entry.file} (HTTP ${blogRes.status})`,
+              );
+            }
+
+            const raw = await blogRes.text();
             const parsed = fm(raw);
 
             return {
               id: entry.id,
               ...parsed.attributes,
             };
-          })
+          }),
         );
 
         loaded.sort((a, b) => new Date(b.date) - new Date(a.date));
-        setPosts(loaded);
-        setLoading(false);
-      });
+
+        if (!cancelled) {
+          setPosts(loaded);
+        }
+      } catch (err) {
+        if (!cancelled) {
+          setError(err.message || "Unable to load posts right now.");
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    };
+
+    loadPosts();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   if (loading) {
     return (
-      <main className="container text-white">
-        <p className="opacity-70">Loading posts…</p>
+      <main id="main" className="container text-white">
+        <p className="opacity-70" role="status" aria-live="polite">
+          Loading posts…
+        </p>
+      </main>
+    );
+  }
+
+  if (error) {
+    return (
+      <main id="main" className="container text-white">
+        <h1 className="text-4xl font-extrabold">Unable to Load Blog Posts</h1>
+        <p className="mt-4 max-w-3xl text-white/75">{error}</p>
       </main>
     );
   }
@@ -51,16 +92,12 @@ export default function Blogs() {
   return (
     <main id="main" className="container text-white">
       {/* HEADER */}
-      <header className="mb-16">
-        <p className="mb-3 text-xs uppercase tracking-[0.16em] text-white/40">
-          Cybersoc Blog
-        </p>
+      <header className="page-header mb-16">
+        <p className="page-kicker">Cybersoc Blog</p>
 
-        <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-          Articles & Write-ups
-        </h1>
+        <h1 className="page-title">Articles & Write-ups</h1>
 
-        <p className="mt-5 max-w-5xl text-lg text-white/70 leading-relaxed">
+        <p className="page-intro mt-5">
           Technical deep dives, project documentation, architecture decisions,
           and student engineering workflows from the BCU Cyber Security Society.
         </p>
@@ -73,7 +110,7 @@ export default function Blogs() {
             key={post.id}
             to={`/blog/${post.id}`}
             className="
-              group block overflow-hidden rounded-xl 
+              ui-card ui-card-hover group block overflow-hidden rounded-xl
               bg-white/5 border border-white/10 
               hover:bg-white/10 hover:border-white/20 
               transition-all duration-200 
@@ -85,7 +122,7 @@ export default function Blogs() {
               <div className="overflow-hidden">
                 <img
                   src={post.banner}
-                  alt=""
+                  alt={`${post.title} banner image`}
                   className="
                     h-48 w-full object-cover 
                     border-b border-white/10 
@@ -102,15 +139,15 @@ export default function Blogs() {
                 {post.title}
               </h2>
 
-              <div className="mb-3 flex items-center gap-4 text-xs text-white/50">
+              <div className="mb-3 flex items-center gap-4 text-xs text-white/60">
                 <span className="flex items-center gap-1">
-                  <LuCalendarDays className="text-white/40" />
+                  <LuCalendarDays className="text-white/60" />
                   {formatDate(post.date)}
                 </span>
                 <span>{post.reading_time}</span>
               </div>
 
-              <p className="text-white/70 text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed text-white/75">
                 {post.excerpt || "A Cybersoc blog post."}
               </p>
             </div>

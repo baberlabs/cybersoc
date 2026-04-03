@@ -1,14 +1,16 @@
 export default function Governance() {
   return (
     <main id="main" className="container text-white max-w-5xl">
-      <header className="mb-10">
-        <p className="text-xs uppercase tracking-[0.14em] text-white/40 mb-2">
-          Governance
+      <header className="page-header">
+        <p className="page-kicker">Governance</p>
+        <h1 className="page-title">Society Governance</h1>
+        <p className="page-intro max-w-3xl text-white/85">
+          This page defines how Cybersoc decisions are made and where society
+          authority sits within BCUSU and University policy.
         </p>
-        <h1 className="text-4xl font-extrabold">Society Governance</h1>
       </header>
 
-      <section className="space-y-6 text-white/80">
+      <section className="space-y-6 text-white/85 leading-relaxed">
         <p>
           BCU Cybersoc is a student-led society operating under Birmingham City
           University Students’ Union (BCUSU). All society activity is subject to
@@ -16,7 +18,7 @@ export default function Governance() {
         </p>
 
         <h2 className="text-2xl font-bold">Committee Authority</h2>
-        <ul className="list-disc ml-6 space-y-1">
+        <ul className="list-disc ml-6 space-y-2">
           <li>
             No officer may act unilaterally in finance, safeguarding, or
             discipline.
@@ -26,7 +28,7 @@ export default function Governance() {
         </ul>
 
         <h2 className="text-2xl font-bold">Elections Integrity</h2>
-        <ul className="list-disc ml-6 space-y-1">
+        <ul className="list-disc ml-6 space-y-2">
           <li>All elections are administered exclusively by BCUSU.</li>
           <li>Cybersoc does not host informal or internal voting.</li>
           <li>Society branding may not be used for endorsements.</li>

@@ -19,47 +19,88 @@ export default function BlogPost() {
   const [post, setPost] = useState(null);
   const [html, setHtml] = useState("");
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("/data/blogs.json")
-      .then((res) => res.json())
-      .then((list) => {
+    let cancelled = false;
+
+    const loadPost = async () => {
+      try {
+        const indexRes = await fetch("/data/blogs.json");
+        if (!indexRes.ok) {
+          throw new Error(
+            `Failed to load blog index (HTTP ${indexRes.status})`,
+          );
+        }
+
+        const list = await indexRes.json();
         const entry = list.find((p) => p.id === id);
         if (!entry) {
-          setLoading(false);
+          if (!cancelled) {
+            setPost(null);
+          }
           return;
         }
 
-        return fetch(`/data/blogs/${entry.file}`)
-          .then((res) => res.text())
-          .then((raw) => {
-            const parsed = fm(raw);
+        const postRes = await fetch(`/data/blogs/${entry.file}`);
+        if (!postRes.ok) {
+          throw new Error(
+            `Failed to load ${entry.file} (HTTP ${postRes.status})`,
+          );
+        }
 
-            setPost({
-              ...parsed.attributes,
-              content: parsed.body,
-            });
+        const raw = await postRes.text();
+        const parsed = fm(raw);
+        const htmlContent = marked.parse(parsed.body);
+        const safeHtml = DOMPurify.sanitize(htmlContent);
 
-            const htmlContent = marked.parse(parsed.body);
-            const safeHtml = DOMPurify.sanitize(htmlContent);
-
-            setHtml(safeHtml);
-            setLoading(false);
+        if (!cancelled) {
+          setPost({
+            ...parsed.attributes,
+            content: parsed.body,
           });
-      });
+          setHtml(safeHtml);
+        }
+      } catch (err) {
+        if (!cancelled) {
+          setError(err.message || "Unable to load post.");
+        }
+      } finally {
+        if (!cancelled) {
+          setLoading(false);
+        }
+      }
+    };
+
+    loadPost();
+
+    return () => {
+      cancelled = true;
+    };
   }, [id]);
 
   if (loading) {
     return (
-      <main className="container text-white">
-        <p className="opacity-70">Loading post…</p>
+      <main id="main" className="container text-white">
+        <p className="opacity-70" role="status" aria-live="polite">
+          Loading post…
+        </p>
+      </main>
+    );
+  }
+
+  if (error) {
+    return (
+      <main id="main" className="container text-white">
+        <h1 className="text-5xl font-bold">Unable to Load Post</h1>
+        <p className="mt-4 max-w-3xl text-white/75">{error}</p>
       </main>
     );
   }
 
   if (!post) {
     return (
-      <main className="container text-white">
+      <main id="main" className="container text-white">
         <h1 className="text-5xl font-bold">Post not found</h1>
       </main>
     );
@@ -68,18 +109,14 @@ export default function BlogPost() {
   return (
     <main id="main" className="container text-white">
       <article className="max-w-9xl mx-auto">
-        <header className="mb-10">
-          <p className="mb-2 text-xs uppercase tracking-[0.14em] text-white/40">
-            Cybersoc Blog
-          </p>
+        <header className="page-header">
+          <p className="page-kicker">Cybersoc Blog</p>
 
-          <h1 className="text-5xl font-extrabold leading-tight md:text-5xl">
-            {post.title}
-          </h1>
+          <h1 className="page-title leading-tight">{post.title}</h1>
 
-          <div className="mt-4 flex items-center gap-5 text-sm text-white/60">
+          <div className="mt-4 flex items-center gap-5 text-sm text-white/70">
             <span className="flex items-center gap-1">
-              <LuCalendarDays className="text-white/40" />
+              <LuCalendarDays className="text-white/60" />
               {formatDate(post.date)}
             </span>
             <span>• {post.reading_time}</span>
@@ -89,8 +126,8 @@ export default function BlogPost() {
           {post.banner && (
             <img
               src={post.banner}
-              alt=""
-              className="mt-8 max-w-9xl rounded-smooth border border-white/10"
+              alt={`${post.title} banner image`}
+              className="mt-8 w-full max-w-9xl rounded-smooth border border-white/10 object-cover"
             />
           )}
         </header>

@@ -1,6 +1,7 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
@@ -18,40 +19,49 @@ import DataProtection from "./pages/DataProtection";
 
 import Badge from "./pages/Badge";
 import HowToAddBadgeToLinkedInProfile from "./pages/HowToAddBadgeToLinkedInProfile";
+import NotFound from "./pages/NotFound";
 
 import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
+  const location = useLocation();
+
   return (
-    <div className="flex min-h-screen flex-col bg-black text-white">
-      <ScrollToTop />
-      <Header />
+    <div className="relative flex min-h-screen flex-col text-white">
+      <ErrorBoundary>
+        <ScrollToTop />
+        <Header />
 
-      <div className="flex-1">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/blog" element={<Blogs />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/contact" element={<Contact />} />
+        <div
+          key={location.pathname}
+          className="route-shell relative z-10 flex-1"
+        >
+          <Routes location={location}>
+            <Route path="/" element={<Home />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/blog" element={<Blogs />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/contact" element={<Contact />} />
 
-          <Route path="/governance" element={<Governance />} />
-          <Route path="/code-of-conduct" element={<CodeOfConduct />} />
-          <Route path="/ethics" element={<EthicsPolicy />} />
-          <Route path="/safeguarding" element={<Safeguarding />} />
-          <Route path="/data-protection" element={<DataProtection />} />
+            <Route path="/governance" element={<Governance />} />
+            <Route path="/code-of-conduct" element={<CodeOfConduct />} />
+            <Route path="/ethics" element={<EthicsPolicy />} />
+            <Route path="/safeguarding" element={<Safeguarding />} />
+            <Route path="/data-protection" element={<DataProtection />} />
 
-          <Route path="/badges/:awardId" element={<Badge />} />
-          <Route
-            path="/guide/add-badge-to-linkedin-profile"
-            element={<HowToAddBadgeToLinkedInProfile />}
-          />
-        </Routes>
-      </div>
+            <Route path="/badges/:awardId" element={<Badge />} />
+            <Route
+              path="/guide/add-badge-to-linkedin-profile"
+              element={<HowToAddBadgeToLinkedInProfile />}
+            />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
 
-      <Footer />
+        <Footer />
+      </ErrorBoundary>
     </div>
   );
 };

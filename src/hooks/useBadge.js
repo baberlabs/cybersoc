@@ -25,7 +25,7 @@ export const useBadge = ({ awardId }) => {
         const badges = await badgesRes.json();
         const awards = await awardsRes.json();
 
-        const awardEntry = awards.find((award) => award.id == awardId);
+        const awardEntry = awards.find((award) => award.id === awardId);
 
         if (!awardEntry) {
           throw new Error("Award not found");

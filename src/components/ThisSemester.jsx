@@ -75,7 +75,7 @@ const ThisSemester = () => {
 
   return (
     <aside className="max-w-xl">
-      <div className="relative overflow-hidden rounded-2xl border border-cyan-400/20 bg-gradient-to-br from-cyan-500/10 via-slate-900/80 to-slate-950 p-6 shadow-card">
+      <div className="relative overflow-hidden rounded-2xl border border-cyan-400/20 bg-linear-to-br from-cyan-500/10 via-slate-900/80 to-slate-950 p-6 shadow-card">
         <div className="mb-5 flex items-center justify-between">
           <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">
             <LuClock3 className="text-cyan-300" />
@@ -88,7 +88,7 @@ const ThisSemester = () => {
         </div>
 
         {notice && (
-          <div className="mb-6 rounded-xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur">
+          <div className="mb-6 rounded-xl border border-white/10 bg-white/4 p-5 backdrop-blur">
             <div className="space-y-1">
               <p className="text-xs font-semibold uppercase tracking-wide text-white/90">
                 {notice.heading}

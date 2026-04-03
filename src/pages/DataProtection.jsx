@@ -1,20 +1,24 @@
 export default function DataProtection() {
   return (
     <main id="main" className="container text-white max-w-5xl">
-      <header className="mb-10">
-        <p className="text-xs uppercase tracking-[0.14em] text-white/40 mb-2">
-          Privacy
+      <header className="page-header">
+        <p className="page-kicker">Privacy</p>
+        <h1 className="page-title">Data Protection</h1>
+        <p className="page-intro max-w-3xl text-white/85">
+          This page explains what personal data is shown, what is never stored,
+          and how members can request corrections or removal.
         </p>
-        <h1 className="text-4xl font-extrabold">Data Protection</h1>
       </header>
 
-      <section className="space-y-6 text-white/80">
+      <section className="space-y-6 text-white/85 leading-relaxed">
         <p>
           Cybersoc is committed to protecting personal data in accordance with
           UK GDPR and Birmingham City University Students’ Union policy.
         </p>
 
-        <ul className="list-disc ml-6 space-y-1">
+        <h2 className="text-2xl font-bold">Our Data Principles</h2>
+
+        <ul className="list-disc ml-6 space-y-2">
           <li>Only publicly consented committee information is displayed.</li>
           <li>
             Names, roles, and LinkedIn profiles appear with explicit permission.
