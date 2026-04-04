@@ -229,16 +229,16 @@ const EventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
   );
 };
 
+const MobileTocSection = ({ label, children }) =>
+  children ? (
+    <div className="space-y-1">
+      <p className="font-semibold text-white/70 mb-1">{label}</p>
+      {children}
+    </div>
+  ) : null;
+
 const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
   const [open, setOpen] = useState(false);
-
-  const Section = ({ label, children }) =>
-    children && (
-      <div className="space-y-1">
-        <p className="font-semibold text-white/70 mb-1">{label}</p>
-        {children}
-      </div>
-    );
 
   return (
     <div className="lg:hidden mb-10">
@@ -251,7 +251,7 @@ const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
         <div className="ui-nav-panel space-y-6">
           {/* Next */}
           {nextEvent && (
-            <Section label="Next event">
+            <MobileTocSection label="Next event">
               <a
                 href={`#${nextEvent.id}`}
                 onClick={() => setOpen(false)}
@@ -259,12 +259,12 @@ const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
               >
                 {nextEvent.title}
               </a>
-            </Section>
+            </MobileTocSection>
           )}
 
           {/* Ongoing */}
           {ongoing.length > 0 && (
-            <Section label="Happening now">
+            <MobileTocSection label="Happening now">
               <ul className="space-y-1">
                 {ongoing.map((e) => (
                   <li key={e.id}>
@@ -278,12 +278,12 @@ const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
                   </li>
                 ))}
               </ul>
-            </Section>
+            </MobileTocSection>
           )}
 
           {/* Upcoming */}
           {upcoming.length > 0 && (
-            <Section label="Upcoming">
+            <MobileTocSection label="Upcoming">
               <ul className="space-y-1">
                 {upcoming.map((e) => (
                   <li key={e.id}>
@@ -297,12 +297,12 @@ const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
                   </li>
                 ))}
               </ul>
-            </Section>
+            </MobileTocSection>
           )}
 
           {/* Past */}
           {groupedPast.length > 0 && (
-            <Section label="Past events">
+            <MobileTocSection label="Past events">
               {groupedPast.map(([month, items]) => (
                 <div key={month} className="mb-2">
                   <p className="text-white/60 text-xs mb-1">{month}</p>
@@ -321,7 +321,7 @@ const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
                   </ul>
                 </div>
               ))}
-            </Section>
+            </MobileTocSection>
           )}
         </div>
       )}
@@ -361,10 +361,6 @@ const Events = () => {
 
   // const upcomingWithoutNext = upcoming.filter((e) => e.id !== nextEvent?.id);
 
-  const sorted = [...events].sort(
-    (a, b) => new Date(b.date_start) - new Date(a.date_start),
-  );
-
   const ongoing = events.filter(
     ({ date_start, date_end, time }) =>
       deriveEventStatus({ date_start, date_end, time }) === "ongoing",
@@ -388,8 +384,6 @@ const Events = () => {
           return d < s ? e : soonest;
         })
       : null;
-
-  const upcomingWithoutNext = upcoming.filter((e) => e.id !== nextEvent?.id);
 
   const groupedPast = (() => {
     const groups = {};

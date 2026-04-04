@@ -62,9 +62,10 @@ const Header = () => {
 
   // Keep keyboard focus inside the mobile menu while it is open.
   useEffect(() => {
-    if (!open || !menuRef.current) return;
+    const menuNode = menuRef.current;
+    if (!open || !menuNode) return;
 
-    const focusable = menuRef.current.querySelectorAll(
+    const focusable = menuNode.querySelectorAll(
       'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
     );
 
@@ -87,10 +88,10 @@ const Header = () => {
       }
     };
 
-    menuRef.current.addEventListener("keydown", onTrap);
+    menuNode.addEventListener("keydown", onTrap);
 
     return () => {
-      menuRef.current?.removeEventListener("keydown", onTrap);
+      menuNode.removeEventListener("keydown", onTrap);
     };
   }, [open]);
 

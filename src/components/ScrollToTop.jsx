@@ -20,7 +20,7 @@ const ScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
 
     // `key` changes for every new navigation except back/forward
-  }, [pathname, key]);
+  }, [pathname, hash, key]);
 
   return null;
 };

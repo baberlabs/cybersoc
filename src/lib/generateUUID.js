@@ -1,4 +1,5 @@
 import { randomUUID } from "crypto";
+import process from "node:process";
 
 export const generateUUID = () => randomUUID();
 

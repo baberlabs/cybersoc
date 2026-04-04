@@ -227,8 +227,6 @@ const Projects = () => {
     return Object.entries(groups).sort(([a], [b]) => new Date(b) - new Date(a));
   })();
 
-  const resolve = (id) => members.find((p) => p.id === id);
-
   return (
     <main id="main" className="container">
       <header className="page-header">

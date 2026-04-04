@@ -18,7 +18,7 @@ const Resources = () => {
           setResources(Array.isArray(data) ? data : []);
           setLoading(false);
         }
-      } catch (err) {
+      } catch {
         if (!cancelled) {
           setError("Unable to load resources right now.");
           setLoading(false);
