@@ -6,8 +6,6 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Events from "./pages/Events";
-import Blogs from "./pages/Blogs";
-import BlogPost from "./pages/BlogPost";
 import Resources from "./pages/Resources";
 import Contact from "./pages/Contact";
 
@@ -40,8 +38,6 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/events" element={<Events />} />
-            <Route path="/blog" element={<Blogs />} />
-            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/contact" element={<Contact />} />
 
