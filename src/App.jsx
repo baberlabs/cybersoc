@@ -20,6 +20,7 @@ import HowToAddBadgeToLinkedInProfile from "./pages/HowToAddBadgeToLinkedInProfi
 import NotFound from "./pages/NotFound";
 
 import ScrollToTop from "./components/ScrollToTop";
+import ClosureBanner from "./components/ClosureBanner";
 
 const App = () => {
   const location = useLocation();
@@ -28,6 +29,7 @@ const App = () => {
     <div className="relative flex min-h-screen flex-col text-white">
       <ErrorBoundary>
         <ScrollToTop />
+        <ClosureBanner />
         <Header />
 
         <div
