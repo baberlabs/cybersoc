@@ -59,8 +59,9 @@ const Home = () => {
           {/* Stats */}
           <dl className="mt-6 flex flex-wrap gap-2">
             <StatCard
-              label={`Total members (as of ${getCurrentMonthYear})`}
-              value="150+"
+              // label={`Total members (as of ${getCurrentMonthYear})`}
+              label="Total members (as of April 2026)"
+              value="175+"
             />
             <StatCard
               label="Active projects"
