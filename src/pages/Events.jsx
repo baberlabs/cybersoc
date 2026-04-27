@@ -23,7 +23,7 @@ const Badge = ({ variant, children }) => {
       ? "border-cyan-400/30 bg-cyan-400/10 text-cyan-200"
       : variant === "upcoming"
         ? "border-yellow-400/30 bg-yellow-400/10 text-yellow-200"
-        : "border-white/20 bg-white/5 text-white/60";
+        : "border-white/20 bg-white/5 text-white/70";
 
   return (
     <span
@@ -71,7 +71,7 @@ const EventCard = ({
   return (
     <article
       id={id}
-      className={`rounded-smooth border p-5 text-sm shadow-sm transition hover:-translate-y-px hover:border-white/25 ${colorClasses}`}
+      className={`ui-card ui-card-hover rounded-smooth border p-5 text-sm shadow-sm transition hover:-translate-y-px hover:border-white/25 ${colorClasses}`}
     >
       <div className="mb-2 flex items-center justify-between gap-2">
         <Badge variant={badgeVariant}>{badgeLabel}</Badge>
@@ -103,7 +103,7 @@ const EventCard = ({
       {/* External Links */}
 
       {(linkedin?.trim() || other_link?.trim()) && (
-        <div className="mt-2 flex flex-wrap items-center gap-4 text-xs text-white/50">
+        <div className="mt-2 flex flex-wrap items-center gap-4 text-xs text-white/60">
           {linkedin?.trim() && (
             <a
               href={linkedin}
@@ -138,7 +138,7 @@ const EventCard = ({
 const EventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
   return (
     <aside className="hidden lg:block w-64 sticky top-28 mr-12 border-r border-white/10 pr-8">
-      <p className="mb-3 text-xs uppercase tracking-[0.14em] text-white/40">
+      <p className="mb-3 text-xs uppercase tracking-[0.14em] text-white/60">
         Quick navigation
       </p>
 
@@ -206,7 +206,7 @@ const EventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
             <ul className="space-y-3">
               {groupedPast.map(([month, items]) => (
                 <li key={month}>
-                  <p className="text-white/40 text-xs mb-1">{month}</p>
+                  <p className="text-white/60 text-xs mb-1">{month}</p>
                   <ul className="space-y-1">
                     {items.map((e) => (
                       <li key={e.id}>
@@ -229,32 +229,29 @@ const EventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
   );
 };
 
+const MobileTocSection = ({ label, children }) =>
+  children ? (
+    <div className="space-y-1">
+      <p className="font-semibold text-white/70 mb-1">{label}</p>
+      {children}
+    </div>
+  ) : null;
+
 const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
   const [open, setOpen] = useState(false);
 
-  const Section = ({ label, children }) =>
-    children && (
-      <div className="space-y-1">
-        <p className="font-semibold text-white/70 mb-1">{label}</p>
-        {children}
-      </div>
-    );
-
   return (
     <div className="lg:hidden mb-10">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full rounded-smooth border border-white/10 bg-white/4 px-4 py-3 text-sm font-semibold text-white flex justify-between"
-      >
+      <button onClick={() => setOpen(!open)} className="ui-nav-toggle">
         Jump to event
         <span>{open ? "▲" : "▼"}</span>
       </button>
 
       {open && (
-        <div className="mt-3 rounded-smooth border border-white/10 bg-white/4 p-4 space-y-6 text-sm">
+        <div className="ui-nav-panel space-y-6">
           {/* Next */}
           {nextEvent && (
-            <Section label="Next event">
+            <MobileTocSection label="Next event">
               <a
                 href={`#${nextEvent.id}`}
                 onClick={() => setOpen(false)}
@@ -262,12 +259,12 @@ const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
               >
                 {nextEvent.title}
               </a>
-            </Section>
+            </MobileTocSection>
           )}
 
           {/* Ongoing */}
           {ongoing.length > 0 && (
-            <Section label="Happening now">
+            <MobileTocSection label="Happening now">
               <ul className="space-y-1">
                 {ongoing.map((e) => (
                   <li key={e.id}>
@@ -281,12 +278,12 @@ const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
                   </li>
                 ))}
               </ul>
-            </Section>
+            </MobileTocSection>
           )}
 
           {/* Upcoming */}
           {upcoming.length > 0 && (
-            <Section label="Upcoming">
+            <MobileTocSection label="Upcoming">
               <ul className="space-y-1">
                 {upcoming.map((e) => (
                   <li key={e.id}>
@@ -300,15 +297,15 @@ const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
                   </li>
                 ))}
               </ul>
-            </Section>
+            </MobileTocSection>
           )}
 
           {/* Past */}
           {groupedPast.length > 0 && (
-            <Section label="Past events">
+            <MobileTocSection label="Past events">
               {groupedPast.map(([month, items]) => (
                 <div key={month} className="mb-2">
-                  <p className="text-white/50 text-xs mb-1">{month}</p>
+                  <p className="text-white/60 text-xs mb-1">{month}</p>
                   <ul className="space-y-1">
                     {items.map((e) => (
                       <li key={e.id}>
@@ -324,7 +321,7 @@ const MobileEventsTOC = ({ nextEvent, ongoing, upcoming, groupedPast }) => {
                   </ul>
                 </div>
               ))}
-            </Section>
+            </MobileTocSection>
           )}
         </div>
       )}
@@ -364,10 +361,6 @@ const Events = () => {
 
   // const upcomingWithoutNext = upcoming.filter((e) => e.id !== nextEvent?.id);
 
-  const sorted = [...events].sort(
-    (a, b) => new Date(b.date_start) - new Date(a.date_start),
-  );
-
   const ongoing = events.filter(
     ({ date_start, date_end, time }) =>
       deriveEventStatus({ date_start, date_end, time }) === "ongoing",
@@ -392,8 +385,6 @@ const Events = () => {
         })
       : null;
 
-  const upcomingWithoutNext = upcoming.filter((e) => e.id !== nextEvent?.id);
-
   const groupedPast = (() => {
     const groups = {};
     past.forEach((e) => {
@@ -410,14 +401,10 @@ const Events = () => {
 
   return (
     <main id="main" className="container">
-      <header className="mb-10">
-        <p className="mb-2 text-xs uppercase tracking-[0.14em] text-white/40">
-          Calendar
-        </p>
-        <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-          Events
-        </h1>
-        <p className="mt-4 max-w-5xl text-lg leading-relaxed text-white/70">
+      <header className="page-header">
+        <p className="page-kicker">Calendar</p>
+        <h1 className="page-title">Events</h1>
+        <p className="page-intro">
           A mix of workshops, CTFs, meetups, collaborations, and awareness days
           across the academic year.
         </p>
@@ -445,7 +432,7 @@ const Events = () => {
           {/* Next Event */}
           {nextEvent && (
             <section className="mb-20" id={nextEvent.id}>
-              <h2 className="mb-3 flex items-center gap-2 text-2xl font-bold text-white">
+              <h2 className="section-title flex items-center gap-2">
                 <LuClock3 className="text-yellow-300" />
                 Next event
               </h2>
@@ -455,9 +442,7 @@ const Events = () => {
 
           {/* Ongoing */}
           <section className="mb-20">
-            <h2 className="mb-3 text-2xl font-bold text-white">
-              Happening now
-            </h2>
+            <h2 className="section-title">Happening now</h2>
             <div className="grid gap-6 md:grid-cols-2">
               {ongoing.length === 0 ? (
                 <p className="text-white/60">
@@ -473,9 +458,7 @@ const Events = () => {
 
           {/* Upcoming */}
           <section className="mb-20">
-            <h2 className="mb-3 text-2xl font-bold text-white">
-              Upcoming events
-            </h2>
+            <h2 className="section-title">Upcoming events</h2>
             <div className="grid gap-6 md:grid-cols-2">
               {upcoming.length === 0 ? (
                 <p className="text-white/60">No additional upcoming events.</p>
@@ -489,7 +472,7 @@ const Events = () => {
 
           {/* Past */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-white">Past events</h2>
+            <h2 className="section-title">Past events</h2>
 
             <div className="space-y-10">
               {groupedPast.map(([month, items]) => (

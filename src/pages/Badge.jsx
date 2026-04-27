@@ -9,12 +9,10 @@ const Badge = () => {
   if (error) {
     return (
       <main id="main" className="container text-white max-w-5xl">
-        <header className="mb-10">
-          <p className="text-xs uppercase tracking-[0.14em] text-white/40 mb-2">
-            Error 404
-          </p>
-          <h1 className="text-4xl font-extrabold">Badge Not Found</h1>
-          <p className="text-white/70 mt-4">{error}</p>
+        <header className="page-header">
+          <p className="page-kicker">Error 404</p>
+          <h1 className="page-title">Badge Not Found</h1>
+          <p className="page-intro">{error}</p>
         </header>
       </main>
     );
@@ -23,12 +21,10 @@ const Badge = () => {
   if (!badge || !award) {
     return (
       <main id="main" className="container text-white max-w-5xl">
-        <header className="mb-10">
-          <p className="text-xs uppercase tracking-[0.14em] text-white/40 mb-2">
-            Badge Info
-          </p>
-          <h1 className="text-4xl font-extrabold">Loading...</h1>
-          <p className="text-white/70 mt-4">
+        <header className="page-header">
+          <p className="page-kicker">Badge Info</p>
+          <h1 className="page-title">Loading...</h1>
+          <p className="page-intro">
             Please wait while the badge data is being loaded.
           </p>
         </header>
@@ -38,23 +34,23 @@ const Badge = () => {
 
   return (
     <main id="main" className="container text-white max-w-5xl">
-      <header className="mb-10">
-        <p className="text-xs uppercase tracking-[0.14em] text-white/40 mb-2 flex flex-row gap-x-2">
+      <header className="page-header">
+        <p className="page-kicker flex flex-row gap-x-2">
           Badge{" "}
           {award.credential_id && (
             <span>(Credential ID {award.credential_id})</span>
           )}
         </p>
-        <h1 className="text-4xl font-extrabold">{badge.name}</h1>
+        <h1 className="page-title">{badge.name}</h1>
       </header>
 
-      <section className="space-y-6 text-white/80">
+      <section className="space-y-6 text-white/85">
         <p>
           This is to confirm that <strong>{award.recipient.name}</strong> has
           been awarded the <strong>{badge.name}</strong> badge.
         </p>
 
-        <p className="p-2 bg-cyan-700">{badge.description}</p>
+        <p className="ui-note p-3">{badge.description}</p>
 
         <article className="flex flex-col border border-white/15">
           {[

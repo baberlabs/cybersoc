@@ -16,8 +16,8 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative mt-28 border-t border-white/10 bg-black/60 backdrop-blur-sm text-sm">
-      <div className="pointer-events-none absolute inset-x-0 -top-px h-px bg-linear-to-r from-transparent via-white/15 to-transparent" />
+    <footer className="ui-chrome-surface relative mt-28 border-t border-(--site-border) text-sm">
+      <div className="pointer-events-none absolute inset-x-0 -top-px h-px hairline" />
 
       <div className="container">
         <div className="grid gap-12 md:grid-cols-5 p-8 md:px-0">
@@ -35,8 +35,9 @@ const Footer = () => {
             </div>
 
             <p className="max-w-xl leading-relaxed text-white/65">
-              Technical Cyber Security Society of Birmingham City University.
-              Helping students learn, build, and explore applied security.
+              Birmingham City University&apos;s student cyber security society.
+              We run practical sessions, collaborative projects, and a friendly
+              community for anyone who wants to learn.
             </p>
 
             <div className="flex items-center gap-3 text-xs text-white/50">
@@ -117,7 +118,7 @@ const Footer = () => {
               </FooterLink>
             </ul>
 
-            <div className="mt-6 rounded-lg border border-white/10 bg-black/30 p-3">
+            <div className="glass-panel mt-6 rounded-lg p-3">
               <p className="text-xs text-white/60">
                 Join our Discord to meet members and access resources.
               </p>
@@ -125,7 +126,7 @@ const Footer = () => {
                 href="https://discord.com/invite/3HcCg7sCqz"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-2 rounded-md bg-white/10 px-3 py-1.5 text-xs text-white hover:bg-white/15"
+                className="mt-3 inline-flex items-center gap-2 rounded-md border border-cyan-300/35 bg-cyan-200/8 px-3 py-1.5 text-xs font-semibold text-cyan-100 elevate-hover"
               >
                 <FaBolt /> Join Us
               </a>
@@ -134,7 +135,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px hairline" />
     </footer>
   );
 };
@@ -150,7 +151,7 @@ const FooterLink = ({ href, children, icon }) => (
   <li>
     <a
       href={href}
-      className="flex items-center gap-2 rounded-md px-2 py-1 transition-colors hover:text-white"
+      className="elevate-hover flex items-center gap-2 rounded-md px-2 py-1 text-white/74 hover:text-white"
     >
       {icon && <span className="text-white/50">{icon}</span>}
       <span>{children}</span>

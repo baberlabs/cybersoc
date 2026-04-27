@@ -1,33 +1,38 @@
 [
   {
     "id": "social-engineering-ai-toolkit",
-    "title": "Social Engineering AI Toolkit",
+    "title": "C.A.S.T (Cognitive AI Security Toolkit)",
     "date_start": "2026-02-04",
-    "date_end": "2026-03-11",
-    "status": "in-progress",
+    "date_end": "2026-04-08",
+    "status": "completed",
     "difficulty": "Hard",
     "skills": [
       "Python",
       "C++",
       "Artificial Intelligence",
+      "Natural Language Processing",
+      "Computer Vision",
       "Prompt Engineering",
       "Social Engineering",
-      "Computer Vision",
+      "React",
+      "LangChain",
       "Embedded Systems"
     ],
-    "description_short": "A multi-module cybersecurity toolkit that demonstrates and detects modern social engineering attacks across biometric impersonation, AI prompt exploitation, and phishing via text and voice.",
-    "description_long": "A research-driven cybersecurity defense suite focused on the human element of security. The toolkit consists of three parallel modules: a biometric identity verification system using computer vision and embedded hardware; a controlled GenAI vulnerability lab demonstrating prompt injection and chatbot jailbreaking; and a communication threat scanner that analyses email, SMS, and voice data for phishing and social engineering patterns. Designed for hands-on demonstrations, security education, and applied research within Cybersoc.",
+    "description_short": "A social-engineering AI toolkit for analysing and simulating modern attack vectors, including phishing, AI impersonation, and prompt injection.",
+    "description_long": "C.A.S.T. (Cognitive AI Security Toolkit) is a multi-module cybersecurity system focused on analysing and simulating social-engineering threats. It includes three core components: Fraud Hunter, an analysis engine that deconstructs emails, SMS, and voice calls using threat signatures, NLP models (BERT), and audio spectrogram analysis; AI Turing Test, a conversational module built with React and local LLMs where users identify malicious AI impersonators; and The Jailbreak Vault, a controlled vulnerability lab using LangChain guardrails to explore prompt injection and jailbreak techniques. Internal benchmarks showed high effectiveness in phishing detection and highlighted human susceptibility to AI impersonation. The project emphasises hands-on security experimentation, measurable outcomes, and safe research practices.",
     "repo": "https://github.com/Oliyxz/Social-Engineering-AI-Toolkit",
-    "linkedin": "",
+    "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_throughout-semester-2-we-built-cast-activity-7447069744479784960-XpXd",
     "live": "",
     "location": "Curzon C385",
     "contributors": [
       { "person": "orlando", "project_role": "Project Lead" },
-      { "person": "hamish", "project_role": "Jailbroken AI Team" },
-      { "person": "baber", "project_role": "Jailbroken AI Team" },
-      { "person": "shakayat", "project_role": "Jailbroken AI Team" },
-      { "person": "zak", "project_role": "Biometric ID Verificaton Team" },
-      { "person": "peace", "project_role": "Fraud Detection Team" }
+      { "person": "michael", "project_role": "Security Advisor" },
+      { "person": "hamish", "project_role": "Core Developer" },
+      { "person": "baber", "project_role": "Developer" },
+      { "person": "zak", "project_role": "Developer" },
+      { "person": "shakayat", "project_role": "Developer" },
+      { "person": "tayyeb", "project_role": "Developer" },
+      { "person": "rafi", "project_role": "Developer" }
     ]
   },
   {
@@ -47,7 +52,7 @@
     ],
 
     "description_short": "A password-security suite for generation, cracking, breach detection, and entropy analysis.",
-    "description_long": "A hybrid offensive and defensive password security tool developed across several structured weekly workshops. Features include password generation, targeted brute-force attempts, dictionary-based cracking, basic breach detection logic, entropy scoring, and defensive recommendations. Built collaboratively using version control, structured sprints, and safe cyber-practice principles.",
+    "description_long": "Built across weekly workshops, this password-security project combines both attacker and defender perspectives. Members implemented password generation, controlled brute-force and dictionary testing, basic breach checks, entropy scoring, and practical hardening advice. It doubled as a team software project with version control and sprint-style delivery.",
 
     "repo": "https://github.com/HamishDS/BCU_Cybersecurity_P4sspl01t",
     "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_bcu-cybersoc-p4sspl01t-ethical-security-activity-7389763064562323456-v4kh",
@@ -88,7 +93,7 @@
     ],
 
     "description_short": "Joint society project: CompSci teams build games; Cybersoc analyses and reverse engineers them.",
-    "description_long": "A multi-society collaboration for Itch.io’s Game Off 2025. While Computer Science and Data Science teams create the game builds, Cybersoc focuses on security analysis: debugging binaries, inspecting unsafe operations, tracing control flow, patching minor defects, and providing structured secure-coding feedback to improve game stability.",
+    "description_long": "This was a cross-society Game Off collaboration where Computer Science and Data Science teams built the games and Cybersoc focused on security review. Our members debugged binaries, checked unsafe code paths, traced control flow, patched smaller defects, and gave practical secure-coding feedback to improve stability.",
 
     "repo": "",
     "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_bcu-cybersoc-game-off-2025-collaboration-activity-7399867196270764032-GPn9",
@@ -124,7 +129,7 @@
     ],
 
     "description_short": "The official web platform for Cybersoc, built for clarity, accessibility, and maintainability.",
-    "description_long": "A long-term infrastructure project establishing the society’s official web presence. Built with React, Tailwind CSS, and JSON-driven content modules. The platform balances clarity and performance while acting as a real-world engineering environment for students to contribute features, fix bugs, improve UX, and learn through version-controlled collaboration.",
+    "description_long": "The Cybersoc website is an ongoing infrastructure project and the society's main public platform. It is built with React, Tailwind CSS, and JSON-driven content so committee members can update information quickly. Students use it as a real engineering environment to ship features, fix bugs, and improve UX through normal version-control workflows.",
 
     "repo": "https://github.com/baberlabs/cybersoc",
     "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_bcu-cybersoc-website-launch-november-activity-7401685570927919104-aUfZ",

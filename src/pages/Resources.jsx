@@ -18,7 +18,7 @@ const Resources = () => {
           setResources(Array.isArray(data) ? data : []);
           setLoading(false);
         }
-      } catch (err) {
+      } catch {
         if (!cancelled) {
           setError("Unable to load resources right now.");
           setLoading(false);
@@ -48,25 +48,20 @@ const Resources = () => {
   return (
     <main id="main" className="container text-white">
       {/* Header */}
-      <header className="mb-12 md:mb-16">
-        <p className="mb-2 text-xs uppercase tracking-[0.14em] text-white/40">
-          Learning hub
-        </p>
-        <h1 className="text-4xl font-extrabold tracking-tight md:text-5xl">
-          Resources
-        </h1>
-        <p className="mt-4 max-w-5xl text-lg leading-relaxed text-white/70">
-          Curated material used across Cybersoc CTFs, workshops, and projects.
-          Start with the beginner-friendly items, then branch into specialised
-          areas such as web hacking, OSINT, reverse engineering, and blue-team
-          operations.
+      <header className="page-header md:mb-16">
+        <p className="page-kicker">Learning hub</p>
+        <h1 className="page-title">Resources</h1>
+        <p className="page-intro">
+          Resources members actually use in Cybersoc sessions, CTF prep, and
+          project work. Start with the beginner picks, then move into areas like
+          web security, OSINT, reverse engineering, and blue-team skills.
         </p>
       </header>
 
       {/* Category filter */}
       {resources.length > 0 && categories.length > 0 && (
         <section className="mb-8">
-          <h2 className="mb-3 text-sm font-semibold text-white/60">
+          <h2 className="mb-3 text-sm font-semibold text-white/70">
             Filter by category
           </h2>
           <div className="flex flex-wrap gap-2">
@@ -121,10 +116,10 @@ const FilterPill = ({ label, active, onClick }) => (
   <button
     type="button"
     onClick={onClick}
-    className={`rounded-full px-3 py-1 text-xs font-semibold tracking-wide border transition ${
+    className={`btn-base rounded-full px-3 py-1 text-xs tracking-wide ${
       active
-        ? "border-white bg-white text-black"
-        : "border-white/20 text-white/70 hover:bg-white/6"
+        ? "btn-primary border-white"
+        : "btn-secondary border-white/20 text-white/70"
     }`}
   >
     {label}
@@ -143,7 +138,7 @@ const ResourceCard = ({
   kind,
 }) => {
   return (
-    <article className="flex flex-col justify-between rounded-smooth border border-white/10 bg-neutral-900/20 p-5 text-sm shadow-sm transition hover:bg-neutral-900/35">
+    <article className="ui-card ui-card-hover flex flex-col justify-between rounded-smooth border border-white/10 bg-neutral-900/20 p-5 text-sm shadow-sm transition hover:bg-neutral-900/35">
       <div>
         <div className="mb-3 flex flex-wrap items-center gap-2 text-xs text-white/50">
           {category && (

@@ -2,7 +2,7 @@
   {
     "id": "research",
     "name": "Research Department",
-    "description": "Researches current cyber security threats, techniques, and best practices.",
+    "description": "Looks into current cyber threats, techniques, and practical best practices.",
     "members": [
       { "id": "tayyeb", "role": "Head of Research" },
       { "id": "michael", "role": "Senior Security Researcher" },

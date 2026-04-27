@@ -1,14 +1,16 @@
 export default function CodeOfConduct() {
   return (
     <main id="main" className="container text-white max-w-5xl">
-      <header className="mb-10">
-        <p className="text-xs uppercase tracking-[0.14em] text-white/40 mb-2">
-          Standards
+      <header className="page-header">
+        <p className="page-kicker">Standards</p>
+        <h1 className="page-title">Code of Conduct</h1>
+        <p className="page-intro max-w-3xl text-white/85">
+          These rules are here to keep Cybersoc safe, respectful, and useful for
+          everyone attending sessions or taking part online.
         </p>
-        <h1 className="text-4xl font-extrabold">Code of Conduct</h1>
       </header>
 
-      <section className="space-y-6 text-white/80">
+      <section className="space-y-6 text-white/85 leading-relaxed">
         <p>
           This Code of Conduct applies to all members, attendees, contributors,
           and guests participating in Cybersoc activities, both online and in
@@ -16,7 +18,7 @@ export default function CodeOfConduct() {
         </p>
 
         <h2 className="text-2xl font-bold">Expected Conduct</h2>
-        <ul className="list-disc ml-6 space-y-1">
+        <ul className="list-disc ml-6 space-y-2">
           <li>Respectful, professional communication at all times</li>
           <li>
             Zero tolerance for harassment, discrimination, or intimidation
@@ -26,7 +28,7 @@ export default function CodeOfConduct() {
         </ul>
 
         <h2 className="text-2xl font-bold">Prohibited Behaviour</h2>
-        <ul className="list-disc ml-6 space-y-1">
+        <ul className="list-disc ml-6 space-y-2">
           <li>Unauthorised system or network access</li>
           <li>Doxxing, data misuse, or identity targeting</li>
           <li>Creation or distribution of malware outside approved contexts</li>
