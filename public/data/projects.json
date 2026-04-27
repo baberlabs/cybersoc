@@ -1,33 +1,38 @@
 [
   {
     "id": "social-engineering-ai-toolkit",
-    "title": "Social Engineering AI Toolkit",
+    "title": "C.A.S.T (Cognitive AI Security Toolkit)",
     "date_start": "2026-02-04",
     "date_end": "2026-04-08",
-    "status": "in-progress",
+    "status": "completed",
     "difficulty": "Hard",
     "skills": [
       "Python",
       "C++",
       "Artificial Intelligence",
+      "Natural Language Processing",
+      "Computer Vision",
       "Prompt Engineering",
       "Social Engineering",
-      "Computer Vision",
+      "React",
+      "LangChain",
       "Embedded Systems"
     ],
-    "description_short": "A multi-module cybersecurity toolkit that demonstrates and detects modern social engineering attacks across biometric impersonation, AI prompt exploitation, and phishing via text and voice.",
-    "description_long": "This project explores the human side of cyber risk through three connected modules: biometric identity checks with computer vision and hardware, a controlled GenAI lab for prompt injection and jailbreak testing, and a scanner for phishing patterns across email, SMS, and voice. It was built so members could test ideas safely, learn by doing, and present clear security findings.",
+    "description_short": "A social-engineering AI toolkit for analysing and simulating modern attack vectors, including phishing, AI impersonation, and prompt injection.",
+    "description_long": "C.A.S.T. (Cognitive AI Security Toolkit) is a multi-module cybersecurity system focused on analysing and simulating social-engineering threats. It includes three core components: Fraud Hunter, an analysis engine that deconstructs emails, SMS, and voice calls using threat signatures, NLP models (BERT), and audio spectrogram analysis; AI Turing Test, a conversational module built with React and local LLMs where users identify malicious AI impersonators; and The Jailbreak Vault, a controlled vulnerability lab using LangChain guardrails to explore prompt injection and jailbreak techniques. Internal benchmarks showed high effectiveness in phishing detection and highlighted human susceptibility to AI impersonation. The project emphasises hands-on security experimentation, measurable outcomes, and safe research practices.",
     "repo": "https://github.com/Oliyxz/Social-Engineering-AI-Toolkit",
-    "linkedin": "",
+    "linkedin": "https://www.linkedin.com/posts/bcu-cybersecurity-society_throughout-semester-2-we-built-cast-activity-7447069744479784960-XpXd",
     "live": "",
     "location": "Curzon C385",
     "contributors": [
       { "person": "orlando", "project_role": "Project Lead" },
-      { "person": "hamish", "project_role": "Jailbroken AI Team" },
-      { "person": "baber", "project_role": "Jailbroken AI Team" },
-      { "person": "shakayat", "project_role": "Jailbroken AI Team" },
-      { "person": "zak", "project_role": "Biometric ID Verificaton Team" },
-      { "person": "peace", "project_role": "Fraud Detection Team" }
+      { "person": "michael", "project_role": "Security Advisor" },
+      { "person": "hamish", "project_role": "Core Developer" },
+      { "person": "baber", "project_role": "Developer" },
+      { "person": "zak", "project_role": "Developer" },
+      { "person": "shakayat", "project_role": "Developer" },
+      { "person": "tayyeb", "project_role": "Developer" },
+      { "person": "rafi", "project_role": "Developer" }
     ]
   },
   {
